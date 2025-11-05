@@ -21,17 +21,17 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "TB_USUARIO")
+@Table(name = "TB_USER")
 @Inheritance(strategy = InheritanceType.JOINED) 
 @DiscriminatorColumn(name = "DISC_USUARIO", 
         discriminatorType = DiscriminatorType.STRING, length = 1)
-public abstract class Usuario {
+public abstract class User {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     @Embedded
-    protected Endereco endereco;
+    protected Address endereco;
     @ElementCollection
     @CollectionTable(name = "TB_TELEFONE",
             joinColumns = @JoinColumn(name = "ID_USUARIO"))
@@ -51,11 +51,11 @@ public abstract class Usuario {
     @Column(name = "DT_NASCIMENTO", nullable = true)
     protected Date dataNascimento;
 
-    public Endereco getEndereco() {
+    public Address getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(Address endereco) {
         this.endereco = endereco;
     }
 
@@ -135,10 +135,10 @@ public abstract class Usuario {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Usuario)) {
+        if (!(object instanceof User)) {
             return false;
         }
-        Usuario other = (Usuario) object;
+        User other = (User) object;
 
         return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }

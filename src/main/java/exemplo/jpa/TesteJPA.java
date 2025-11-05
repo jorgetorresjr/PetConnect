@@ -19,7 +19,7 @@ public class TesteJPA {
     
     public static void main(String[] args) {
         try {
-            Long id = inserirUsuario();
+            Long id = inserirUser();
             //consultarUsuario(id);
         } finally {
             emf.close();
@@ -31,7 +31,7 @@ public class TesteJPA {
         try {
             em = emf.createEntityManager();
             System.out.println("Consultando usuário na base...");
-            Usuario usuario = em.find(Usuario.class, id);
+            User usuario = em.find(User.class, id);
             System.out.println("Imprimindo usuário (telefones serão recuperados agora)...");
             System.out.println(usuario.toString());
         } finally {
@@ -41,9 +41,9 @@ public class TesteJPA {
         }
     }
     
-    public static Long inserirUsuario() {
-        Usuario comprador = criarComprador();
-        Usuario vendedor = criarVendedor();
+    public static Long inserirUser() {
+        User petOwner = criarPetOwner();
+        User petSitter = criarPetSitter();
         
         EntityManager em = null;
         EntityTransaction et = null;
@@ -51,8 +51,8 @@ public class TesteJPA {
             em = emf.createEntityManager();
             et = em.getTransaction();
             et.begin();
-            em.persist(comprador);
-            em.persist(vendedor);
+            em.persist(petOwner);
+            em.persist(petSitter);
             et.commit();
         } catch (Exception ex) {
             if (et != null && et.isActive()) {
@@ -67,71 +67,60 @@ public class TesteJPA {
             }
         }
         
-        return comprador.getId();
+        return petOwner.getId();
     }
     
-    private static Comprador criarComprador() {
-        Comprador comprador = new Comprador();
-        comprador.setNome("Sicrano da Silva");
-        comprador.setEmail("sicrano@gmail.com");
-        comprador.setLogin("sicrano");
-        comprador.setSenha("sicrano123");
-        comprador.setCpf("534.585.764-40");
-        comprador.addTelefone("(81) 3456-2525");
-        comprador.addTelefone("(81) 9122-4528");
+    private static PetOwner criarPetOwner() {
+        PetOwner petOwner = new PetOwner();
+        petOwner.setNome("Sicrano da Silva");
+        petOwner.setEmail("sicrano@gmail.com");
+        petOwner.setLogin("sicrano");
+        petOwner.setSenha("sicrano123");
+        petOwner.setCpf("534.585.764-40");
+        petOwner.addTelefone("(81) 3456-2525");
+        petOwner.addTelefone("(81) 9122-4528");
         Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR, 1981);
         c.set(Calendar.MONTH, Calendar.FEBRUARY);
         c.set(Calendar.DAY_OF_MONTH, 25);
-        comprador.setDataNascimento(c.getTime());
-        criarEndereco(comprador);
-        CartaoCredito cartaoCredito = criarCartaoCredito();
-        comprador.setCartaoCredito(cartaoCredito);
+        petOwner.setDataNascimento(c.getTime());
+        criarAddress(petOwner);
+      
         
-        return comprador;
+        return petOwner;
     }
     
-    private static Vendedor criarVendedor() {
-        Vendedor vendedor = new Vendedor();
-        vendedor.setNome("Fulano da Silva");
-        vendedor.setEmail("fulano@gmail.com");
-        vendedor.setLogin("fulano");
-        vendedor.setSenha("teste");
-        vendedor.setCpf("534.585.764-45");
-        vendedor.addTelefone("(81) 3456-2525");
-        vendedor.addTelefone("(81) 9122-4528");
+    private static PetSitter criarPetSitter() {
+        PetSitter petSitter = new PetSitter();
+        petSitter.setNome("Fulano da Silva");
+        petSitter.setEmail("fulano@gmail.com");
+        petSitter.setLogin("fulano");
+        petSitter.setSenha("teste");
+        petSitter.setCpf("534.585.764-45");
+        petSitter.addTelefone("(81) 3456-2525");
+        petSitter.addTelefone("(81) 9122-4528");
         Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR, 1981);
         c.set(Calendar.MONTH, Calendar.FEBRUARY);
         c.set(Calendar.DAY_OF_MONTH, 25);
-        vendedor.setDataNascimento(c.getTime());
-        criarEndereco(vendedor);
-        vendedor.setReputacao("Vendedor Ouro");
-        vendedor.setValorVendas(50000.00);
+        petSitter.setDataNascimento(c.getTime());
+        criarAddress(petSitter);
+        petSitter.setDisponibilidade("Vendedor Ouro");
+        petSitter.setValorHora(50000.00);
         
-        return vendedor;
+        return petSitter;
     }
     
-    public static void criarEndereco(Usuario usuario) {
-        Endereco endereco = new Endereco();
-        endereco.setLogradouro("Rua Iolanda Rodrigues Sobral");
-        endereco.setBairro("Iputinga");
-        endereco.setCidade("Recife");
-        endereco.setEstado("Pernambuco");
-        endereco.setCep("50690-220");
-        endereco.setNumero(550);
-        usuario.setEndereco(endereco);
+    public static void criarAddress(User usuario) {
+        Address address = new Address();
+        address.setLogradouro("Rua Iolanda Rodrigues Sobral");
+        address.setBairro("Iputinga");
+        address.setCidade("Recife");
+        address.setEstado("Pernambuco");
+        address.setCep("50690-220");
+        address.setNumero(550);
+        usuario.setEndereco(address);
     }
     
-    private static CartaoCredito criarCartaoCredito() {
-        CartaoCredito cartaoCredito = new CartaoCredito();
-        cartaoCredito.setBandeira("VISA");
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 2018);
-        c.set(Calendar.MONTH, Calendar.APRIL);
-        c.set(Calendar.DAY_OF_MONTH, 10);
-        cartaoCredito.setDataExpiracao(c.getTime());
-        cartaoCredito.setNumero("120000-100");
-        return cartaoCredito;
-    }
+   
 }

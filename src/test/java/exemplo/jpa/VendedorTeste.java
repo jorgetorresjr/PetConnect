@@ -17,7 +17,7 @@ public class VendedorTeste extends Teste {
 
     @Test
     public void persistirVendedor() {
-        Vendedor vendedor = new Vendedor();
+        PetSitter vendedor = new PetSitter();
         vendedor.setCpf("248.008.000-56");
         vendedor.setLogin("vendedor1");
         vendedor.setNome("Vendedor da Silva");
@@ -26,10 +26,10 @@ public class VendedorTeste extends Teste {
         Calendar c = Calendar.getInstance();
         c.set(1991, Calendar.OCTOBER, 12, 0, 0, 0);
         vendedor.setDataNascimento(c.getTime());
-        vendedor.setReputacao("Top");
-        vendedor.setValorVendas(Double.valueOf(1500000));
+        vendedor.setDisponibilidade("Top");
+        vendedor.setValorHora(Double.valueOf(1500000));
 
-        Endereco endereco = new Endereco();
+        Address endereco = new Address();
         endereco.setBairro("Ipsep");
         endereco.setCep("50770-680");
         endereco.setLogradouro("Avenida das Garças");
@@ -46,7 +46,7 @@ public class VendedorTeste extends Teste {
 
     @Test
     public void consultarVendedor() {
-        Vendedor vendedor = em.find(Vendedor.class, 5L);
+        PetSitter vendedor = em.find(PetSitter.class, 5L);
         assertNotNull(vendedor);
         assertEquals("484.854.847-03", vendedor.getCpf());
         assertEquals("v1silva", vendedor.getLogin());
@@ -54,10 +54,10 @@ public class VendedorTeste extends Teste {
         c.set(1995, Calendar.NOVEMBER, 23, 0, 0, 0);
         assertEquals(c.getTime().toString(), vendedor.getDataNascimento().toString());
         assertEquals("vendedor1@gmail.com", vendedor.getEmail());
-        assertEquals(Double.valueOf("10500.50"), vendedor.getValorVendas());
-        assertEquals("EXPERIENTE", vendedor.getReputacao());
+        assertEquals(Double.valueOf("10500.50"), vendedor.getValorHora());
+        assertEquals("EXPERIENTE", vendedor.getDisponibilidade());
 
-        Endereco endereco = vendedor.getEndereco();
+        Address endereco = vendedor.getEndereco();
         assertNotNull(endereco);
         assertEquals("Pernambuco", endereco.getEstado());
         assertEquals("50670-210", endereco.getCep());
