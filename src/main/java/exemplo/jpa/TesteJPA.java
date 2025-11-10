@@ -19,7 +19,7 @@ public class TesteJPA {
     
     public static void main(String[] args) {
         try {
-            Long id = inserirUser();
+            Long id = inserirUsuario();
             //consultarUsuario(id);
         } finally {
             emf.close();
@@ -31,7 +31,7 @@ public class TesteJPA {
         try {
             em = emf.createEntityManager();
             System.out.println("Consultando usuário na base...");
-            User usuario = em.find(User.class, id);
+            Usuario usuario = em.find(Usuario.class, id);
             System.out.println("Imprimindo usuário (telefones serão recuperados agora)...");
             System.out.println(usuario.toString());
         } finally {
@@ -41,9 +41,9 @@ public class TesteJPA {
         }
     }
     
-    public static Long inserirUser() {
-        User petOwner = criarPetOwner();
-        User petSitter = criarPetSitter();
+    public static Long inserirUsuario() {
+        Usuario petOwner = criarPetOwner();
+        Usuario petSitter = criarPetSitter();
         
         EntityManager em = null;
         EntityTransaction et = null;
@@ -111,7 +111,7 @@ public class TesteJPA {
         return petSitter;
     }
     
-    public static void criarAddress(User usuario) {
+    public static void criarAddress(Usuario usuario) {
         Address address = new Address();
         address.setLogradouro("Rua Iolanda Rodrigues Sobral");
         address.setBairro("Iputinga");

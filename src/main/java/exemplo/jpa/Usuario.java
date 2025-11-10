@@ -1,5 +1,6 @@
 package exemplo.jpa;
 
+import jakarta.persistence.Basic;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,11 +23,11 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "TB_USER")
+@Table(name = "TB_USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED) 
 @DiscriminatorColumn(name = "DISC_USUARIO", 
-        discriminatorType = DiscriminatorType.STRING, length = 1)
-public abstract class User {
+        discriminatorType = DiscriminatorType.STRING, length = 2)
+public abstract class Usuario {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +45,9 @@ public abstract class User {
     protected String login;
     @Column(name = "TXT_NOME")
     protected String nome;
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "IMG_FOTO", table = "TB_FOTO_USUARIO", nullable = true)
+    private byte[] foto;
     @Column(name = "TXT_EMAIL")
     protected String email;
     @Column(name = "TXT_SENHA")
@@ -94,6 +99,14 @@ public abstract class User {
         this.nome = nome;
     }
 
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -135,10 +148,10 @@ public abstract class User {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof User)) {
+        if (!(object instanceof Usuario)) {
             return false;
         }
-        User other = (User) object;
+        Usuario other = (Usuario) object;
 
         return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }

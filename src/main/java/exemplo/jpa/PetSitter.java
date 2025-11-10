@@ -8,9 +8,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="TB_PETSITTER") 
-@DiscriminatorValue(value = "V")
-@PrimaryKeyJoinColumn(name="ID_USER", referencedColumnName = "ID")
-public class PetSitter extends User {
+@DiscriminatorValue(value = "PS")
+@PrimaryKeyJoinColumn(name="ID_USUARIO", referencedColumnName = "ID")
+public class PetSitter extends Usuario {
     @Column(name = "NUM_VALOR_HORA")
     private Double valorHora;
     @Column(name = "TXT_DISPONIBILIDADE")
