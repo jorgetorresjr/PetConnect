@@ -5,7 +5,6 @@
 package exemplo.jpa;
 
 import jakarta.persistence.Basic;
-import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
@@ -15,16 +14,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-
 @Entity
-@Table(name="TB_PET") 
-public class Pet {
+@Table(name = "TB_PET")
+@SecondaryTable(
+    name = "TB_FOTO_PET",
+    pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_PET")
+)
+public class Pet implements Serializable {
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,18 +43,22 @@ public class Pet {
     private byte[] foto;
     @Column(name = "NUM_IDADE")
     private int idade;
-    @Column(name="TXT_SEXO")
+    @Column(name = "TXT_SEXO")
     private String sexo;
-    @Column(name="TXT_RACA")
+    @Column(name = "TXT_RACA")
     private String raca;
-    @Column(name="TXT_TIPO_ANIMAL")
+    @Column(name = "TXT_TIPO_ANIMAL")
     private String tipoAnimal;
-    @Column(name="TXT_ESTADO_SAUDE")
+    @Column(name = "TXT_ESTADO_SAUDE")
     private String estadoSaude;
-    @Column(name="BOOL_CASTRADO")
+    @Column(name = "BOOL_CASTRADO")
     private Boolean castrado;
-    @Column(name="TXT_TEMPERAMENTO")
+    @Column(name = "TXT_TEMPERAMENTO")
     private String temperamento;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_USUARIO")
+    private PetOwner owner;
 
     public Long getId() {
         return id;
@@ -128,6 +139,15 @@ public class Pet {
     public void setTemperamento(String temperamento) {
         this.temperamento = temperamento;
     }
+
+    public PetOwner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(PetOwner owner) {
+        this.owner = owner;
+    }
     
-            
+    
+
 }

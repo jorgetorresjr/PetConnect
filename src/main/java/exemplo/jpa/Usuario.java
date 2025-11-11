@@ -1,6 +1,7 @@
 package exemplo.jpa;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -18,16 +19,24 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "TB_USUARIO")
-@Inheritance(strategy = InheritanceType.JOINED) 
-@DiscriminatorColumn(name = "DISC_USUARIO", 
+@SecondaryTable(
+    name = "TB_FOTO_USUARIO",
+    pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_USUARIO")
+)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "DISC_USUARIO",
         discriminatorType = DiscriminatorType.STRING, length = 2)
 public abstract class Usuario {
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -138,7 +147,7 @@ public abstract class Usuario {
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;
