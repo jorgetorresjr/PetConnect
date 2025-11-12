@@ -10,7 +10,7 @@ import jakarta.persistence.Persistence;
 
 public class TesteJPA {
     
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo_06");
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("PetConnect");
     private static final Logger logger = Logger.getGlobal();
     
     static {

@@ -25,7 +25,7 @@ public abstract class Teste {
     
     @BeforeClass
     public static void setUpClass() {
-        emf = Persistence.createEntityManagerFactory("exemplo_06");
+        emf = Persistence.createEntityManagerFactory("PetConnect");
         DbUnitUtil.inserirDados();        
     }
     
