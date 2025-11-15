@@ -55,6 +55,8 @@ public class Pet implements Serializable {
     private Boolean castrado;
     @Column(name = "TXT_TEMPERAMENTO")
     private String temperamento;
+    @Column(name = "BOOL_ATIVO")
+    private Boolean ativo = true;
 
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO")
@@ -148,6 +150,21 @@ public class Pet implements Serializable {
         this.owner = owner;
     }
     
-    
+    public void cadastrarPet(String nome, int idade, String sexo, String raca, 
+            String tipoAnimal, String estadoSaude, Boolean castrado, 
+            String temperamento, PetOwner owner) {
+        this.nome = nome;
+        this.idade = idade;
+        this.sexo = sexo;
+        this.raca = raca;
+        this.tipoAnimal = tipoAnimal;
+        this.estadoSaude = estadoSaude;
+        this.castrado = castrado;
+        this.temperamento = temperamento;
+        this.owner = owner;
+    }
+    public void desabilitarPet() {
+    this.ativo = false;
+}
 
 }
