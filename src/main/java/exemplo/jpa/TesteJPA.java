@@ -84,7 +84,7 @@ public class TesteJPA {
         c.set(Calendar.MONTH, Calendar.FEBRUARY);
         c.set(Calendar.DAY_OF_MONTH, 25);
         petOwner.setDataNascimento(c.getTime());
-        criarAddress(petOwner);
+        criarendereco(petOwner);
       
         
         return petOwner;
@@ -104,22 +104,22 @@ public class TesteJPA {
         c.set(Calendar.MONTH, Calendar.FEBRUARY);
         c.set(Calendar.DAY_OF_MONTH, 25);
         petSitter.setDataNascimento(c.getTime());
-        criarAddress(petSitter);
+        criarendereco(petSitter);
         petSitter.setDisponibilidade("Vendedor Ouro");
         petSitter.setValorHora(50000.00);
         
         return petSitter;
     }
     
-    public static void criarAddress(Usuario usuario) {
-        Address address = new Address();
-        address.setLogradouro("Rua Iolanda Rodrigues Sobral");
-        address.setBairro("Iputinga");
-        address.setCidade("Recife");
-        address.setEstado("Pernambuco");
-        address.setCep("50690-220");
-        address.setNumero(550);
-        usuario.setEndereco(address);
+    public static void criarendereco(Usuario usuario) {
+        Endereco endereco = new Endereco();
+        endereco.setLogradouro("Rua Iolanda Rodrigues Sobral");
+        endereco.setBairro("Iputinga");
+        endereco.setCidade("Recife");
+        endereco.setEstado("Pernambuco");
+        endereco.setCep("50690-220");
+        endereco.setNumero(550);
+        usuario.setEndereco(endereco);
     }
     
    

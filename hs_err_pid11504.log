@@ -13,9 +13,9 @@
 #   Decrease Java thread stack sizes (-Xss)
 #   Set larger code cache with -XX:ReservedCodeCacheSize=
 #   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
-#     placed in the first 4GB address space. The Java Heap base address is the
-#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
-#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+#     placed in the first 4GB endereco space. The Java Heap base endereco is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinendereco
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual endereco.
 # This output file may be truncated or incomplete.
 #
 #  Out of Memory Error (os_windows.cpp:3713), pid=11504, tid=6832
@@ -30,7 +30,7 @@
 Command Line: --enable-native-access=ALL-UNNAMED 
 
 Host: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz, 8 cores, 7G,  Windows 11 , 64 bit Build 26100 (10.0.26100.6725)
-Time: Tue Nov 11 13:40:53 2025 Hora Padrão de Buenos Aires elapsed time: 0.015591 seconds (0d 0h 0m 0s)
+Time: Tue Nov 11 13:40:53 2025 Hora Padrï¿½o de Buenos Aires elapsed time: 0.015591 seconds (0d 0h 0m 0s)
 
 ---------------  T H R E A D  ---------------
 
@@ -82,9 +82,9 @@ VM state: not at safepoint (not fully initialized)
 VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
 [0x00007ffa594c5558] Heap_lock - owner thread: 0x00000219aa453730
 
-Heap address: 0x0000000084200000, size: 1982 MB, Compressed Oops mode: 32-bit
+Heap endereco: 0x0000000084200000, size: 1982 MB, Compressed Oops mode: 32-bit
 
-CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseendereco: 0x0000000800000000, ArchiveRelocationMode: 1.
 Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
 
 GC Precious Log:

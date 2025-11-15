@@ -8,7 +8,7 @@ import jakarta.persistence.Embeddable;
  * que armazena os dados de Usuario.
  */
 @Embeddable
-public class Address {
+public class Endereco {
     @Column(name = "END_TXT_LOGRADOURO", length = 150, nullable = false)
     private String logradouro;
     @Column(name = "END_TXT_BAIRRO", length = 150, nullable = false)

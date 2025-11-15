@@ -1,7 +1,6 @@
 package exemplo.jpa;
 
 import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -19,7 +18,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
@@ -42,12 +40,16 @@ public abstract class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     @Embedded
-    protected Address endereco;
+    protected Endereco endereco;
     @ElementCollection
     @CollectionTable(name = "TB_TELEFONE",
             joinColumns = @JoinColumn(name = "ID_USUARIO"))
     @Column(name = "TXT_NUM_TELEFONE")
     protected Collection<String> telefones;
+    @CollectionTable(name = "TB_ENDERECO",
+            joinColumns = @JoinColumn(name = "ID_USUARIO"))
+    @Column(name = "TXT_NUM_ENDERECO")
+    protected Collection<String> ende;
     @Column(name = "TXT_CPF")
     protected String cpf;
     @Column(name = "TXT_LOGIN")
@@ -65,11 +67,11 @@ public abstract class Usuario {
     @Column(name = "DT_NASCIMENTO", nullable = true)
     protected Date dataNascimento;
 
-    public Address getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Address endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 

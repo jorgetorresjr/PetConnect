@@ -26,15 +26,15 @@ public class PetOwnerTeste extends Teste {
         c.set(1984, Calendar.SEPTEMBER, 24, 0, 0, 0);
         petOwner.setDataNascimento(c.getTime());
 
-        Address address = new Address();
-        address.setBairro("Várzea");
-        address.setCep("50770-340");
-        address.setLogradouro("Avenida Professor Moraes Rego");
-        address.setEstado("Pernambuco");
-        address.setNumero(40);
-        address.setCidade("Recife");
+        Endereco endereco = new Endereco();
+        endereco.setBairro("Várzea");
+        endereco.setCep("50770-340");
+        endereco.setLogradouro("Avenida Professor Moraes Rego");
+        endereco.setEstado("Pernambuco");
+        endereco.setNumero(40);
+        endereco.setCidade("Recife");
         
-        petOwner.setEndereco(address);
+        petOwner.setEndereco(endereco);
         
       
         
@@ -55,11 +55,11 @@ public class PetOwnerTeste extends Teste {
         assertEquals(c.getTime().toString(), petOwner.getDataNascimento().toString());
         assertEquals("sicrano@gmail.com", petOwner.getEmail());
         
-        Address address = petOwner.getEndereco();
-        assertNotNull(address);
-        assertEquals("Pernambuco", address.getEstado());
-        assertEquals("50670-210", address.getCep());
-        assertEquals("Iputinga", address.getBairro());
-        assertEquals("Rua Ribeirão", address.getLogradouro());
+        Endereco endereco = petOwner.getEndereco();
+        assertNotNull(endereco);
+        assertEquals("Pernambuco", endereco.getEstado());
+        assertEquals("50670-210", endereco.getCep());
+        assertEquals("Iputinga", endereco.getBairro());
+        assertEquals("Rua Ribeirão", endereco.getLogradouro());
       }
 }

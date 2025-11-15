@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  *
  * @author masc1
  */
-public class VendedorTeste extends Teste {
+public class PetSitterTeste extends Teste {
 
     @Test
     public void persistirVendedor() {
@@ -29,7 +29,7 @@ public class VendedorTeste extends Teste {
         vendedor.setDisponibilidade("Top");
         vendedor.setValorHora(Double.valueOf(1500000));
 
-        Address endereco = new Address();
+        Endereco endereco = new Endereco();
         endereco.setBairro("Ipsep");
         endereco.setCep("50770-680");
         endereco.setLogradouro("Avenida das Garças");
@@ -57,7 +57,7 @@ public class VendedorTeste extends Teste {
         assertEquals(Double.valueOf("10500.50"), vendedor.getValorHora());
         assertEquals("EXPERIENTE", vendedor.getDisponibilidade());
 
-        Address endereco = vendedor.getEndereco();
+        Endereco endereco = vendedor.getEndereco();
         assertNotNull(endereco);
         assertEquals("Pernambuco", endereco.getEstado());
         assertEquals("50670-210", endereco.getCep());
