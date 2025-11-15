@@ -163,6 +163,18 @@ public class Pet implements Serializable {
         this.temperamento = temperamento;
         this.owner = owner;
     }
+    public void editarPet(String nome, int idade, String sexo, String raca,
+            String tipoAnimal, String estadoSaude, Boolean castrado, 
+            String temperamento) {
+    this.nome = nome;
+    this.idade = idade;
+    this.sexo = sexo;
+    this.raca = raca;
+    this.tipoAnimal = tipoAnimal;
+    this.estadoSaude = estadoSaude;
+    this.castrado = castrado;
+    this.temperamento = temperamento;
+}
     public void desabilitarPet() {
     this.ativo = false;
 }
