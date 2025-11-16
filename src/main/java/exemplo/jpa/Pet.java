@@ -1,65 +1,75 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package exemplo.jpa;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
-import jakarta.persistence.SecondaryTable;
-import jakarta.persistence.Table;
+import exemplo.jpa.Enums.TipoAnimal;
+import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "TB_PET")
-@SecondaryTable(
-    name = "TB_FOTO_PET",
-    pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_PET")
-)
+@SecondaryTable(name = "TB_FOTO_PET", pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_PET"))
 public class Pet implements Serializable {
-
+    
     @Id
-    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
+    
     @Column(name = "TXT_NOME")
     private String nome;
-    @Basic(fetch = FetchType.LAZY)
-    @Column(name = "IMG_FOTO", table = "TB_FOTO_PET", nullable = true)
-    private byte[] foto;
-    @Column(name = "NUM_IDADE")
-    private int idade;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "TXT_SEXO")
-    private Sexo sexo;
+    
     @Column(name = "TXT_RACA")
     private String raca;
+    
+    @Column(name = "NUM_IDADE")
+    private Integer idade;
+    
     @Enumerated(EnumType.STRING)
     @Column(name = "TXT_TIPO_ANIMAL")
     private TipoAnimal tipoAnimal;
-    @Column(name = "TXT_ESTADO_SAUDE")
-    private String estadoSaude;
-    @Column(name = "BOOL_CASTRADO")
-    private Boolean castrado;
+    
+    @Column(name = "TXT_SEXO")
+    private String sexo;
+    
     @Column(name = "TXT_TEMPERAMENTO")
     private String temperamento;
-    @Column(name = "BOOL_ATIVO")
-    private Boolean ativo = true;
-
+    
+    @Column(name = "TXT_ESTADO_SAUDE")
+    private String estadoSaude;
+    
+    @Column(name = "BOOL_CASTRADO", columnDefinition = "SMALLINT DEFAULT 0")
+    private Boolean castrado;
+    
+    @Column(name = "BOOL_ATIVO", columnDefinition = "SMALLINT DEFAULT 0")
+    private Boolean ativo;
+    
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
+    @Column(name = "IMG_FOTO", table = "TB_FOTO_PET", nullable = true)
+    private byte[] foto;
+    
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO")
     private PetOwner owner;
 
+    public Pet() {
+    }
+
+    public Pet(String nome, String raca, Integer idade, TipoAnimal tipoAnimal, 
+               String sexo, String temperamento, String estadoSaude, 
+               Boolean castrado, Boolean ativo, PetOwner owner) {
+        this.nome = nome;
+        this.raca = raca;
+        this.idade = idade;
+        this.tipoAnimal = tipoAnimal;
+        this.sexo = sexo;
+        this.temperamento = temperamento;
+        this.estadoSaude = estadoSaude;
+        this.castrado = castrado;
+        this.ativo = ativo;
+        this.owner = owner;
+    }
+
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -76,30 +86,6 @@ public class Pet implements Serializable {
         this.nome = nome;
     }
 
-    public byte[] getFoto() {
-        return foto;
-    }
-
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public Sexo getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
-    }
-
     public String getRaca() {
         return raca;
     }
@@ -108,12 +94,36 @@ public class Pet implements Serializable {
         this.raca = raca;
     }
 
+    public Integer getIdade() {
+        return idade;
+    }
+
+    public void setIdade(Integer idade) {
+        this.idade = idade;
+    }
+
     public TipoAnimal getTipoAnimal() {
         return tipoAnimal;
     }
 
     public void setTipoAnimal(TipoAnimal tipoAnimal) {
         this.tipoAnimal = tipoAnimal;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getTemperamento() {
+        return temperamento;
+    }
+
+    public void setTemperamento(String temperamento) {
+        this.temperamento = temperamento;
     }
 
     public String getEstadoSaude() {
@@ -132,12 +142,20 @@ public class Pet implements Serializable {
         this.castrado = castrado;
     }
 
-    public String getTemperamento() {
-        return temperamento;
+    public Boolean getAtivo() {
+        return ativo;
     }
 
-    public void setTemperamento(String temperamento) {
-        this.temperamento = temperamento;
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 
     public PetOwner getOwner() {
@@ -147,34 +165,4 @@ public class Pet implements Serializable {
     public void setOwner(PetOwner owner) {
         this.owner = owner;
     }
-    
-    public void cadastrarPet(String nome, int idade, Sexo sexo, String raca, 
-            TipoAnimal tipoAnimal, String estadoSaude, Boolean castrado, 
-            String temperamento, PetOwner owner) {
-        this.nome = nome;
-        this.idade = idade;
-        this.sexo = sexo;
-        this.raca = raca;
-        this.tipoAnimal = tipoAnimal;
-        this.estadoSaude = estadoSaude;
-        this.castrado = castrado;
-        this.temperamento = temperamento;
-        this.owner = owner;
-    }
-    public void editarPet(String nome, int idade, Sexo sexo, String raca,
-            TipoAnimal tipoAnimal, String estadoSaude, Boolean castrado, 
-            String temperamento) {
-    this.nome = nome;
-    this.idade = idade;
-    this.sexo = sexo;
-    this.raca = raca;
-    this.tipoAnimal = tipoAnimal;
-    this.estadoSaude = estadoSaude;
-    this.castrado = castrado;
-    this.temperamento = temperamento;
-}
-    public void desabilitarPet() {
-    this.ativo = false;
-}
-
 }

@@ -26,7 +26,7 @@ public abstract class Teste {
     @BeforeClass
     public static void setUpClass() {
         emf = Persistence.createEntityManagerFactory("PetConnect");
-        DbUnitUtil.inserirDados(emf);        
+        DbUnitUtil.inserirDados();        
     }
     
     @AfterClass
@@ -43,8 +43,8 @@ public abstract class Teste {
     
     @After
     public void tearDown() {
-        if (!et.getRollbackOnly()) {
-            et.commit();
+        if (et.isActive()) {
+            et.rollback();
         }
         em.close();        
     }

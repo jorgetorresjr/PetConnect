@@ -18,9 +18,9 @@ public class PetOwnerTeste extends Teste {
     public void persistirPetOwner() {
         PetOwner petOwner = new PetOwner();
         petOwner.setCpf("526.594.890-25");
-        petOwner.setLogin("novocomprador");
-        petOwner.setNome("Novo Comprador da Silva");
-        petOwner.setEmail("novocomprador@gmail.com");
+        petOwner.setLogin("comprador1");
+        petOwner.setNome("Comprador da Silva");
+        petOwner.setEmail("comprador@gmail.com");
         petOwner.setSenha("#1234567890#");
         Calendar c = Calendar.getInstance();
         c.set(1984, Calendar.SEPTEMBER, 24, 0, 0, 0);
@@ -46,23 +46,16 @@ public class PetOwnerTeste extends Teste {
 
     @Test
     public void consultarPetOwner() {
-        // Busca o segundo PetOwner inserido pelo dataset.xml para obter seu ID
-        PetOwner petOwner = em.createQuery("SELECT p FROM PetOwner p WHERE p.cpf = '740.707.044-00'", PetOwner.class).getSingleResult();
+        PetOwner petOwner = em.find(PetOwner.class, 2L);
         assertNotNull(petOwner);
-        Long id = petOwner.getId();
-        assertNotNull(id);
-        
-        // Agora consulta pela chave primária (ID) como requerido
-        PetOwner petOwnerConsultado = em.find(PetOwner.class, id);
-        assertNotNull(petOwnerConsultado);
-        assertEquals("740.707.044-00", petOwnerConsultado.getCpf());
-        assertEquals("sicrano", petOwnerConsultado.getLogin());
+        assertEquals("740.707.044-00", petOwner.getCpf());
+        assertEquals("sicrano", petOwner.getLogin());
         Calendar c = Calendar.getInstance();
         c.set(1973, Calendar.AUGUST, 11, 0, 0, 0);
-        assertEquals(c.getTime().toString(), petOwnerConsultado.getDataNascimento().toString());
-        assertEquals("sicrano@gmail.com", petOwnerConsultado.getEmail());
+        assertEquals(c.getTime().toString(), petOwner.getDataNascimento().toString());
+        assertEquals("sicrano@gmail.com", petOwner.getEmail());
         
-        Endereco endereco = petOwnerConsultado.getEndereco();
+        Endereco endereco = petOwner.getEndereco();
         assertNotNull(endereco);
         assertEquals("Pernambuco", endereco.getEstado());
         assertEquals("50670-210", endereco.getCep());

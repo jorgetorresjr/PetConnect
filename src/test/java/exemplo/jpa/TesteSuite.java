@@ -13,11 +13,7 @@ import org.junit.runners.Suite;
  * @author masc1
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({
-    exemplo.jpa.PetSitterTeste.class, 
-    exemplo.jpa.PetOwnerTeste.class,
-    exemplo.jpa.PetTeste.class
-})
+@Suite.SuiteClasses({exemplo.jpa.PetSitterTeste.class, exemplo.jpa.PetOwnerTeste.class, exemplo.jpa.PetTeste.class})
 public class TesteSuite {
     
 }

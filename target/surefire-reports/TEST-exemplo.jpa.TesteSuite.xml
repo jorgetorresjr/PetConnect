@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="exemplo.jpa.TesteSuite" time="8.675" tests="7" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="24"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\thayn\pc\PetConnect-main\target\test-classes;C:\Users\thayn\pc\PetConnect-main\target\classes;C:\Users\thayn\.m2\repository\org\eclipse\persistence\eclipselink\4.0.4\eclipselink-4.0.4.jar;C:\Users\thayn\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\thayn\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\thayn\.m2\repository\com\sun\xml\bind\jaxb-xjc\4.0.5\jaxb-xjc-4.0.5.jar;C:\Users\thayn\.m2\repository\com\sun\xml\bind\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\thayn\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\thayn\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\thayn\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa\4.0.4\org.eclipse.persistence.jpa-4.0.4.jar;C:\Users\thayn\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.asm\9.7.0\org.eclipse.persistence.asm-9.7.0.jar;C:\Users\thayn\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.core\4.0.4\org.eclipse.persistence.core-4.0.4.jar;C:\Users\thayn\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa.jpql\4.0.4\org.eclipse.persistence.jpa.jpql-4.0.4.jar;C:\Users\thayn\.m2\repository\org\apache\derby\derbyclient\10.16.1.1\derbyclient-10.16.1.1.jar;C:\Users\thayn\.m2\repository\org\apache\derby\derbyshared\10.16.1.1\derbyshared-10.16.1.1.jar;C:\Users\thayn\.m2\repository\org\apache\derby\derbytools\10.16.1.1\derbytools-10.16.1.1.jar;C:\Users\thayn\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\thayn\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\thayn\.m2\repository\org\dbunit\dbunit\2.8.0\dbunit-2.8.0.jar;C:\Users\thayn\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\thayn\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\thayn\.m2\repository\org\postgresql\postgresql\42.3.1\postgresql-42.3.1.jar;C:\Users\thayn\.m2\repository\org\checkerframework\checker-qual\3.5.0\checker-qual-3.5.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\jdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\jdbc\ucp\19.3.0.0\ucp-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\security\oraclepki\19.3.0.0\oraclepki-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\security\osdt_cert\19.3.0.0\osdt_cert-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\security\osdt_core\19.3.0.0\osdt_core-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\ha\simplefan\19.3.0.0\simplefan-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\ha\ons\19.3.0.0\ons-19.3.0.0.jar;"/>
+    <property name="java.vm.vendor" value="Azul Systems, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://www.azul.com/"/>
+    <property name="user.timezone" value="America/Fortaleza"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="24"/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Apache NetBeans\jdk\bin"/>
+    <property name="sun.java.command" value="C:\Users\thayn\AppData\Local\Temp\surefire4279299699497640120\surefirebooter-20251116104705085_3.jar C:\Users\thayn\AppData\Local\Temp\surefire4279299699497640120 2025-11-16T10-47-03_835-jvmRun1 surefire-20251116104705085_1tmp surefire_0-20251116104705085_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\thayn\pc\PetConnect-main\target\test-classes;C:\Users\thayn\pc\PetConnect-main\target\classes;C:\Users\thayn\.m2\repository\org\eclipse\persistence\eclipselink\4.0.4\eclipselink-4.0.4.jar;C:\Users\thayn\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\thayn\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\thayn\.m2\repository\com\sun\xml\bind\jaxb-xjc\4.0.5\jaxb-xjc-4.0.5.jar;C:\Users\thayn\.m2\repository\com\sun\xml\bind\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\thayn\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\thayn\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\thayn\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa\4.0.4\org.eclipse.persistence.jpa-4.0.4.jar;C:\Users\thayn\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.asm\9.7.0\org.eclipse.persistence.asm-9.7.0.jar;C:\Users\thayn\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.core\4.0.4\org.eclipse.persistence.core-4.0.4.jar;C:\Users\thayn\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa.jpql\4.0.4\org.eclipse.persistence.jpa.jpql-4.0.4.jar;C:\Users\thayn\.m2\repository\org\apache\derby\derbyclient\10.16.1.1\derbyclient-10.16.1.1.jar;C:\Users\thayn\.m2\repository\org\apache\derby\derbyshared\10.16.1.1\derbyshared-10.16.1.1.jar;C:\Users\thayn\.m2\repository\org\apache\derby\derbytools\10.16.1.1\derbytools-10.16.1.1.jar;C:\Users\thayn\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\thayn\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\thayn\.m2\repository\org\dbunit\dbunit\2.8.0\dbunit-2.8.0.jar;C:\Users\thayn\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\thayn\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\thayn\.m2\repository\org\postgresql\postgresql\42.3.1\postgresql-42.3.1.jar;C:\Users\thayn\.m2\repository\org\checkerframework\checker-qual\3.5.0\checker-qual-3.5.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\jdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\jdbc\ucp\19.3.0.0\ucp-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\security\oraclepki\19.3.0.0\oraclepki-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\security\osdt_cert\19.3.0.0\osdt_cert-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\security\osdt_core\19.3.0.0\osdt_core-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\ha\simplefan\19.3.0.0\simplefan-19.3.0.0.jar;C:\Users\thayn\.m2\repository\com\oracle\database\ha\ons\19.3.0.0\ons-19.3.0.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\thayn"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="C:\Program Files\Apache NetBeans\jdk"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\thayn\pc\PetConnect-main"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\thayn\AppData\Local\Temp\surefire4279299699497640120\surefirebooter-20251116104705085_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="24.0.2+12"/>
+    <property name="user.name" value="thayn"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Zulu24.32+13-CA"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\Apache NetBeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="localRepository" value="C:\Users\thayn\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://www.azul.com/support/"/>
+    <property name="java.io.tmpdir" value="C:\Users\thayn\AppData\Local\Temp\"/>
+    <property name="java.version" value="24.0.2"/>
+    <property name="user.dir" value="C:\Users\thayn\pc\PetConnect-main"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Apache NetBeans\jdk\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Microsoft\jdk-21.0.8.9-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\BaseX\bin;C:\Users\thayn\AppData\Local\Microsoft\WindowsApps;;C:\Users\thayn\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\thayn\AppData\Roaming\npm;C:\Users\thayn\.dotnet\tools;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Azul Systems, Inc."/>
+    <property name="java.vm.version" value="24.0.2+12"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="68.0"/>
+  </properties>
+  <testcase name="persistirPetSitter" classname="exemplo.jpa.PetSitterTeste" time="0.209">
+    <system-out><![CDATA[[EL Fine]: server: 2025-11-16 10:47:08.563--Thread(Thread[#3,main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Warning]: 2025-11-16 10:47:08.739--Thread(Thread[#3,main,5,main])--Java SE '24' is not fully supported yet. Report this error to the EclipseLink open source project. (There is no English translation for this message.)
+[EL Fine]: 2025-11-16 10:47:08.741--Thread(Thread[#3,main,5,main])--Generating bytecode for Java SE '23'. (There is no English translation for this message.)
+[EL Config]: metadata: 2025-11-16 10:47:09.236--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.Usuario] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:09.363--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The target class (reference) class for the element collection mapping element [field telefones] is being defaulted to: class java.lang.String.
+[EL Config]: metadata: 2025-11-16 10:47:09.364--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.PetSitter] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:09.368--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.Pet] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:09.375--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The target entity (reference) class for the many to one mapping element [field owner] is being defaulted to: class exemplo.jpa.PetOwner.
+[EL Config]: metadata: 2025-11-16 10:47:09.386--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.PetOwner] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:09.393--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The target entity (reference) class for the one to many mapping element [field pets] is being defaulted to: class exemplo.jpa.Pet.
+[EL Config]: metadata: 2025-11-16 10:47:09.394--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.Endereco] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:09.398--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.PetSitter] is being defaulted to: PetSitter.
+[EL Config]: metadata: 2025-11-16 10:47:09.399--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.Usuario] is being defaulted to: Usuario.
+[EL Config]: metadata: 2025-11-16 10:47:09.488--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The secondary table primary key column name for element [class exemplo.jpa.Usuario] is being defaulted to: ID.
+[EL Config]: metadata: 2025-11-16 10:47:09.491--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.Pet] is being defaulted to: Pet.
+[EL Config]: metadata: 2025-11-16 10:47:09.501--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The secondary table primary key column name for element [class exemplo.jpa.Pet] is being defaulted to: ID.
+[EL Config]: metadata: 2025-11-16 10:47:09.502--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.PetOwner] is being defaulted to: PetOwner.
+[EL Config]: metadata: 2025-11-16 10:47:09.562--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The primary key column name for the mapping element [field telefones] is being defaulted to: ID.
+[EL Config]: metadata: 2025-11-16 10:47:09.588--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--The primary key column name for the mapping element [field owner] is being defaulted to: ID.
+[EL Info]: 2025-11-16 10:47:10.147--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--EclipseLink, version: Eclipse Persistence Services - 4.0.4.v202407190748-059428cdd2583c46f1f3e50d235854840a6fa9a7
+[EL Fine]: connection: 2025-11-16 10:47:10.174--ServerSession(537066525)--Connection(350059321)--Thread(Thread[#3,main,5,main])--connecting(DatabaseLogin(
+	platform=>DerbyPlatform
+	user name=> "app"
+	datasource URL=> "jdbc:derby://localhost:1527/PetConnect;create=true"
+))
+[EL Config]: connection: 2025-11-16 10:47:11.273--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--Connected: jdbc:derby://localhost:1527/PetConnect;create=true
+	User: app
+	Database: Apache Derby  Version: 10.16.1.1 - (1901046)
+	Driver: Apache Derby Network Client JDBC Driver  Version: 10.16.1.1 - (1901046)
+[EL Fine]: connection: 2025-11-16 10:47:11.419--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--/file:/C:/Users/thayn/pc/PetConnect-main/target/classes/_PetConnect login successful
+[EL Fine]: sql: 2025-11-16 10:47:11.494--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_USUARIO DROP CONSTRAINT TBFTOUSUARIODSARIO
+[EL Fine]: sql: 2025-11-16 10:47:11.58--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETSITTER DROP CONSTRAINT TBPETSITTERDSUARIO
+[EL Fine]: sql: 2025-11-16 10:47:11.596--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PET DROP CONSTRAINT TB_PET_ID_USUARIO
+[EL Fine]: sql: 2025-11-16 10:47:11.633--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_PET DROP CONSTRAINT TB_FOTO_PET_ID_PET
+[EL Fine]: sql: 2025-11-16 10:47:11.643--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETOWNER DROP CONSTRAINT TBPETOWNERDUSUARIO
+[EL Fine]: sql: 2025-11-16 10:47:11.654--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_TELEFONE DROP CONSTRAINT TBTELEFONEDUSUARIO
+[EL Fine]: sql: 2025-11-16 10:47:11.676--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_USUARIO
+[EL Fine]: sql: 2025-11-16 10:47:11.709--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_FOTO_USUARIO
+[EL Fine]: sql: 2025-11-16 10:47:11.744--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_PETSITTER
+[EL Fine]: sql: 2025-11-16 10:47:11.78--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_PET
+[EL Fine]: sql: 2025-11-16 10:47:11.815--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_FOTO_PET
+[EL Fine]: sql: 2025-11-16 10:47:11.845--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_PETOWNER
+[EL Fine]: sql: 2025-11-16 10:47:11.872--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_TELEFONE
+[EL Fine]: sql: 2025-11-16 10:47:11.967--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_USUARIO (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, DISC_USUARIO VARCHAR(2), TXT_CPF VARCHAR(255), DT_NASCIMENTO DATE, TXT_EMAIL VARCHAR(255), TXT_NUM_ENDERECO BLOB(2147483647), TXT_LOGIN VARCHAR(255), TXT_NOME VARCHAR(255), TXT_SENHA VARCHAR(255), END_TXT_BAIRRO VARCHAR(150) NOT NULL, END_TXT_CEP VARCHAR(20) NOT NULL, END_TXT_CIDADE VARCHAR(50) NOT NULL, END_TXT_COMPLEMENTO VARCHAR(30), END_TXT_ESTADO VARCHAR(50) NOT NULL, END_TXT_LOGRADOURO VARCHAR(150) NOT NULL, END_NUMERO INTEGER NOT NULL, PRIMARY KEY (ID))
+[EL Fine]: sql: 2025-11-16 10:47:12.033--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_FOTO_USUARIO (ID_USUARIO BIGINT NOT NULL, IMG_FOTO BLOB(2147483647), PRIMARY KEY (ID_USUARIO))
+[EL Fine]: sql: 2025-11-16 10:47:12.077--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_PETSITTER (ID_USUARIO BIGINT NOT NULL, TXT_DISPONIBILIDADE VARCHAR(255), TXT_RESTRICOES VARCHAR(255), NUM_VALOR_HORA FLOAT, PRIMARY KEY (ID_USUARIO))
+[EL Fine]: sql: 2025-11-16 10:47:12.107--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_PET (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, BOOL_ATIVO SMALLINT DEFAULT 0, BOOL_CASTRADO SMALLINT DEFAULT 0, TXT_ESTADO_SAUDE VARCHAR(255), NUM_IDADE INTEGER, TXT_NOME VARCHAR(255), TXT_RACA VARCHAR(255), TXT_SEXO VARCHAR(255), TXT_TEMPERAMENTO VARCHAR(255), TXT_TIPO_ANIMAL VARCHAR(255), ID_USUARIO BIGINT, PRIMARY KEY (ID))
+[EL Fine]: sql: 2025-11-16 10:47:12.143--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_FOTO_PET (ID_PET BIGINT NOT NULL, IMG_FOTO BLOB(2147483647), PRIMARY KEY (ID_PET))
+[EL Fine]: sql: 2025-11-16 10:47:12.182--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_PETOWNER (ID_USUARIO BIGINT NOT NULL, PRIMARY KEY (ID_USUARIO))
+[EL Fine]: sql: 2025-11-16 10:47:12.211--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_TELEFONE (ID_USUARIO BIGINT, TXT_NUM_TELEFONE VARCHAR(255))
+[EL Fine]: sql: 2025-11-16 10:47:12.222--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_USUARIO ADD CONSTRAINT TBFTOUSUARIODSARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:12.232--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETSITTER ADD CONSTRAINT TBPETSITTERDSUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:12.24--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PET ADD CONSTRAINT TB_PET_ID_USUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:12.257--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_PET ADD CONSTRAINT TB_FOTO_PET_ID_PET FOREIGN KEY (ID_PET) REFERENCES TB_PET (ID)
+[EL Fine]: sql: 2025-11-16 10:47:12.268--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETOWNER ADD CONSTRAINT TBPETOWNERDUSUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:12.306--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_TELEFONE ADD CONSTRAINT TBTELEFONEDUSUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:13.161--ClientSession(1100619942)--Connection(397071633)--Thread(Thread[#3,main,5,main])--INSERT INTO TB_USUARIO (TXT_CPF, DT_NASCIMENTO, TXT_EMAIL, TXT_NUM_ENDERECO, TXT_LOGIN, TXT_NOME, TXT_SENHA, END_TXT_BAIRRO, END_TXT_CEP, END_TXT_CIDADE, END_TXT_COMPLEMENTO, END_TXT_ESTADO, END_TXT_LOGRADOURO, END_NUMERO, DISC_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [248.008.000-56, 1991-10-12, novovendedor@gmail.com, null, novovendedor, Novo Vendedor da Silva, #987654321#, Ipsep, 50770-680, Recife, null, Pernambuco, Avenida das Garças, 400, PS]
+[EL Fine]: sql: 2025-11-16 10:47:13.194--ClientSession(1100619942)--Connection(397071633)--Thread(Thread[#3,main,5,main])--INSERT INTO TB_FOTO_USUARIO (IMG_FOTO, ID_USUARIO) VALUES (?, ?)
+	bind => [null, 10]
+[EL Fine]: sql: 2025-11-16 10:47:13.203--ClientSession(1100619942)--Connection(397071633)--Thread(Thread[#3,main,5,main])--INSERT INTO TB_PETSITTER (TXT_DISPONIBILIDADE, TXT_RESTRICOES, NUM_VALOR_HORA, ID_USUARIO) VALUES (?, ?, ?, ?)
+	bind => [Top, null, 10.1, 10]
+]]></system-out>
+    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+  </testcase>
+  <testcase name="consultarPetSitter" classname="exemplo.jpa.PetSitterTeste" time="0.034">
+    <system-out><![CDATA[[EL Fine]: sql: 2025-11-16 10:47:13.253--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--SELECT t0.ID, t0.DISC_USUARIO, t1.ID_USUARIO, t0.TXT_CPF, t0.DT_NASCIMENTO, t0.TXT_EMAIL, t0.TXT_NUM_ENDERECO, t1.IMG_FOTO, t0.TXT_LOGIN, t0.TXT_NOME, t0.TXT_SENHA, t0.END_TXT_BAIRRO, t0.END_TXT_CEP, t0.END_TXT_CIDADE, t0.END_TXT_COMPLEMENTO, t0.END_TXT_ESTADO, t0.END_TXT_LOGRADOURO, t0.END_NUMERO, t2.ID_USUARIO, t2.TXT_DISPONIBILIDADE, t2.TXT_RESTRICOES, t2.NUM_VALOR_HORA FROM TB_USUARIO t0, TB_PETSITTER t2, TB_FOTO_USUARIO t1 WHERE ((t0.ID = ?) AND (((t2.ID_USUARIO = t0.ID) AND ((t1.ID_USUARIO = t0.ID) AND (t1.ID_USUARIO = t0.ID))) AND (t0.DISC_USUARIO = ?)))
+	bind => [5, PS]
+]]></system-out>
+  </testcase>
+  <testcase name="consultarPetOwner" classname="exemplo.jpa.PetOwnerTeste" time="0.075">
+    <system-out><![CDATA[[EL Fine]: connection: 2025-11-16 10:47:13.294--ServerSession(537066525)--Connection(397071633)--Thread(Thread[#3,main,5,main])--disconnect
+[EL Fine]: connection: 2025-11-16 10:47:13.296--ServerSession(537066525)--Thread(Thread[#3,main,5,main])--/file:/C:/Users/thayn/pc/PetConnect-main/target/classes/_PetConnect logout successful
+[EL Fine]: connection: 2025-11-16 10:47:13.296--ServerSession(537066525)--Connection(350059321)--Thread(Thread[#3,main,5,main])--disconnect
+[EL Fine]: moxy: 2025-11-16 10:47:13.313--Thread(Thread[#3,main,5,main])--SAXParserFactory instance: com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl@319988b0
+[EL Fine]: server: 2025-11-16 10:47:13.329--Thread(Thread[#3,main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2025-11-16 10:47:13.429--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.Usuario] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:13.442--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The target class (reference) class for the element collection mapping element [field telefones] is being defaulted to: class java.lang.String.
+[EL Config]: metadata: 2025-11-16 10:47:13.444--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.PetSitter] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:13.447--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.Pet] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:13.449--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The target entity (reference) class for the many to one mapping element [field owner] is being defaulted to: class exemplo.jpa.PetOwner.
+[EL Config]: metadata: 2025-11-16 10:47:13.453--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.PetOwner] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:13.454--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The target entity (reference) class for the one to many mapping element [field pets] is being defaulted to: class exemplo.jpa.Pet.
+[EL Config]: metadata: 2025-11-16 10:47:13.455--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.Endereco] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:13.457--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.PetSitter] is being defaulted to: PetSitter.
+[EL Config]: metadata: 2025-11-16 10:47:13.458--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.Usuario] is being defaulted to: Usuario.
+[EL Config]: metadata: 2025-11-16 10:47:13.465--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The secondary table primary key column name for element [class exemplo.jpa.Usuario] is being defaulted to: ID.
+[EL Config]: metadata: 2025-11-16 10:47:13.466--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.Pet] is being defaulted to: Pet.
+[EL Config]: metadata: 2025-11-16 10:47:13.469--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The secondary table primary key column name for element [class exemplo.jpa.Pet] is being defaulted to: ID.
+[EL Config]: metadata: 2025-11-16 10:47:13.47--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.PetOwner] is being defaulted to: PetOwner.
+[EL Config]: metadata: 2025-11-16 10:47:13.47--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The primary key column name for the mapping element [field telefones] is being defaulted to: ID.
+[EL Config]: metadata: 2025-11-16 10:47:13.472--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--The primary key column name for the mapping element [field owner] is being defaulted to: ID.
+[EL Info]: 2025-11-16 10:47:13.488--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--EclipseLink, version: Eclipse Persistence Services - 4.0.4.v202407190748-059428cdd2583c46f1f3e50d235854840a6fa9a7
+[EL Fine]: connection: 2025-11-16 10:47:13.488--ServerSession(224060798)--Connection(1111379131)--Thread(Thread[#3,main,5,main])--connecting(DatabaseLogin(
+	platform=>DerbyPlatform
+	user name=> "app"
+	datasource URL=> "jdbc:derby://localhost:1527/PetConnect;create=true"
+))
+[EL Config]: connection: 2025-11-16 10:47:13.5--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--Connected: jdbc:derby://localhost:1527/PetConnect;create=true
+	User: app
+	Database: Apache Derby  Version: 10.16.1.1 - (1901046)
+	Driver: Apache Derby Network Client JDBC Driver  Version: 10.16.1.1 - (1901046)
+[EL Fine]: connection: 2025-11-16 10:47:13.512--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--/file:/C:/Users/thayn/pc/PetConnect-main/target/classes/_PetConnect login successful
+[EL Fine]: sql: 2025-11-16 10:47:13.517--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_USUARIO DROP CONSTRAINT TBFTOUSUARIODSARIO
+[EL Fine]: sql: 2025-11-16 10:47:13.526--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETSITTER DROP CONSTRAINT TBPETSITTERDSUARIO
+[EL Fine]: sql: 2025-11-16 10:47:13.533--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PET DROP CONSTRAINT TB_PET_ID_USUARIO
+[EL Fine]: sql: 2025-11-16 10:47:13.551--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_PET DROP CONSTRAINT TB_FOTO_PET_ID_PET
+[EL Fine]: sql: 2025-11-16 10:47:13.557--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETOWNER DROP CONSTRAINT TBPETOWNERDUSUARIO
+[EL Fine]: sql: 2025-11-16 10:47:13.566--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_TELEFONE DROP CONSTRAINT TBTELEFONEDUSUARIO
+[EL Fine]: sql: 2025-11-16 10:47:13.581--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_USUARIO
+[EL Fine]: sql: 2025-11-16 10:47:13.61--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_FOTO_USUARIO
+[EL Fine]: sql: 2025-11-16 10:47:13.64--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_PETSITTER
+[EL Fine]: sql: 2025-11-16 10:47:13.662--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_PET
+[EL Fine]: sql: 2025-11-16 10:47:13.683--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_FOTO_PET
+[EL Fine]: sql: 2025-11-16 10:47:13.708--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_PETOWNER
+[EL Fine]: sql: 2025-11-16 10:47:13.731--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_TELEFONE
+[EL Fine]: sql: 2025-11-16 10:47:13.753--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_USUARIO (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, DISC_USUARIO VARCHAR(2), TXT_CPF VARCHAR(255), DT_NASCIMENTO DATE, TXT_EMAIL VARCHAR(255), TXT_NUM_ENDERECO BLOB(2147483647), TXT_LOGIN VARCHAR(255), TXT_NOME VARCHAR(255), TXT_SENHA VARCHAR(255), END_TXT_BAIRRO VARCHAR(150) NOT NULL, END_TXT_CEP VARCHAR(20) NOT NULL, END_TXT_CIDADE VARCHAR(50) NOT NULL, END_TXT_COMPLEMENTO VARCHAR(30), END_TXT_ESTADO VARCHAR(50) NOT NULL, END_TXT_LOGRADOURO VARCHAR(150) NOT NULL, END_NUMERO INTEGER NOT NULL, PRIMARY KEY (ID))
+[EL Fine]: sql: 2025-11-16 10:47:13.785--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_FOTO_USUARIO (ID_USUARIO BIGINT NOT NULL, IMG_FOTO BLOB(2147483647), PRIMARY KEY (ID_USUARIO))
+[EL Fine]: sql: 2025-11-16 10:47:13.821--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_PETSITTER (ID_USUARIO BIGINT NOT NULL, TXT_DISPONIBILIDADE VARCHAR(255), TXT_RESTRICOES VARCHAR(255), NUM_VALOR_HORA FLOAT, PRIMARY KEY (ID_USUARIO))
+[EL Fine]: sql: 2025-11-16 10:47:13.853--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_PET (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, BOOL_ATIVO SMALLINT DEFAULT 0, BOOL_CASTRADO SMALLINT DEFAULT 0, TXT_ESTADO_SAUDE VARCHAR(255), NUM_IDADE INTEGER, TXT_NOME VARCHAR(255), TXT_RACA VARCHAR(255), TXT_SEXO VARCHAR(255), TXT_TEMPERAMENTO VARCHAR(255), TXT_TIPO_ANIMAL VARCHAR(255), ID_USUARIO BIGINT, PRIMARY KEY (ID))
+[EL Fine]: sql: 2025-11-16 10:47:13.879--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_FOTO_PET (ID_PET BIGINT NOT NULL, IMG_FOTO BLOB(2147483647), PRIMARY KEY (ID_PET))
+[EL Fine]: sql: 2025-11-16 10:47:13.905--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_PETOWNER (ID_USUARIO BIGINT NOT NULL, PRIMARY KEY (ID_USUARIO))
+[EL Fine]: sql: 2025-11-16 10:47:13.935--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_TELEFONE (ID_USUARIO BIGINT, TXT_NUM_TELEFONE VARCHAR(255))
+[EL Fine]: sql: 2025-11-16 10:47:13.945--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_USUARIO ADD CONSTRAINT TBFTOUSUARIODSARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:13.952--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETSITTER ADD CONSTRAINT TBPETSITTERDSUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:13.958--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PET ADD CONSTRAINT TB_PET_ID_USUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:13.976--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_PET ADD CONSTRAINT TB_FOTO_PET_ID_PET FOREIGN KEY (ID_PET) REFERENCES TB_PET (ID)
+[EL Fine]: sql: 2025-11-16 10:47:13.985--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETOWNER ADD CONSTRAINT TBPETOWNERDUSUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:13.993--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_TELEFONE ADD CONSTRAINT TBTELEFONEDUSUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:14.257--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--SELECT t0.ID, t0.DISC_USUARIO, t1.ID_USUARIO, t0.TXT_CPF, t0.DT_NASCIMENTO, t0.TXT_EMAIL, t0.TXT_NUM_ENDERECO, t1.IMG_FOTO, t0.TXT_LOGIN, t0.TXT_NOME, t0.TXT_SENHA, t0.END_TXT_BAIRRO, t0.END_TXT_CEP, t0.END_TXT_CIDADE, t0.END_TXT_COMPLEMENTO, t0.END_TXT_ESTADO, t0.END_TXT_LOGRADOURO, t0.END_NUMERO, t2.ID_USUARIO FROM TB_USUARIO t0, TB_PETOWNER t2, TB_FOTO_USUARIO t1 WHERE ((t0.ID = ?) AND (((t2.ID_USUARIO = t0.ID) AND ((t1.ID_USUARIO = t0.ID) AND (t1.ID_USUARIO = t0.ID))) AND (t0.DISC_USUARIO = ?)))
+	bind => [2, PO]
+]]></system-out>
+  </testcase>
+  <testcase name="persistirPetOwner" classname="exemplo.jpa.PetOwnerTeste" time="0.034">
+    <system-out><![CDATA[[EL Fine]: sql: 2025-11-16 10:47:14.335--ClientSession(841166421)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--INSERT INTO TB_USUARIO (TXT_CPF, DT_NASCIMENTO, TXT_EMAIL, TXT_NUM_ENDERECO, TXT_LOGIN, TXT_NOME, TXT_SENHA, END_TXT_BAIRRO, END_TXT_CEP, END_TXT_CIDADE, END_TXT_COMPLEMENTO, END_TXT_ESTADO, END_TXT_LOGRADOURO, END_NUMERO, DISC_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [526.594.890-25, 1984-09-24, comprador@gmail.com, null, comprador1, Comprador da Silva, #1234567890#, Várzea, 50770-340, Recife, null, Pernambuco, Avenida Professor Moraes Rego, 40, PO]
+[EL Fine]: sql: 2025-11-16 10:47:14.344--ClientSession(841166421)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--INSERT INTO TB_FOTO_USUARIO (IMG_FOTO, ID_USUARIO) VALUES (?, ?)
+	bind => [null, 10]
+[EL Fine]: sql: 2025-11-16 10:47:14.35--ClientSession(841166421)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--INSERT INTO TB_PETOWNER (ID_USUARIO) VALUES (?)
+	bind => [10]
+]]></system-out>
+  </testcase>
+  <testcase name="persistirPet" classname="exemplo.jpa.PetTeste" time="0.042">
+    <system-out><![CDATA[[EL Fine]: connection: 2025-11-16 10:47:14.361--ServerSession(224060798)--Connection(1846982837)--Thread(Thread[#3,main,5,main])--disconnect
+[EL Fine]: connection: 2025-11-16 10:47:14.362--ServerSession(224060798)--Thread(Thread[#3,main,5,main])--/file:/C:/Users/thayn/pc/PetConnect-main/target/classes/_PetConnect logout successful
+[EL Fine]: connection: 2025-11-16 10:47:14.363--ServerSession(224060798)--Connection(1111379131)--Thread(Thread[#3,main,5,main])--disconnect
+[EL Fine]: moxy: 2025-11-16 10:47:14.375--Thread(Thread[#3,main,5,main])--SAXParserFactory instance: com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl@1fc0053e
+[EL Fine]: server: 2025-11-16 10:47:14.39--Thread(Thread[#3,main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2025-11-16 10:47:14.488--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.Usuario] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:14.499--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The target class (reference) class for the element collection mapping element [field telefones] is being defaulted to: class java.lang.String.
+[EL Config]: metadata: 2025-11-16 10:47:14.5--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.PetSitter] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:14.503--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.Pet] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:14.504--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The target entity (reference) class for the many to one mapping element [field owner] is being defaulted to: class exemplo.jpa.PetOwner.
+[EL Config]: metadata: 2025-11-16 10:47:14.51--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.PetOwner] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:14.517--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The target entity (reference) class for the one to many mapping element [field pets] is being defaulted to: class exemplo.jpa.Pet.
+[EL Config]: metadata: 2025-11-16 10:47:14.518--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The access type for the persistent class [class exemplo.jpa.Endereco] is set to [FIELD].
+[EL Config]: metadata: 2025-11-16 10:47:14.519--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.PetSitter] is being defaulted to: PetSitter.
+[EL Config]: metadata: 2025-11-16 10:47:14.52--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.Usuario] is being defaulted to: Usuario.
+[EL Config]: metadata: 2025-11-16 10:47:14.528--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The secondary table primary key column name for element [class exemplo.jpa.Usuario] is being defaulted to: ID.
+[EL Config]: metadata: 2025-11-16 10:47:14.53--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.Pet] is being defaulted to: Pet.
+[EL Config]: metadata: 2025-11-16 10:47:14.532--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The secondary table primary key column name for element [class exemplo.jpa.Pet] is being defaulted to: ID.
+[EL Config]: metadata: 2025-11-16 10:47:14.534--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The alias name for the entity class [class exemplo.jpa.PetOwner] is being defaulted to: PetOwner.
+[EL Config]: metadata: 2025-11-16 10:47:14.535--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The primary key column name for the mapping element [field telefones] is being defaulted to: ID.
+[EL Config]: metadata: 2025-11-16 10:47:14.536--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--The primary key column name for the mapping element [field owner] is being defaulted to: ID.
+[EL Info]: 2025-11-16 10:47:14.552--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--EclipseLink, version: Eclipse Persistence Services - 4.0.4.v202407190748-059428cdd2583c46f1f3e50d235854840a6fa9a7
+[EL Fine]: connection: 2025-11-16 10:47:14.553--ServerSession(688593710)--Connection(417797183)--Thread(Thread[#3,main,5,main])--connecting(DatabaseLogin(
+	platform=>DerbyPlatform
+	user name=> "app"
+	datasource URL=> "jdbc:derby://localhost:1527/PetConnect;create=true"
+))
+[EL Config]: connection: 2025-11-16 10:47:14.566--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--Connected: jdbc:derby://localhost:1527/PetConnect;create=true
+	User: app
+	Database: Apache Derby  Version: 10.16.1.1 - (1901046)
+	Driver: Apache Derby Network Client JDBC Driver  Version: 10.16.1.1 - (1901046)
+[EL Fine]: connection: 2025-11-16 10:47:14.577--ServerSession(688593710)--Thread(Thread[#3,main,5,main])--/file:/C:/Users/thayn/pc/PetConnect-main/target/classes/_PetConnect login successful
+[EL Fine]: sql: 2025-11-16 10:47:14.581--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_USUARIO DROP CONSTRAINT TBFTOUSUARIODSARIO
+[EL Fine]: sql: 2025-11-16 10:47:14.589--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETSITTER DROP CONSTRAINT TBPETSITTERDSUARIO
+[EL Fine]: sql: 2025-11-16 10:47:14.596--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PET DROP CONSTRAINT TB_PET_ID_USUARIO
+[EL Fine]: sql: 2025-11-16 10:47:14.615--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_PET DROP CONSTRAINT TB_FOTO_PET_ID_PET
+[EL Fine]: sql: 2025-11-16 10:47:14.62--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETOWNER DROP CONSTRAINT TBPETOWNERDUSUARIO
+[EL Fine]: sql: 2025-11-16 10:47:14.626--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_TELEFONE DROP CONSTRAINT TBTELEFONEDUSUARIO
+[EL Fine]: sql: 2025-11-16 10:47:14.642--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_USUARIO
+[EL Fine]: sql: 2025-11-16 10:47:14.667--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_FOTO_USUARIO
+[EL Fine]: sql: 2025-11-16 10:47:14.689--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_PETSITTER
+[EL Fine]: sql: 2025-11-16 10:47:14.711--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_PET
+[EL Fine]: sql: 2025-11-16 10:47:14.737--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_FOTO_PET
+[EL Fine]: sql: 2025-11-16 10:47:14.766--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_PETOWNER
+[EL Fine]: sql: 2025-11-16 10:47:14.789--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--DROP TABLE TB_TELEFONE
+[EL Fine]: sql: 2025-11-16 10:47:14.811--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_USUARIO (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, DISC_USUARIO VARCHAR(2), TXT_CPF VARCHAR(255), DT_NASCIMENTO DATE, TXT_EMAIL VARCHAR(255), TXT_NUM_ENDERECO BLOB(2147483647), TXT_LOGIN VARCHAR(255), TXT_NOME VARCHAR(255), TXT_SENHA VARCHAR(255), END_TXT_BAIRRO VARCHAR(150) NOT NULL, END_TXT_CEP VARCHAR(20) NOT NULL, END_TXT_CIDADE VARCHAR(50) NOT NULL, END_TXT_COMPLEMENTO VARCHAR(30), END_TXT_ESTADO VARCHAR(50) NOT NULL, END_TXT_LOGRADOURO VARCHAR(150) NOT NULL, END_NUMERO INTEGER NOT NULL, PRIMARY KEY (ID))
+[EL Fine]: sql: 2025-11-16 10:47:14.843--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_FOTO_USUARIO (ID_USUARIO BIGINT NOT NULL, IMG_FOTO BLOB(2147483647), PRIMARY KEY (ID_USUARIO))
+[EL Fine]: sql: 2025-11-16 10:47:14.868--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_PETSITTER (ID_USUARIO BIGINT NOT NULL, TXT_DISPONIBILIDADE VARCHAR(255), TXT_RESTRICOES VARCHAR(255), NUM_VALOR_HORA FLOAT, PRIMARY KEY (ID_USUARIO))
+[EL Fine]: sql: 2025-11-16 10:47:14.898--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_PET (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, BOOL_ATIVO SMALLINT DEFAULT 0, BOOL_CASTRADO SMALLINT DEFAULT 0, TXT_ESTADO_SAUDE VARCHAR(255), NUM_IDADE INTEGER, TXT_NOME VARCHAR(255), TXT_RACA VARCHAR(255), TXT_SEXO VARCHAR(255), TXT_TEMPERAMENTO VARCHAR(255), TXT_TIPO_ANIMAL VARCHAR(255), ID_USUARIO BIGINT, PRIMARY KEY (ID))
+[EL Fine]: sql: 2025-11-16 10:47:14.926--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_FOTO_PET (ID_PET BIGINT NOT NULL, IMG_FOTO BLOB(2147483647), PRIMARY KEY (ID_PET))
+[EL Fine]: sql: 2025-11-16 10:47:14.957--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_PETOWNER (ID_USUARIO BIGINT NOT NULL, PRIMARY KEY (ID_USUARIO))
+[EL Fine]: sql: 2025-11-16 10:47:14.987--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--CREATE TABLE TB_TELEFONE (ID_USUARIO BIGINT, TXT_NUM_TELEFONE VARCHAR(255))
+[EL Fine]: sql: 2025-11-16 10:47:14.998--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_USUARIO ADD CONSTRAINT TBFTOUSUARIODSARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:15.004--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETSITTER ADD CONSTRAINT TBPETSITTERDSUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:15.01--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PET ADD CONSTRAINT TB_PET_ID_USUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:15.024--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_FOTO_PET ADD CONSTRAINT TB_FOTO_PET_ID_PET FOREIGN KEY (ID_PET) REFERENCES TB_PET (ID)
+[EL Fine]: sql: 2025-11-16 10:47:15.031--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_PETOWNER ADD CONSTRAINT TBPETOWNERDUSUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:15.036--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--ALTER TABLE TB_TELEFONE ADD CONSTRAINT TBTELEFONEDUSUARIO FOREIGN KEY (ID_USUARIO) REFERENCES TB_USUARIO (ID)
+[EL Fine]: sql: 2025-11-16 10:47:15.271--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--SELECT t0.ID, t0.DISC_USUARIO, t1.ID_USUARIO, t0.TXT_CPF, t0.DT_NASCIMENTO, t0.TXT_EMAIL, t0.TXT_NUM_ENDERECO, t1.IMG_FOTO, t0.TXT_LOGIN, t0.TXT_NOME, t0.TXT_SENHA, t0.END_TXT_BAIRRO, t0.END_TXT_CEP, t0.END_TXT_CIDADE, t0.END_TXT_COMPLEMENTO, t0.END_TXT_ESTADO, t0.END_TXT_LOGRADOURO, t0.END_NUMERO, t2.ID_USUARIO FROM TB_USUARIO t0, TB_PETOWNER t2, TB_FOTO_USUARIO t1 WHERE ((t0.ID = ?) AND (((t2.ID_USUARIO = t0.ID) AND ((t1.ID_USUARIO = t0.ID) AND (t1.ID_USUARIO = t0.ID))) AND (t0.DISC_USUARIO = ?)))
+	bind => [1, PO]
+[EL Fine]: sql: 2025-11-16 10:47:15.291--ClientSession(80499834)--Connection(261845810)--Thread(Thread[#3,main,5,main])--INSERT INTO TB_PET (BOOL_ATIVO, BOOL_CASTRADO, TXT_ESTADO_SAUDE, NUM_IDADE, TXT_NOME, TXT_RACA, TXT_SEXO, TXT_TEMPERAMENTO, TXT_TIPO_ANIMAL, ID_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [true, true, Saudável, 3, Max, Poodle, MACHO, Dócil, CACHORRO, 1]
+[EL Fine]: sql: 2025-11-16 10:47:15.301--ClientSession(80499834)--Connection(261845810)--Thread(Thread[#3,main,5,main])--INSERT INTO TB_FOTO_PET (IMG_FOTO, ID_PET) VALUES (?, ?)
+	bind => [null, 4]
+]]></system-out>
+  </testcase>
+  <testcase name="consultarPet" classname="exemplo.jpa.PetTeste" time="0.016">
+    <system-out><![CDATA[[EL Fine]: sql: 2025-11-16 10:47:15.312--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--SELECT t0.ID, t1.ID_PET, t0.BOOL_ATIVO, t0.BOOL_CASTRADO, t0.TXT_ESTADO_SAUDE, t1.IMG_FOTO, t0.NUM_IDADE, t0.TXT_NOME, t0.TXT_RACA, t0.TXT_SEXO, t0.TXT_TEMPERAMENTO, t0.TXT_TIPO_ANIMAL, t0.ID_USUARIO FROM TB_PET t0, TB_FOTO_PET t1 WHERE ((t0.ID = ?) AND (t1.ID_PET = t0.ID))
+	bind => [1]
+[EL Fine]: sql: 2025-11-16 10:47:15.32--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--SELECT t0.ID, t0.DISC_USUARIO, t1.ID_USUARIO, t0.TXT_CPF, t0.DT_NASCIMENTO, t0.TXT_EMAIL, t0.TXT_NUM_ENDERECO, t1.IMG_FOTO, t0.TXT_LOGIN, t0.TXT_NOME, t0.TXT_SENHA, t0.END_TXT_BAIRRO, t0.END_TXT_CEP, t0.END_TXT_CIDADE, t0.END_TXT_COMPLEMENTO, t0.END_TXT_ESTADO, t0.END_TXT_LOGRADOURO, t0.END_NUMERO, t2.ID_USUARIO FROM TB_USUARIO t0, TB_PETOWNER t2, TB_FOTO_USUARIO t1 WHERE ((t0.ID = ?) AND (((t2.ID_USUARIO = t0.ID) AND ((t1.ID_USUARIO = t0.ID) AND (t1.ID_USUARIO = t0.ID))) AND (t0.DISC_USUARIO = ?)))
+	bind => [1, PO]
+]]></system-out>
+  </testcase>
+  <testcase name="consultarPetsPorTipoAnimal" classname="exemplo.jpa.PetTeste" time="0.61">
+    <system-out><![CDATA[[EL Fine]: sql: 2025-11-16 10:47:15.916--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--SELECT t0.ID, t1.ID_PET, t0.BOOL_ATIVO, t0.BOOL_CASTRADO, t0.TXT_ESTADO_SAUDE, t1.IMG_FOTO, t0.NUM_IDADE, t0.TXT_NOME, t0.TXT_RACA, t0.TXT_SEXO, t0.TXT_TEMPERAMENTO, t0.TXT_TIPO_ANIMAL, t0.ID_USUARIO FROM TB_PET t0, TB_FOTO_PET t1 WHERE ((t0.TXT_TIPO_ANIMAL = ?) AND (t1.ID_PET = t0.ID)) ORDER BY t0.TXT_NOME
+	bind => [CACHORRO]
+[EL Fine]: sql: 2025-11-16 10:47:15.928--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--SELECT t0.ID, t0.DISC_USUARIO, t1.ID_USUARIO, t0.TXT_CPF, t0.DT_NASCIMENTO, t0.TXT_EMAIL, t0.TXT_NUM_ENDERECO, t1.IMG_FOTO, t0.TXT_LOGIN, t0.TXT_NOME, t0.TXT_SENHA, t0.END_TXT_BAIRRO, t0.END_TXT_CEP, t0.END_TXT_CIDADE, t0.END_TXT_COMPLEMENTO, t0.END_TXT_ESTADO, t0.END_TXT_LOGRADOURO, t0.END_NUMERO, t2.ID_USUARIO FROM TB_USUARIO t0, TB_PETOWNER t2, TB_FOTO_USUARIO t1 WHERE ((t0.ID = ?) AND (((t2.ID_USUARIO = t0.ID) AND ((t1.ID_USUARIO = t0.ID) AND (t1.ID_USUARIO = t0.ID))) AND (t0.DISC_USUARIO = ?)))
+	bind => [3, PO]
+[EL Fine]: sql: 2025-11-16 10:47:15.933--ServerSession(688593710)--Connection(261845810)--Thread(Thread[#3,main,5,main])--SELECT t0.ID, t0.DISC_USUARIO, t1.ID_USUARIO, t0.TXT_CPF, t0.DT_NASCIMENTO, t0.TXT_EMAIL, t0.TXT_NUM_ENDERECO, t1.IMG_FOTO, t0.TXT_LOGIN, t0.TXT_NOME, t0.TXT_SENHA, t0.END_TXT_BAIRRO, t0.END_TXT_CEP, t0.END_TXT_CIDADE, t0.END_TXT_COMPLEMENTO, t0.END_TXT_ESTADO, t0.END_TXT_LOGRADOURO, t0.END_NUMERO, t2.ID_USUARIO FROM TB_USUARIO t0, TB_PETOWNER t2, TB_FOTO_USUARIO t1 WHERE ((t0.ID = ?) AND (((t2.ID_USUARIO = t0.ID) AND ((t1.ID_USUARIO = t0.ID) AND (t1.ID_USUARIO = t0.ID))) AND (t0.DISC_USUARIO = ?)))
+	bind => [1, PO]
+]]></system-out>
+  </testcase>
+</testsuite>
