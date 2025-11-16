@@ -34,11 +34,27 @@ public class DbUnitUtil {
             FlatXmlDataSetBuilder builder = new FlatXmlDataSetBuilder();
             builder.setColumnSensing(true);
             InputStream in = DbUnitUtil.class.getResourceAsStream(XML_FILE);
+<<<<<<< HEAD
             IDataSet dataSet = builder.build(in);
             DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
         } catch (SQLException | DatabaseUnitException ex) {
             throw new RuntimeException(ex.getMessage(), ex);
         } finally {
+=======
+            if (in == null) {
+                throw new RuntimeException("Arquivo dataset.xml não encontrado: " + XML_FILE);
+            }
+            IDataSet dataSet = builder.build(in);
+            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
+          
+            try (var stmt = conn.createStatement()) {
+                stmt.execute("ALTER TABLE TB_USUARIO ALTER COLUMN ID RESTART WITH 10");
+                stmt.execute("ALTER TABLE TB_PET ALTER COLUMN ID RESTART WITH 4");
+            }
+        } catch (SQLException | DatabaseUnitException ex) {
+            throw new RuntimeException(ex.getMessage(), ex);
+        } finally{
+>>>>>>> fix_tests
             try {
                 if (conn != null) {
                     conn.close();
