@@ -43,13 +43,8 @@ public abstract class Teste {
     
     @After
     public void tearDown() {
-<<<<<<< HEAD
-        if (!et.getRollbackOnly()) {
-            et.commit();
-=======
         if (et.isActive()) {
             et.rollback();
->>>>>>> fix_tests
         }
         em.close();        
     }

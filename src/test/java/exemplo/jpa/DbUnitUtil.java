@@ -34,13 +34,6 @@ public class DbUnitUtil {
             FlatXmlDataSetBuilder builder = new FlatXmlDataSetBuilder();
             builder.setColumnSensing(true);
             InputStream in = DbUnitUtil.class.getResourceAsStream(XML_FILE);
-<<<<<<< HEAD
-            IDataSet dataSet = builder.build(in);
-            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
-        } catch (SQLException | DatabaseUnitException ex) {
-            throw new RuntimeException(ex.getMessage(), ex);
-        } finally {
-=======
             if (in == null) {
                 throw new RuntimeException("Arquivo dataset.xml não encontrado: " + XML_FILE);
             }
@@ -54,7 +47,6 @@ public class DbUnitUtil {
         } catch (SQLException | DatabaseUnitException ex) {
             throw new RuntimeException(ex.getMessage(), ex);
         } finally{
->>>>>>> fix_tests
             try {
                 if (conn != null) {
                     conn.close();
