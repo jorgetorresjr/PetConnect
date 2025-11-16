@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <!-- Usuario id = 1 (PetOwner) -->
+    <TB_USUARIO txt_cpf = "808.257.284-10" dt_nascimento = "1999-12-21"
+                txt_email = "fulano@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
+                end_txt_complemento = "Apto. 201" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
+                end_numero = "20" txt_login = "fulano" txt_nome = "Fulano Silva" txt_senha = "teste123" disc_usuario = "PO"/>
+    <TB_PETOWNER id_usuario = "1"/>
+    
+    <!-- Usuario id = 2 (PetOwner) - USADO NO TESTE consultarPetOwner -->
+    <TB_USUARIO txt_cpf = "740.707.044-00" dt_nascimento = "1973-08-11"
+                txt_email = "sicrano@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
+                end_txt_complemento = "Apto. 202" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
+                end_numero = "20" txt_login = "sicrano" txt_nome = "Sicrano Silva" txt_senha = "sicrano123" disc_usuario = "PO"/>
+    <TB_PETOWNER id_usuario = "2"/>
+    
+    <!-- Usuario id = 3 (PetOwner) -->
+    <TB_USUARIO txt_cpf = "026.605.218-59" dt_nascimento = "1979-09-01"
+                txt_email = "beltrano@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
+                end_txt_complemento = "Apto. 302" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
+                end_numero = "20" txt_login = "beltrano" txt_nome = "Beltrano Silva" txt_senha = "beltrano_mesmo" disc_usuario = "PO"/>
+    <TB_PETOWNER id_usuario = "3"/>
+    
+    <!-- Usuario id = 4 (PetOwner) -->
+    <TB_USUARIO txt_cpf = "787.829.223-06" dt_nascimento = "1989-10-23" 
+                txt_email = "ze@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
+                end_txt_complemento = "Apto. 401" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
+                end_numero = "20" txt_login = "zesilva" txt_nome = "José da Silva" txt_senha = "ze123" disc_usuario = "PO"/>
+    <TB_PETOWNER id_usuario = "4"/>
+    
+    <!-- Usuario id = 5 (PetSitter) - USADO NO TESTE consultarPetSitter -->
+    <TB_USUARIO txt_cpf = "484.854.847-03" dt_nascimento = "1995-11-23" 
+                txt_email = "vendedor1@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
+                end_txt_complemento = "Apto. 704" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
+                end_numero = "20" txt_login = "v1silva" txt_nome = "Cuidador da Silva" txt_senha = "v1123" disc_usuario = "PS"/>
+    <TB_PETSITTER id_usuario = "5" num_valor_hora = "10500.50" txt_disponibilidade = "EXPERIENTE" txt_restricoes = "Nenhuma"/>
+    
+    <!-- Usuario id = 6 (PetSitter) -->
+    <TB_USUARIO txt_cpf = "316.819.699-12" dt_nascimento = "1985-11-23" 
+                txt_email = "sitter2@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
+                end_txt_complemento = "Apto. 902" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
+                end_numero = "20" txt_login = "v2silva" txt_nome = "Cuidador Segundo da Silva" txt_senha = "segs123" disc_usuario = "PS"/>
+    <TB_PETSITTER id_usuario = "6" num_valor_hora = "5500.99" txt_disponibilidade = "EXPERIENTE" txt_restricoes = "Apenas cães"/>
+    
+    <!-- Usuario id = 7 (PetSitter) -->
+    <TB_USUARIO txt_cpf = "548.578.464-03" dt_nascimento = "1995-11-23" 
+                txt_email = "sitter3@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
+                end_txt_complemento = "Apto. 702" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
+                end_numero = "20" txt_login = "v3silva" txt_nome = "Cuidador Terceiro da Silva" txt_senha = "segredos123" disc_usuario = "PS"/>
+    <TB_PETSITTER id_usuario = "7" num_valor_hora = "100.00" txt_disponibilidade = "NOVATO" txt_restricoes = "Apenas gatos"/>
+    
+    <!-- Usuario id = 8 (PetOwner) -->    
+    <TB_USUARIO txt_cpf = "772.633.604-89" dt_nascimento = "1987-10-21" 
+                txt_email = "owner@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
+                end_txt_complemento = "Apto. 101" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
+                end_numero = "20" txt_login = "comp1" txt_nome = "Dono da Silva" txt_senha = "comp" disc_usuario = "PO"/>
+    <TB_PETOWNER id_usuario = "8"/>
+    
+    <!-- Usuario id = 9 (PetOwner) -->
+    <TB_USUARIO txt_cpf = "818.257.284-10" dt_nascimento = "1999-12-21"
+                txt_email = "fulano8@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
+                end_txt_complemento = "Apto. 201" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
+                end_numero = "20" txt_login = "fulano8" txt_nome = "Fulano Silva" txt_senha = "teste123" disc_usuario = "PO"/>
+    <TB_PETOWNER id_usuario = "9"/>
+    
+    <!-- Pets -->
+    <TB_PET txt_nome = "Rex" num_idade = "5" txt_sexo = "MACHO" txt_raca = "Labrador" 
+            txt_tipo_animal = "CACHORRO" txt_estado_saude = "Saudável" bool_castrado = "1" 
+            txt_temperamento = "Dócil e brincalhão" bool_ativo = "1" id_usuario = "1"/>
+    
+    <TB_PET txt_nome = "Mimi" num_idade = "3" txt_sexo = "FEMEA" txt_raca = "Persa" 
+            txt_tipo_animal = "GATO" txt_estado_saude = "Saudável" bool_castrado = "1" 
+            txt_temperamento = "Calma e carinhosa" bool_ativo = "1" id_usuario = "2"/>
+    
+    <TB_PET txt_nome = "Bob" num_idade = "2" txt_sexo = "MACHO" txt_raca = "Vira-lata" 
+            txt_tipo_animal = "CACHORRO" txt_estado_saude = "Saudável" bool_castrado = "0" 
+            txt_temperamento = "Protetor" bool_ativo = "1" id_usuario = "3"/>
+</dataset>
