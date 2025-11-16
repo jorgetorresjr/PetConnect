@@ -3,4 +3,5 @@ exemplo\jpa\PetSitter.class
 exemplo\jpa\TesteJPA.class
 exemplo\jpa\PetOwner.class
 exemplo\jpa\Pet.class
+exemplo\jpa\Enums\TipoAnimal.class
 exemplo\jpa\Usuario.class
