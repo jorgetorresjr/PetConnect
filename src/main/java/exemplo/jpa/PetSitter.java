@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
-import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -50,29 +49,16 @@ public class PetSitter extends Usuario {
         this.restricoes = restricoes;
     }
 
+   
     public Collection<PetOwner> getFavoritadoPor() {
         return favoritadoPor;
     }
 
-   
- public void addFavoritadoPor(PetOwner owner) {
-        if (favoritadoPor == null) {
-            favoritadoPor = new ArrayList<>();
-        }
-        if (!favoritadoPor.contains(owner)) {
-            favoritadoPor.add(owner);
-            owner.addFavorito(this);
-        }
+    public void setFavoritadoPor(Collection<PetOwner> favoritadoPor) {
+        this.favoritadoPor = favoritadoPor;
     }
 
-    public void removeFavoritadoPor(PetOwner owner) {
-        if (favoritadoPor != null) {
-            favoritadoPor.remove(owner);
-            owner.getFavoritos().remove(this);
-        }
-    }
-   
-    
+
     @Override
     public int hashCode() {
         return (id != null ? id.hashCode() : 0);

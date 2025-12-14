@@ -9,6 +9,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -46,9 +47,27 @@ public class PetOwner extends Usuario {
 
  public void addFavorito(PetSitter sitter) {
         if (favoritos == null) {
-            favoritos = new java.util.ArrayList<>();
+            favoritos = new ArrayList<>();
         }
-        favoritos.add(sitter);
+
+        if (!favoritos.contains(sitter)) {
+            favoritos.add(sitter);
+
+            if (sitter.getFavoritadoPor() == null) {
+                sitter.setFavoritadoPor(new ArrayList<>());
+            }
+            sitter.getFavoritadoPor().add(this);
+        }
+    }
+
+    public void removeFavorito(PetSitter sitter) {
+        if (favoritos != null) {
+            favoritos.remove(sitter);
+
+            if (sitter.getFavoritadoPor() != null) {
+                sitter.getFavoritadoPor().remove(this);
+            }
+        }
     }
 
   @Override
