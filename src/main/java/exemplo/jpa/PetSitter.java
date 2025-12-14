@@ -8,7 +8,6 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "TB_PETSITTER")
@@ -53,9 +52,17 @@ public class PetSitter extends Usuario {
         return favoritadoPor;
     }
 
-    public void setFavoritadoPor(Collection<PetOwner> favoritadoPor) {
-        this.favoritadoPor = favoritadoPor;
+   
+    public void addFavoritadoPor(PetOwner owner) {
+    favoritadoPor.add(owner);
+    owner.getFavoritos().add(this);
     }
+
+    public void removeFavoritadoPor(PetOwner owner) {
+    favoritadoPor.remove(owner);
+    owner.getFavoritos().remove(this);
+    }
+    
 
     @Override
     public String toString() {

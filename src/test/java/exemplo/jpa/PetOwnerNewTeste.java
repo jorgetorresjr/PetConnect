@@ -23,6 +23,7 @@ public class PetOwnerNewTeste extends Teste {
         petOwner.setNome("Maria Padrao");
 
         em.flush();
+        em.clear();
 
         // Verifica se foi atualizado
         PetOwner atualizado = em.find(PetOwner.class, 2L);
@@ -43,7 +44,7 @@ public class PetOwnerNewTeste extends Teste {
         PetOwner att = em.merge(petOwner);
 
         em.flush();
-
+        em.clear();
         // Verifica no banco
         PetOwner atualizado = em.find(PetOwner.class, att.getId());
         assertEquals("Maria Merge", atualizado.getNome());
@@ -60,7 +61,7 @@ public class PetOwnerNewTeste extends Teste {
         petOwner.setNome("Maria Atualizada");
         em.merge(petOwner);
         em.flush();
-        // em.clear();
+        em.clear();
 
         // Verifica se nome foi att
         PetOwner atualizado = em.find(PetOwner.class, petOwner.getId());
