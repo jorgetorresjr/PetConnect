@@ -6,8 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+
 
 @Entity
 @Table(name = "TB_PETSITTER")
@@ -21,8 +22,9 @@ public class PetSitter extends Usuario {
     private String disponibilidade;
     @Column(name = "TXT_RESTRICOES")
     private String restricoes;
+    
     @ManyToMany(mappedBy = "favoritos")
-    private Collection<PetOwner> favoritadoPor = new HashSet<>();
+    private Collection<PetOwner> favoritadoPor;
 
     public Double getValorHora() {
         return valorHora;
@@ -53,28 +55,43 @@ public class PetSitter extends Usuario {
     }
 
    
-    public void addFavoritadoPor(PetOwner owner) {
-    favoritadoPor.add(owner);
-    owner.getFavoritos().add(this);
+ public void addFavoritadoPor(PetOwner owner) {
+        if (favoritadoPor == null) {
+            favoritadoPor = new ArrayList<>();
+        }
+        if (!favoritadoPor.contains(owner)) {
+            favoritadoPor.add(owner);
+            owner.addFavorito(this);
+        }
     }
 
     public void removeFavoritadoPor(PetOwner owner) {
-    favoritadoPor.remove(owner);
-    owner.getFavoritos().remove(this);
+        if (favoritadoPor != null) {
+            favoritadoPor.remove(owner);
+            owner.getFavoritos().remove(this);
+        }
     }
+   
     
+    @Override
+    public int hashCode() {
+        return (id != null ? id.hashCode() : 0);
+    }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof PetSitter)) return false;
+        PetSitter other = (PetSitter) obj;
+        return id != null && id.equals(other.id);
+    }
+    
+    
+    @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("exemplo.jpa.PetSitter[");
-        sb.append(super.toString());
-        sb.append(", R$ ");
-        sb.append(valorHora);
-        sb.append(" por hora, ");
-        sb.append(disponibilidade);
-        sb.append(", ");
-        sb.append(restricoes);
-        sb.append("]");
-        return sb.toString();
+        return "PetSitter [id=" + id +
+               ", R$ " + valorHora +
+               ", " + disponibilidade +
+               ", " + restricoes + "]";
     }
 }

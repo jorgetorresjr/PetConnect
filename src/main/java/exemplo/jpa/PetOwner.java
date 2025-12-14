@@ -10,7 +10,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import java.util.Collection;
-import java.util.HashSet;
 
 @Entity
 @Table(name="TB_PETOWNER") 
@@ -26,28 +25,48 @@ public class PetOwner extends Usuario {
     joinColumns = @JoinColumn(name = "PETOWNER_ID"),
     inverseJoinColumns = @JoinColumn(name = "PETSITTER_ID")
     )
-private Collection<PetSitter> favoritos = new HashSet<>();
+    private Collection<PetSitter> favoritos;
 
     public Collection<Pet> getPets() {
         return pets;
     }
     
+    public Collection<PetSitter> getFavoritos() {
+        return favoritos;
+    }
+    
 
-    public void addPet(Pet pet) {
-        if(pets == null) {
-            pets = new HashSet<>();
+ public void addPet(Pet pet) {
+        if (pets == null) {
+            pets = new java.util.ArrayList<>();
         }
         pets.add(pet);
+        pet.setOwner(this);
     }
 
-    public Collection<PetSitter> getFavoritos() {
-    return favoritos;
-}
+ public void addFavorito(PetSitter sitter) {
+        if (favoritos == null) {
+            favoritos = new java.util.ArrayList<>();
+        }
+        favoritos.add(sitter);
+    }
 
+  @Override
+    public int hashCode() {
+        return (id != null ? id.hashCode() : 0);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof PetOwner)) return false;
+        PetOwner other = (PetOwner) obj;
+        return id != null && id.equals(other.id);
+    }
 
     @Override
     public String toString() {
-        return "exemplo.jpa.PetOwner[ id=" + id + " ]";
+        return "PetOwner [id=" + id + "]";
     }
 
 }
