@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package exemplo.jpa;
 
 import static org.junit.Assert.assertEquals;
@@ -23,7 +19,7 @@ public class PetSitterNewTeste extends Teste {
         petSitter.setNome("João Padrao");
 
         em.flush();
-
+        em.clear();
         // Verifica se foi atualizado
         PetSitter atualizado = em.find(PetSitter.class, 5L);
         assertEquals("João Padrao", atualizado.getNome());
@@ -43,7 +39,7 @@ public class PetSitterNewTeste extends Teste {
         PetSitter att = em.merge(petSitter);
 
         em.flush();
-
+        em.clear();
         // Verifica no banco
         PetSitter atualizado = em.find(PetSitter.class, att.getId());
         assertEquals("José Merge", atualizado.getNome());
@@ -51,7 +47,7 @@ public class PetSitterNewTeste extends Teste {
 
     @Test
     public void atualizarNomePetSitterPadrao() {
-        // Cria e persiste um novo tutor
+       
         PetSitter petSitter = em.find(PetSitter.class, 6L);
 
         em.clear();
@@ -60,7 +56,7 @@ public class PetSitterNewTeste extends Teste {
         petSitter.setNome("Pedro Atualizado");
         em.merge(petSitter);
         em.flush();
-        // em.clear();
+        em.clear();
 
         // Verifica se nome foi att
         PetSitter atualizado = em.find(PetSitter.class, petSitter.getId());
