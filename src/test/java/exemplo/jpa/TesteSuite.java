@@ -16,7 +16,11 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
     exemplo.jpa.PetSitterTeste.class,
     exemplo.jpa.PetOwnerTeste.class,
-    exemplo.jpa.PetTeste.class
+    exemplo.jpa.PetTeste.class,
+    exemplo.jpa.PetNewTeste.class,
+    exemplo.jpa.PetSitterNewTeste.class,
+    exemplo.jpa.PetOwnerNewTeste.class,
+    
 })
 public class TesteSuite {
     

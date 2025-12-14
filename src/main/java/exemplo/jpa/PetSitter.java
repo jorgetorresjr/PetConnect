@@ -3,8 +3,11 @@ package exemplo.jpa;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="TB_PETSITTER") 
@@ -17,6 +20,8 @@ public class PetSitter extends Usuario {
     private String disponibilidade;
     @Column(name = "TXT_RESTRICOES")
     private String restricoes;
+    @ManyToMany(mappedBy = "favoritos")
+    private Set<PetOwner> favoritadoPor = new HashSet<>();
 
     public Double getValorHora() {
         return valorHora;
@@ -41,6 +46,14 @@ public class PetSitter extends Usuario {
     public void setRestricoes(String restricoes) {
         this.restricoes = restricoes;
     }
+    
+    public Set<PetOwner> getFavoritadoPor() {
+    return favoritadoPor;
+}
+
+public void setFavoritadoPor(Set<PetOwner> favoritadoPor) {
+    this.favoritadoPor = favoritadoPor;
+}
     
     @Override
     public String toString() {
