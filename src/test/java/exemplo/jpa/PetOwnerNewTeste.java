@@ -72,7 +72,14 @@ public class PetOwnerNewTeste extends Teste {
     public void removerPetOwnerPadrao() {
         // Cria e persiste um novo tutor
         PetOwner petOwner = em.find(PetOwner.class, 1L);
+        // Remove dependências
+        em.createQuery(
+            "DELETE FROM Notificacao n WHERE n.usuario.id = :id"
+        ).setParameter("id", petOwner.getId())
+         .executeUpdate();
 
+        em.flush();
+        
         em.remove(petOwner);
         em.flush();
 

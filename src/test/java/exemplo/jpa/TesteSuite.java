@@ -20,6 +20,7 @@ import org.junit.runners.Suite;
     exemplo.jpa.PetNewTeste.class,
     exemplo.jpa.PetSitterNewTeste.class,
     exemplo.jpa.PetOwnerNewTeste.class,
+    exemplo.jpa.NotificacaoTeste.class,
     
 })
 public class TesteSuite {
