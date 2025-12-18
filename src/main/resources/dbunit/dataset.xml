@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
+
+    <!-- ===================== -->
+    <!-- USUÁRIOS -->
+    <!-- ===================== -->
     <TB_USUARIO disc_usuario = "PO" txt_cpf = "808.257.284-10" dt_nascimento = "1999-12-21"
                 txt_email = "fulano@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
                 end_txt_complemento = "Apto. 201" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
@@ -62,7 +66,10 @@
                 end_numero = "20" txt_login = "fulano8" txt_nome = "Fulano Silva" txt_senha = "teste123"/>
     <TB_FOTO_USUARIO id_usuario = "9" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('fulano8.jpg')"/>
     <TB_PETOWNER id_usuario = "9"/>
-    
+
+    <!-- ===================== -->
+    <!-- PET -->
+    <!-- ===================== -->
     <TB_PET id="1" txt_nome="Rex" txt_raca="Labrador" num_idade="5" txt_tipo_animal="CACHORRO" 
             txt_sexo="MACHO" txt_temperamento="Amigável" txt_estado_saude="Saudável" 
             bool_castrado="1" bool_ativo="1" id_usuario="1"/>
@@ -78,6 +85,30 @@
             bool_castrado="0" bool_ativo="1" id_usuario="3"/>
     <TB_FOTO_PET id_pet="3" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('bob.jpg')"/>
     
-    <TB_NOTIFICACAO ID_NOTIFICACAO="1" txt_mensagem="Notificacao inicial do sistema." dt_envio="2025-12-16 10:00:00" id_usuario="1"/>
+    <!-- ===================== -->
+    <!-- SERVIÇO (NOVO) -->
+    <!-- ===================== -->
+    <TB_SERVICO
+        ID_SERVICO="1"
+        TXT_NOME="Passeio com cachorro (1h)"
+        NUM_PRECO_HORA="30.00"
+        ID_PETSITTER="5"
+    />
+
+    <TB_SERVICO
+        ID_SERVICO="2"
+        TXT_NOME="Hospedagem domiciliar"
+        NUM_PRECO_HORA="80.00"
+        ID_PETSITTER="5"
+    />
+
+    <!-- ===================== -->
+    <!-- NOTIFICAÇÃO -->
+    <!-- ===================== -->
+    <TB_NOTIFICACAO
+        ID_NOTIFICACAO="1"
+        txt_mensagem="Notificacao inicial do sistema."
+        dt_envio="2025-12-16 10:00:00"
+        id_usuario="1"/>
 
 </dataset>

@@ -28,7 +28,7 @@ public class DbUnitUtil {
     private static final String XML_FILE = "/dbunit/dataset.xml";
 
     /**
-     * MÉTODO ESTÁTICO PARA FOTO (Resposta à Crítica do Professor)
+     * MÉTODO ESTÁTICO PARA FOTO
      * Usado no dataset.xml para popular colunas BLOB/LOB de forma estática.
      */
     public static String getFotoBase64(String nomeArquivo) {
@@ -57,8 +57,8 @@ public class DbUnitUtil {
             try (var stmt = conn.createStatement()) {
                 stmt.execute("ALTER TABLE TB_USUARIO ALTER COLUMN ID RESTART WITH 10"); 
                 stmt.execute("ALTER TABLE TB_PET ALTER COLUMN ID RESTART WITH 4");
-                // NOVO: Garantir que a próxima notificação comece em ID 2
                 stmt.execute("ALTER TABLE TB_NOTIFICACAO ALTER COLUMN ID_NOTIFICACAO RESTART WITH 2"); 
+                stmt.execute("ALTER TABLE TB_SERVICO ALTER COLUMN ID_SERVICO RESTART WITH 3");
             }
         } catch (SQLException | DatabaseUnitException ex) {
             logger.log(Level.SEVERE, "Erro ao inserir dados com DBUnit", ex);
