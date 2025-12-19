@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
 /**
  *
  * @author elaine
@@ -44,23 +45,19 @@ public class ServicoTeste extends Teste {
     public void removerServico() {
         Servico s = em.find(Servico.class, 1L);
         Assert.assertNotNull(s);
-        
-        em.createQuery("DELETE FROM Avaliacao a WHERE a.agendamento.servico.id = :id")
-            .setParameter("id", s.getId())
-            .executeUpdate();
-        
-        em.createQuery("DELETE FROM Agendamento a WHERE a.servico.id = :id")
-           .setParameter("id", s.getId())
-           .executeUpdate();
-    
-    em.flush();
-
+        // Buscar agendamentos ligados ao serviço
+        for (Agendamento ag : s.getAgendamentos()) {
+            for (Avaliacao av : ag.getAvaliacoes()) {
+                em.remove(av);
+            }
+            em.remove(ag);
+        }
         em.remove(s);
         em.flush();
 
         Assert.assertNull(em.find(Servico.class, 1L));
     }
-   
+
     @Test
     public void atualizarServicoSemMerge() {
         Servico servico = em.find(Servico.class, 1L);

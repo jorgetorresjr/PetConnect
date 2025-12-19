@@ -25,8 +25,7 @@ public class AgendamentoTeste extends Teste {
         ag.setPetOwner(owner);
         ag.setServico(servico);
         ag.setDataInicio(
-            Timestamp.valueOf(LocalDateTime.now().plusDays(1))
-        );
+                Timestamp.valueOf(LocalDateTime.now().plusDays(1)));
         ag.setHoras(2);
         ag.setConfirmado(false);
 
@@ -73,10 +72,10 @@ public class AgendamentoTeste extends Teste {
     public void removerAgendamento() {
         Agendamento ag = em.find(Agendamento.class, 1L);
         assertNotNull(ag);
-        
-        em.createQuery("DELETE FROM Avaliacao a WHERE a.agendamento.id = :id")
-            .setParameter("id", ag.getId())
-            .executeUpdate();
+
+        for (Avaliacao av : ag.getAvaliacoes()) {
+            em.remove(av);
+        }
 
         em.remove(ag);
         em.flush();

@@ -7,6 +7,8 @@ package exemplo.jpa;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  *
@@ -24,17 +26,15 @@ public class Servico implements Serializable {
     @Column(name = "TXT_NOME", nullable = false)
     private String nome;
 
-    @Column(
-        name = "NUM_PRECO_HORA",
-        nullable = false,
-        precision = 10,
-        scale = 2
-    )
+    @Column(name = "NUM_PRECO_HORA", nullable = false, precision = 10, scale = 2)
     private BigDecimal precoHora;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_PETSITTER")
     private PetSitter petSitter;
+
+    @OneToMany(mappedBy = "servico", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Collection<Agendamento> agendamentos = new ArrayList<>();
 
     // =====================
     // GETTERS E SETTERS
@@ -66,5 +66,8 @@ public class Servico implements Serializable {
 
     public void setPetSitter(PetSitter petSitter) {
         this.petSitter = petSitter;
+    }
+    public Collection<Agendamento> getAgendamentos() {
+        return agendamentos;
     }
 }
