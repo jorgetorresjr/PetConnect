@@ -44,6 +44,16 @@ public class ServicoTeste extends Teste {
     public void removerServico() {
         Servico s = em.find(Servico.class, 1L);
         Assert.assertNotNull(s);
+        
+        em.createQuery("DELETE FROM Avaliacao a WHERE a.agendamento.servico.id = :id")
+            .setParameter("id", s.getId())
+            .executeUpdate();
+        
+        em.createQuery("DELETE FROM Agendamento a WHERE a.servico.id = :id")
+           .setParameter("id", s.getId())
+           .executeUpdate();
+    
+    em.flush();
 
         em.remove(s);
         em.flush();

@@ -92,7 +92,7 @@
         ID_SERVICO="1"
         TXT_NOME="Passeio com cachorro (1h)"
         NUM_PRECO_HORA="30.00"
-        ID_PETSITTER="5"
+        ID_PETSITTER="5"    
     />
 
     <TB_SERVICO
@@ -103,6 +103,27 @@
     />
 
     <!-- ===================== -->
+    <!-- AGENDAMENTO -->
+    <!-- ===================== -->
+    <TB_AGENDAMENTO
+        ID_AGENDAMENTO="1"
+        DT_INICIO="2025-12-25 10:00:00"
+        NUM_HORAS="2"
+        BOOL_CONFIRMADO="0"
+        ID_PETOWNER="1"
+        ID_SERVICO="1"
+    />
+    
+    <TB_AGENDAMENTO
+        ID_AGENDAMENTO="2"
+        DT_INICIO="2025-12-21 14:00:00"
+        NUM_HORAS="2"
+        BOOL_CONFIRMADO="0"
+        ID_PETOWNER="2"
+        ID_SERVICO="1"
+    />
+  
+    <!-- ===================== -->
     <!-- NOTIFICAÇÃO -->
     <!-- ===================== -->
     <TB_NOTIFICACAO
@@ -110,5 +131,19 @@
         txt_mensagem="Notificacao inicial do sistema."
         dt_envio="2025-12-16 10:00:00"
         id_usuario="1"/>
+    
+    <TB_NOTIFICACAO
+        ID_NOTIFICACAO="2"
+        txt_mensagem="Agendamento criado"
+        dt_envio="2025-12-20 09:00:00"
+        id_usuario="1"
+    />
+    
+    <TB_AVALIACAO
+        ID_AVALIACAO="1"
+        NUM_NOTA="5"
+        TXT_COMENTARIO="Ótimo passeio!"
+        ID_AGENDAMENTO="1"
+    />
 
 </dataset>

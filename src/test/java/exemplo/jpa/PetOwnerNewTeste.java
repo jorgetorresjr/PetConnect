@@ -73,10 +73,17 @@ public class PetOwnerNewTeste extends Teste {
         // Cria e persiste um novo tutor
         PetOwner petOwner = em.find(PetOwner.class, 1L);
         // Remove dependências
-        em.createQuery(
-            "DELETE FROM Notificacao n WHERE n.usuario.id = :id"
-        ).setParameter("id", petOwner.getId())
-         .executeUpdate();
+        em.createQuery("DELETE FROM Avaliacao v WHERE v.agendamento.petOwner.id = :id")
+            .setParameter("id", petOwner.getId())
+            .executeUpdate();
+        
+        em.createQuery("DELETE FROM Agendamento a WHERE a.petOwner.id = :id")
+            .setParameter("id", petOwner.getId())
+            .executeUpdate();
+        
+        em.createQuery("DELETE FROM Notificacao n WHERE n.usuario.id = :id")
+            .setParameter("id", petOwner.getId())
+            .executeUpdate();
 
         em.flush();
         

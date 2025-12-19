@@ -53,12 +53,14 @@ public class DbUnitUtil {
             IDataSet dataSet = builder.build(in);
             DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
           
-            // AUTOCREMENTO (Incluindo TB_NOTIFICACAO)
+            // AUTOCREMENTO 
             try (var stmt = conn.createStatement()) {
                 stmt.execute("ALTER TABLE TB_USUARIO ALTER COLUMN ID RESTART WITH 10"); 
                 stmt.execute("ALTER TABLE TB_PET ALTER COLUMN ID RESTART WITH 4");
-                stmt.execute("ALTER TABLE TB_NOTIFICACAO ALTER COLUMN ID_NOTIFICACAO RESTART WITH 2"); 
                 stmt.execute("ALTER TABLE TB_SERVICO ALTER COLUMN ID_SERVICO RESTART WITH 3");
+                stmt.execute("ALTER TABLE TB_AGENDAMENTO ALTER COLUMN ID_AGENDAMENTO RESTART WITH 3");
+                stmt.execute("ALTER TABLE TB_NOTIFICACAO ALTER COLUMN ID_NOTIFICACAO RESTART WITH 3"); 
+                stmt.execute("ALTER TABLE TB_AVALIACAO ALTER COLUMN ID_AVALIACAO RESTART WITH 3");
             }
         } catch (SQLException | DatabaseUnitException ex) {
             logger.log(Level.SEVERE, "Erro ao inserir dados com DBUnit", ex);
