@@ -72,6 +72,29 @@ public class PetOwnerNewTeste extends Teste {
     public void removerPetOwnerPadrao() {
         // Cria e persiste um novo tutor
         PetOwner petOwner = em.find(PetOwner.class, 1L);
+        // Remove dependências
+        PetOwner po = em.find(PetOwner.class, 1L);
+
+        // Agendamentos
+        po.getPets().forEach(p -> {
+            // nada aqui, só garantindo pets carregados
+        });
+
+        // Agendamentos não estão mapeados no PetOwner,
+        // então buscamos via navegação indireta
+        em.flush();
+
+        for (Agendamento ag : petOwner.getAgendamentos()) {
+            for (Avaliacao av : ag.getAvaliacoes()) {
+                em.remove(av);
+            }
+            em.remove(ag);
+        }
+
+        // Remove notificações via herança de Usuario
+        for (Notificacao n : petOwner.getNotificacoes()) {
+            em.remove(n);
+        }
 
         em.remove(petOwner);
         em.flush();

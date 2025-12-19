@@ -13,31 +13,33 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
-@Table(name="TB_PETOWNER") 
+@Table(name = "TB_PETOWNER")
 @DiscriminatorValue(value = "PO")
-@PrimaryKeyJoinColumn(name="ID_USUARIO", referencedColumnName = "ID")
+@PrimaryKeyJoinColumn(name = "ID_USUARIO", referencedColumnName = "ID")
 public class PetOwner extends Usuario {
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private Collection<Pet> pets;
-    
+
+    @OneToMany(mappedBy = "petOwner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Collection<Agendamento> agendamentos = new ArrayList<>();
+
     @ManyToMany
-    @JoinTable(
-    name = "TB_FAVORITOS",
-    joinColumns = @JoinColumn(name = "PETOWNER_ID"),
-    inverseJoinColumns = @JoinColumn(name = "PETSITTER_ID")
-    )
+    @JoinTable(name = "TB_FAVORITOS", joinColumns = @JoinColumn(name = "PETOWNER_ID"), inverseJoinColumns = @JoinColumn(name = "PETSITTER_ID"))
     private Collection<PetSitter> favoritos;
 
     public Collection<Pet> getPets() {
         return pets;
     }
-    
+
+    public Collection<Agendamento> getAgendamentos() {
+        return agendamentos;
+    }
+
     public Collection<PetSitter> getFavoritos() {
         return favoritos;
     }
-    
 
- public void addPet(Pet pet) {
+    public void addPet(Pet pet) {
         if (pets == null) {
             pets = new java.util.ArrayList<>();
         }
@@ -45,7 +47,7 @@ public class PetOwner extends Usuario {
         pet.setOwner(this);
     }
 
- public void addFavorito(PetSitter sitter) {
+    public void addFavorito(PetSitter sitter) {
         if (favoritos == null) {
             favoritos = new ArrayList<>();
         }
@@ -70,15 +72,17 @@ public class PetOwner extends Usuario {
         }
     }
 
-  @Override
+    @Override
     public int hashCode() {
         return (id != null ? id.hashCode() : 0);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof PetOwner)) return false;
+        if (this == obj)
+            return true;
+        if (!(obj instanceof PetOwner))
+            return false;
         PetOwner other = (PetOwner) obj;
         return id != null && id.equals(other.id);
     }
