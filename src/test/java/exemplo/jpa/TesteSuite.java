@@ -24,7 +24,7 @@ import org.junit.runners.Suite;
     exemplo.jpa.AgendamentoTeste.class,
     exemplo.jpa.NotificacaoTeste.class,
     exemplo.jpa.AvaliacaoTeste.class,
-    
+    exemplo.jpa.PagamentoTeste.class
 })
 public class TesteSuite {
     

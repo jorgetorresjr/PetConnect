@@ -145,5 +145,52 @@
         TXT_COMENTARIO="Ótimo passeio!"
         ID_AGENDAMENTO="1"
     />
+    
+    <!-- ===================== -->
+    <!-- PAGAMENTO -->
+    <!-- ===================== -->
+    
+    <TB_PAGAMENTO
+        VLR_VALOR="80.00"
+        DT_DATA="2025-12-16"
+        DT_HORA="10:00:00"
+        ID_PETOWNER="3"
+        ID_SERVICO="2"
+        TXT_TIPO_PAGAMENTO="PIX"
+        TXT_STATUS_PAGAMENTO="CONFIRMADO"
+    />
+
+    <TB_PAGAMENTO
+        VLR_VALOR="100.00"
+        DT_DATA="2025-12-17"
+        DT_HORA="14:00:00"
+        ID_PETOWNER="4"
+        ID_SERVICO="2"
+        TXT_TIPO_PAGAMENTO="CARTAO_CREDITO"
+        TXT_STATUS_PAGAMENTO="PENDENTE"
+    />
+
+    <TB_PAGAMENTO
+        VLR_VALOR="120.00"
+        DT_DATA="2025-12-18"
+        DT_HORA="09:30:00"
+        ID_PETOWNER="5"
+        ID_SERVICO="2"
+        TXT_TIPO_PAGAMENTO="BOLETO"
+        TXT_STATUS_PAGAMENTO="PENDENTE"
+    />
+
+    <TB_PAGAMENTO
+        VLR_VALOR="150.00"
+        DT_DATA="2025-12-19"
+        DT_HORA="11:00:00"
+        ID_PETOWNER="6"
+        ID_SERVICO="2"
+        TXT_TIPO_PAGAMENTO="PIX"
+        TXT_STATUS_PAGAMENTO="PENDENTE"
+    />
+
+
+
 
 </dataset>
