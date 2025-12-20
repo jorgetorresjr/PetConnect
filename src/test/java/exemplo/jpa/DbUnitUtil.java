@@ -51,17 +51,8 @@ public class DbUnitUtil {
                 throw new RuntimeException("Arquivo dataset.xml não encontrado: " + XML_FILE);
             }
             IDataSet dataSet = builder.build(in);
-            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
-          
-            // AUTOCREMENTO 
-            try (var stmt = conn.createStatement()) {
-                stmt.execute("ALTER TABLE TB_USUARIO ALTER COLUMN ID RESTART WITH 10"); 
-                stmt.execute("ALTER TABLE TB_PET ALTER COLUMN ID RESTART WITH 4");
-                stmt.execute("ALTER TABLE TB_SERVICO ALTER COLUMN ID_SERVICO RESTART WITH 3");
-                stmt.execute("ALTER TABLE TB_AGENDAMENTO ALTER COLUMN ID_AGENDAMENTO RESTART WITH 3");
-                stmt.execute("ALTER TABLE TB_NOTIFICACAO ALTER COLUMN ID_NOTIFICACAO RESTART WITH 3"); 
-                stmt.execute("ALTER TABLE TB_AVALIACAO ALTER COLUMN ID_AVALIACAO RESTART WITH 3");
-            }
+            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);       
+            
         } catch (SQLException | DatabaseUnitException ex) {
             logger.log(Level.SEVERE, "Erro ao inserir dados com DBUnit", ex);
             throw new RuntimeException("Erro ao inserir dados com DBUnit: " + ex.getMessage(), ex);

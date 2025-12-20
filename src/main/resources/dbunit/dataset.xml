@@ -1,196 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-
-    <!-- ===================== -->
     <!-- USUÁRIOS -->
-    <!-- ===================== -->
-    <TB_USUARIO disc_usuario = "PO" txt_cpf = "808.257.284-10" dt_nascimento = "1999-12-21"
-                txt_email = "fulano@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
-                end_txt_complemento = "Apto. 201" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
-                end_numero = "20" txt_login = "fulano" txt_nome = "Fulano Silva" txt_senha = "teste123"/>
-    <TB_FOTO_USUARIO id_usuario = "1" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('fulano.jpg')"/>
-    <TB_PETOWNER id_usuario = "1"/>
-    
-    <TB_USUARIO disc_usuario = "PO" txt_cpf = "740.707.044-00" dt_nascimento = "1973-08-11"
-                txt_email = "sicrano@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
-                end_txt_complemento = "Apto. 202" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
-                end_numero = "20" txt_login = "sicrano" txt_nome = "Sicrano Silva" txt_senha = "sicrano123"/>
-    <TB_FOTO_USUARIO id_usuario = "2" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('sicrano.jpg')"/>
-    <TB_PETOWNER id_usuario = "2"/>
-    
-    <TB_USUARIO disc_usuario = "PO" txt_cpf = "026.605.218-59" dt_nascimento = "1979-09-01"
-                txt_email = "beltrano@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
-                end_txt_complemento = "Apto. 302" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
-                end_numero = "20" txt_login = "beltrano" txt_nome = "Beltrano Silva" txt_senha = "beltrano_mesmo"/>
-    <TB_FOTO_USUARIO id_usuario = "3" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('beltrano.jpg')"/>
-    <TB_PETOWNER id_usuario = "3"/>
-    
-    <TB_USUARIO disc_usuario = "PO" txt_cpf = "787.829.223-06" dt_nascimento = "1989-10-23" 
-                txt_email = "ze@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
-                end_txt_complemento = "Apto. 401" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
-                end_numero = "20" txt_login = "zesilva" txt_nome = "José da Silva" txt_senha = "ze123"/>
-    <TB_FOTO_USUARIO id_usuario = "4" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('ze.jpg')"/>
-    <TB_PETOWNER id_usuario = "4"/>
-    
-    <TB_USUARIO disc_usuario = "PS" txt_cpf = "484.854.847-03" dt_nascimento = "1995-11-23" 
-                txt_email = "cuidador1@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
-                end_txt_complemento = "Apto. 704" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
-                end_numero = "20" txt_login = "v1silva" txt_nome = "Cuidador da Silva" txt_senha = "v1123"/>
-    <TB_FOTO_USUARIO id_usuario = "5" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('cuidador1.jpg')"/>
-    <TB_PETSITTER id_usuario = "5" num_valor_hora = "50.00" txt_disponibilidade = "Segunda a Sexta" txt_restricoes = "Apenas cães pequenos"/>
-    
-    <TB_USUARIO disc_usuario = "PS" txt_cpf = "316.819.699-12" dt_nascimento = "1985-11-23" 
-                txt_email = "cuidador2@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
-                end_txt_complemento = "Apto. 902" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
-                end_numero = "20" txt_login = "v2silva" txt_nome = "Cuidador Segundo da Silva" txt_senha = "segs123"/>
-    <TB_FOTO_USUARIO id_usuario = "6" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('cuidador2.jpg')"/>
-    <TB_PETSITTER id_usuario = "6" num_valor_hora = "45.00" txt_disponibilidade = "Finais de Semana" />
-    
-    <TB_USUARIO disc_usuario = "PS" txt_cpf = "548.578.464-03" dt_nascimento = "1995-11-23" 
-                txt_email = "cuidador3@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
-                end_txt_complemento = "Apto. 702" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
-                end_numero = "20" txt_login = "v3silva" txt_nome = "Cuidador Terceiro da Silva" txt_senha = "segredos123"/>
-    <TB_FOTO_USUARIO id_usuario = "7" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('cuidador3.jpg')"/>
-    <TB_PETSITTER id_usuario = "7" num_valor_hora = "60.00" txt_disponibilidade = "Qualquer horário" txt_restricoes = "Não cuida de répteis"/>
-    
-    <TB_USUARIO disc_usuario = "PO" txt_cpf = "772.633.604-89" dt_nascimento = "1987-10-21" 
-                txt_email = "comp@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
-                end_txt_complemento = "Apto. 101" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
-                end_numero = "20" txt_login = "comp1" txt_nome = "Comprador da Silva" txt_senha = "comp"/>
-    <TB_FOTO_USUARIO id_usuario = "8" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('comp.jpg')"/>
-    <TB_PETOWNER id_usuario = "8"/>
-    
-    <TB_USUARIO disc_usuario = "PO" txt_cpf = "818.257.284-10" dt_nascimento = "1999-12-21"
-                txt_email = "fulano8@gmail.com" end_txt_bairro = "Iputinga" end_txt_cep = "50670-210" end_txt_cidade = "Recife"
-                end_txt_complemento = "Apto. 201" end_txt_estado = "Pernambuco" end_txt_logradouro = "Rua Ribeirão" 
-                end_numero = "20" txt_login = "fulano8" txt_nome = "Fulano Silva" txt_senha = "teste123"/>
-    <TB_FOTO_USUARIO id_usuario = "9" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('fulano8.jpg')"/>
-    <TB_PETOWNER id_usuario = "9"/>
+    <TB_USUARIO disc_usuario="PO" txt_cpf="808.257.284-10" dt_nascimento="1999-12-21"
+                txt_email="fulano@gmail.com" end_txt_bairro="Iputinga" end_txt_cep="50670-210" end_txt_cidade="Recife"
+                end_txt_complemento="Apto. 201" end_txt_estado="Pernambuco" end_txt_logradouro="Rua Ribeirão"
+                end_numero="20" txt_login="fulano" txt_nome="Fulano Silva" txt_senha="teste123"/>
+    <TB_FOTO_USUARIO id_usuario="1" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('fulano.jpg')"/>
+    <TB_PETOWNER id_usuario="1"/>
 
-    <!-- ===================== -->
+    <TB_USUARIO disc_usuario="PO" txt_cpf="740.707.044-00" dt_nascimento="1973-08-11"
+                txt_email="sicrano@gmail.com" end_txt_bairro="Iputinga" end_txt_cep="50670-210" end_txt_cidade="Recife"
+                end_txt_complemento="Apto. 202" end_txt_estado="Pernambuco" end_txt_logradouro="Rua Ribeirão"
+                end_numero="20" txt_login="sicrano" txt_nome="Sicrano Silva" txt_senha="sicrano123"/>
+    <TB_FOTO_USUARIO id_usuario="2" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('sicrano.jpg')"/>
+    <TB_PETOWNER id_usuario="2"/>
+
+    <TB_USUARIO disc_usuario="PO" txt_cpf="026.605.218-59" dt_nascimento="1979-09-01"
+                txt_email="beltrano@gmail.com" end_txt_bairro="Iputinga" end_txt_cep="50670-210" end_txt_cidade="Recife"
+                end_txt_complemento="Apto. 302" end_txt_estado="Pernambuco" end_txt_logradouro="Rua Ribeirão"
+                end_numero="20" txt_login="beltrano" txt_nome="Beltrano Silva" txt_senha="beltrano_mesmo"/>
+    <TB_FOTO_USUARIO id_usuario="3" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('beltrano.jpg')"/>
+    <TB_PETOWNER id_usuario="3"/>
+
+    <TB_USUARIO disc_usuario="PO" txt_cpf="787.829.223-06" dt_nascimento="1989-10-23"
+                txt_email="ze@gmail.com" end_txt_bairro="Iputinga" end_txt_cep="50670-210" end_txt_cidade="Recife"
+                end_txt_complemento="Apto. 401" end_txt_estado="Pernambuco" end_txt_logradouro="Rua Ribeirão"
+                end_numero="20" txt_login="zesilva" txt_nome="José da Silva" txt_senha="ze123"/>
+    <TB_FOTO_USUARIO id_usuario="4" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('ze.jpg')"/>
+    <TB_PETOWNER id_usuario="4"/>
+
+    <TB_USUARIO disc_usuario="PS" txt_cpf="484.854.847-03" dt_nascimento="1995-11-23"
+                txt_email="cuidador1@gmail.com" end_txt_bairro="Iputinga" end_txt_cep="50670-210" end_txt_cidade="Recife"
+                end_txt_complemento="Apto. 704" end_txt_estado="Pernambuco" end_txt_logradouro="Rua Ribeirão"
+                end_numero="20" txt_login="v1silva" txt_nome="Cuidador da Silva" txt_senha="v1123"/>
+    <TB_FOTO_USUARIO id_usuario="5" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('cuidador1.jpg')"/>
+    <TB_PETSITTER id_usuario="5" num_valor_hora="50.00" txt_disponibilidade="Segunda a Sexta" txt_restricoes="Apenas cães pequenos"/>
+
+    <TB_USUARIO disc_usuario="PS" txt_cpf="316.819.699-12" dt_nascimento="1985-11-23"
+                txt_email="cuidador2@gmail.com" end_txt_bairro="Iputinga" end_txt_cep="50670-210" end_txt_cidade="Recife"
+                end_txt_complemento="Apto. 902" end_txt_estado="Pernambuco" end_txt_logradouro="Rua Ribeirão"
+                end_numero="20" txt_login="v2silva" txt_nome="Cuidador Segundo da Silva" txt_senha="segs123"/>
+    <TB_FOTO_USUARIO id_usuario="6" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('cuidador2.jpg')"/>
+    <TB_PETSITTER id_usuario="6" num_valor_hora="45.00" txt_disponibilidade="Finais de Semana"/>
+
+    <TB_USUARIO disc_usuario="PS" txt_cpf="548.578.464-03" dt_nascimento="1995-11-23"
+                txt_email="cuidador3@gmail.com" end_txt_bairro="Iputinga" end_txt_cep="50670-210" end_txt_cidade="Recife"
+                end_txt_complemento="Apto. 702" end_txt_estado="Pernambuco" end_txt_logradouro="Rua Ribeirão"
+                end_numero="20" txt_login="v3silva" txt_nome="Cuidador Terceiro da Silva" txt_senha="segredos123"/>
+    <TB_FOTO_USUARIO id_usuario="7" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('cuidador3.jpg')"/>
+    <TB_PETSITTER id_usuario="7" num_valor_hora="60.00" txt_disponibilidade="Qualquer horário" txt_restricoes="Não cuida de répteis"/>
+
+    <TB_USUARIO disc_usuario="PO" txt_cpf="772.633.604-89" dt_nascimento="1987-10-21"
+                txt_email="comp@gmail.com" end_txt_bairro="Iputinga" end_txt_cep="50670-210" end_txt_cidade="Recife"
+                end_txt_complemento="Apto. 101" end_txt_estado="Pernambuco" end_txt_logradouro="Rua Ribeirão"
+                end_numero="20" txt_login="comp1" txt_nome="Comprador da Silva" txt_senha="comp"/>
+    <TB_FOTO_USUARIO id_usuario="8" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('comp.jpg')"/>
+    <TB_PETOWNER/>
+
+    <TB_USUARIO disc_usuario="PO" txt_cpf="818.257.284-10" dt_nascimento="1999-12-21"
+                txt_email="fulano8@gmail.com" end_txt_bairro="Iputinga" end_txt_cep="50670-210" end_txt_cidade="Recife"
+                end_txt_complemento="Apto. 201" end_txt_estado="Pernambuco" end_txt_logradouro="Rua Ribeirão"
+                end_numero="20" txt_login="fulano8" txt_nome="Fulano Silva" txt_senha="teste123"/>
+    <TB_FOTO_USUARIO id_usuario="9" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('fulano8.jpg')"/>
+    <TB_PETOWNER/>
+
     <!-- PET -->
-    <!-- ===================== -->
-    <TB_PET id="1" txt_nome="Rex" txt_raca="Labrador" num_idade="5" txt_tipo_animal="CACHORRO" 
-            txt_sexo="MACHO" txt_temperamento="Amigável" txt_estado_saude="Saudável" 
+    <TB_PET txt_nome="Rex" txt_raca="Labrador" num_idade="5" txt_tipo_animal="CACHORRO"
+            txt_sexo="MACHO" txt_temperamento="Amigável" txt_estado_saude="Saudável"
             bool_castrado="1" bool_ativo="1" id_usuario="1"/>
-    <TB_FOTO_PET id_pet="1" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('rex.jpg')"/>
-    
-    <TB_PET id="2" txt_nome="Mimi" txt_raca="Siamês" num_idade="3" txt_tipo_animal="GATO" 
-            txt_sexo="FEMEA" txt_temperamento="Independente" txt_estado_saude="Saudável" 
+    <TB_FOTO_PET id_pet="1" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('rex.jpg')"/>
+
+    <TB_PET txt_nome="Mimi" txt_raca="Siamês" num_idade="3" txt_tipo_animal="GATO"
+            txt_sexo="FEMEA" txt_temperamento="Independente" txt_estado_saude="Saudável"
             bool_castrado="1" bool_ativo="1" id_usuario="2"/>
-    <TB_FOTO_PET id_pet="2" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('mimi.jpg')"/>
-    
-    <TB_PET id="3" txt_nome="Bob" txt_raca="Beagle" num_idade="2" txt_tipo_animal="CACHORRO" 
-            txt_sexo="MACHO" txt_temperamento="Brincalhão" txt_estado_saude="Saudável" 
+    <TB_FOTO_PET id_pet="2" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('mimi.jpg')"/>
+
+    <TB_PET txt_nome="Bob" txt_raca="Beagle" num_idade="2" txt_tipo_animal="CACHORRO"
+            txt_sexo="MACHO" txt_temperamento="Brincalhão" txt_estado_saude="Saudável"
             bool_castrado="0" bool_ativo="1" id_usuario="3"/>
-    <TB_FOTO_PET id_pet="3" img_foto = "method:exemplo.jpa.DbUnitUtil.getFotoBase64('bob.jpg')"/>
-    
-    <!-- ===================== -->
-    <!-- SERVIÇO (NOVO) -->
-    <!-- ===================== -->
-    <TB_SERVICO
-        ID_SERVICO="1"
-        TXT_NOME="Passeio com cachorro (1h)"
-        NUM_PRECO_HORA="30.00"
-        ID_PETSITTER="5"    
-    />
+    <TB_FOTO_PET id_pet="3" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('bob.jpg')"/>
 
-    <TB_SERVICO
-        ID_SERVICO="2"
-        TXT_NOME="Hospedagem domiciliar"
-        NUM_PRECO_HORA="80.00"
-        ID_PETSITTER="5"
-    />
+    <!-- SERVIÇO -->
+    <TB_SERVICO TXT_NOME="Passeio com cachorro (1h)" NUM_PRECO_HORA="30.00" ID_PETSITTER="5"/>
+    <TB_SERVICO TXT_NOME="Hospedagem domiciliar" NUM_PRECO_HORA="80.00" ID_PETSITTER="5"/>
 
-    <!-- ===================== -->
     <!-- AGENDAMENTO -->
-    <!-- ===================== -->
-    <TB_AGENDAMENTO
-        ID_AGENDAMENTO="1"
-        DT_INICIO="2025-12-25 10:00:00"
-        NUM_HORAS="2"
-        BOOL_CONFIRMADO="0"
-        ID_PETOWNER="1"
-        ID_SERVICO="1"
-    />
-    
-    <TB_AGENDAMENTO
-        ID_AGENDAMENTO="2"
-        DT_INICIO="2025-12-21 14:00:00"
-        NUM_HORAS="2"
-        BOOL_CONFIRMADO="0"
-        ID_PETOWNER="2"
-        ID_SERVICO="1"
-    />
-  
-    <!-- ===================== -->
+    <TB_AGENDAMENTO DT_INICIO="2025-12-25 10:00:00" NUM_HORAS="2" BOOL_CONFIRMADO="0" ID_PETOWNER="1" ID_SERVICO="1"/>
+    <TB_AGENDAMENTO DT_INICIO="2025-12-21 14:00:00" NUM_HORAS="2" BOOL_CONFIRMADO="0" ID_PETOWNER="2" ID_SERVICO="1"/>
+
     <!-- NOTIFICAÇÃO -->
-    <!-- ===================== -->
-    <TB_NOTIFICACAO
-        ID_NOTIFICACAO="1"
-        txt_mensagem="Notificacao inicial do sistema."
-        dt_envio="2025-12-16 10:00:00"
-        id_usuario="1"/>
-    
-    <TB_NOTIFICACAO
-        ID_NOTIFICACAO="2"
-        txt_mensagem="Agendamento criado"
-        dt_envio="2025-12-20 09:00:00"
-        id_usuario="1"
-    />
-    
-    <TB_AVALIACAO
-        ID_AVALIACAO="1"
-        NUM_NOTA="5"
-        TXT_COMENTARIO="Ótimo passeio!"
-        ID_AGENDAMENTO="1"
-    />
-    
-    <!-- ===================== -->
+    <TB_NOTIFICACAO txt_mensagem="Notificacao inicial do sistema." dt_envio="2025-12-16 10:00:00" id_usuario="1"/>
+    <TB_NOTIFICACAO txt_mensagem="Agendamento criado" dt_envio="2025-12-20 09:00:00" id_usuario="1"/>
+
+    <!-- AVALIAÇÃO -->
+    <TB_AVALIACAO NUM_NOTA="5" TXT_COMENTARIO="Ótimo passeio!" ID_AGENDAMENTO="1"/>
+
     <!-- PAGAMENTO -->
-    <!-- ===================== -->
-    
-    <TB_PAGAMENTO
-        VLR_VALOR="80.00"
-        DT_DATA="2025-12-16"
-        DT_HORA="10:00:00"
-        ID_PETOWNER="3"
-        ID_SERVICO="2"
-        TXT_TIPO_PAGAMENTO="PIX"
-        TXT_STATUS_PAGAMENTO="CONFIRMADO"
-    />
-
-    <TB_PAGAMENTO
-        VLR_VALOR="100.00"
-        DT_DATA="2025-12-17"
-        DT_HORA="14:00:00"
-        ID_PETOWNER="4"
-        ID_SERVICO="2"
-        TXT_TIPO_PAGAMENTO="CARTAO_CREDITO"
-        TXT_STATUS_PAGAMENTO="PENDENTE"
-    />
-
-    <TB_PAGAMENTO
-        VLR_VALOR="120.00"
-        DT_DATA="2025-12-18"
-        DT_HORA="09:30:00"
-        ID_PETOWNER="5"
-        ID_SERVICO="2"
-        TXT_TIPO_PAGAMENTO="BOLETO"
-        TXT_STATUS_PAGAMENTO="PENDENTE"
-    />
-
-    <TB_PAGAMENTO
-        VLR_VALOR="150.00"
-        DT_DATA="2025-12-19"
-        DT_HORA="11:00:00"
-        ID_PETOWNER="6"
-        ID_SERVICO="2"
-        TXT_TIPO_PAGAMENTO="PIX"
-        TXT_STATUS_PAGAMENTO="PENDENTE"
-    />
-
-
-
-
+    <TB_PAGAMENTO VLR_VALOR="80.00" DT_DATA="2025-12-16" DT_HORA="10:00:00" ID_PETOWNER="3" ID_SERVICO="2" TXT_TIPO_PAGAMENTO="PIX" TXT_STATUS_PAGAMENTO="CONFIRMADO"/>
+    <TB_PAGAMENTO VLR_VALOR="100.00" DT_DATA="2025-12-17" DT_HORA="14:00:00" ID_PETOWNER="4" ID_SERVICO="2" TXT_TIPO_PAGAMENTO="CARTAO_CREDITO" TXT_STATUS_PAGAMENTO="PENDENTE"/>
+    <TB_PAGAMENTO VLR_VALOR="120.00" DT_DATA="2025-12-18" DT_HORA="09:30:00" ID_PETOWNER="5" ID_SERVICO="2" TXT_TIPO_PAGAMENTO="BOLETO" TXT_STATUS_PAGAMENTO="PENDENTE"/>
+    <TB_PAGAMENTO VLR_VALOR="150.00" DT_DATA="2025-12-19" DT_HORA="11:00:00" ID_PETOWNER="6" ID_SERVICO="2" TXT_TIPO_PAGAMENTO="PIX" TXT_STATUS_PAGAMENTO="PENDENTE"/>
 </dataset>
