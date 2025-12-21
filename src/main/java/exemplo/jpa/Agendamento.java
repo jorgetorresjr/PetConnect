@@ -7,7 +7,7 @@ package exemplo.jpa;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
+
 /**
  *
  * @author elaine
@@ -39,7 +39,7 @@ public class Agendamento implements Serializable {
     @JoinColumn(name = "ID_SERVICO", referencedColumnName = "ID_SERVICO")
     private Servico servico;
     
-    @OneToOne(mappedBy = "agendamento")
+    @OneToOne(mappedBy = "agendamento", cascade = CascadeType.REMOVE)
     private Avaliacao avaliacao;
 
     // ===== Getters e Setters =====

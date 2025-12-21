@@ -2,13 +2,17 @@ package exemplo.jpa;
 
 import exemplo.jpa.Enums.TipoServico;
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "TB_PERFIL_PETSITTER")
+@PrimaryKeyJoinColumn(name = "ID")
+@DiscriminatorValue("PS")
 public class PerfilPetSitter extends Perfil {
 
     @Column(name = "EXPERIENCIA", length = 300)

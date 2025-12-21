@@ -2,10 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package exemplo.jpa;
+package exemplo.jpa.v2;
 
 import exemplo.jpa.Enums.StatusPagamento;
 import exemplo.jpa.Enums.TipoPagamento;
+import exemplo.jpa.Pagamento;
+import exemplo.jpa.PetOwner;
+import exemplo.jpa.Servico;
+import exemplo.jpa.Teste;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;

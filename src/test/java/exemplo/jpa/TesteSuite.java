@@ -14,17 +14,19 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    exemplo.jpa.PetSitterTeste.class,
-    exemplo.jpa.PetOwnerTeste.class,
-    exemplo.jpa.PetTeste.class,
-    exemplo.jpa.PetNewTeste.class,
-    exemplo.jpa.PetSitterNewTeste.class,
-    exemplo.jpa.PetOwnerNewTeste.class,
-    exemplo.jpa.ServicoTeste.class,
-    exemplo.jpa.AgendamentoTeste.class,
-    exemplo.jpa.NotificacaoTeste.class,
-    exemplo.jpa.AvaliacaoTeste.class,
-    exemplo.jpa.PagamentoTeste.class
+    exemplo.jpa.v1.PetSitterTeste.class,
+    exemplo.jpa.v1.PetOwnerTeste.class,
+    exemplo.jpa.v1.PetTeste.class,
+    exemplo.jpa.v2.PetTeste.class,
+    exemplo.jpa.v2.PetSitterTeste.class,
+    exemplo.jpa.v2.PetOwnerTeste.class,
+    exemplo.jpa.v2.PerfilPetOwnerTeste.class,
+    exemplo.jpa.v2.PerfilPetSitterTeste.class,
+    exemplo.jpa.v2.ServicoTeste.class,
+    exemplo.jpa.v2.AgendamentoTeste.class,
+    exemplo.jpa.v2.NotificacaoTeste.class,
+    exemplo.jpa.v2.AvaliacaoTeste.class,
+    exemplo.jpa.v2.PagamentoTeste.class
 })
 public class TesteSuite {
     
