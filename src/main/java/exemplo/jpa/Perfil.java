@@ -1,13 +1,11 @@
 package exemplo.jpa;
 
-
 import jakarta.persistence.*;
-
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "TB_PERFIL")
-@DiscriminatorColumn(name = "DTYPE") 
+@DiscriminatorColumn(name = "DTYPE")
 public abstract class Perfil {
 
     @Id
@@ -23,9 +21,10 @@ public abstract class Perfil {
     @Column(name = "SOCIAL_URL")
     private String socialUrl;
 
-    @OneToOne(mappedBy = "perfil", cascade = CascadeType.REMOVE)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PERFIL_ID")
     private Usuario usuario;
-    
+
     // Getters e setters
     public Long getId() {
         return id;
@@ -66,5 +65,5 @@ public abstract class Perfil {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-   
+
 }

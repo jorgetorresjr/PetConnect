@@ -35,6 +35,7 @@
                 END_NUMERO="2" TXT_LOGIN="testpo" TXT_NOME="Test PetOwner 2" TXT_SENHA="senha"/>
     <TB_FOTO_USUARIO ID_USUARIO="2" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_po.jpg')"/>
     <TB_PETOWNER ID_USUARIO="2"/>
+    <TB_TELEFONE ID_USUARIO="2" TXT_NUM_TELEFONE="81999999999"/>
     
     <TB_USUARIO ID="3" PERFIL_ID="3" DISC_USUARIO="PO" TXT_CPF="000.000.000-01" DT_NASCIMENTO="1990-01-01"
                 TXT_EMAIL="test.petowner@example.com" END_TXT_BAIRRO="Bairro Teste" END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"

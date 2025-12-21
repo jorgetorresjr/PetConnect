@@ -5,8 +5,10 @@
 package exemplo.jpa.v2;
 
 import exemplo.jpa.PerfilPetOwner;
+import exemplo.jpa.PetOwner;
 import exemplo.jpa.Teste;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import org.junit.Test;
 
@@ -45,13 +47,22 @@ public class PerfilPetOwnerTeste extends Teste {
         assertEquals("Tutor de um gatinho e uma calopsita.", atualizado.getBio());
     }
 
-    @Test
-    public void removerPerfilPetOwnerPadrao() {
-        PerfilPetOwner perfil = em.find(PerfilPetOwner.class, 1L);
-        em.remove(perfil);
-        em.flush();
+       @Test
+    public void removerPetOwner() {
+        PetOwner petOwner = em.find(PetOwner.class, 1L);
+        assertNotNull(petOwner);
 
-        PerfilPetOwner atualizado = em.find(PerfilPetOwner.class, 1L);
-        assertNull(atualizado);
+        Long idUsuario = petOwner.getId();
+        Long idPerfil = petOwner.getPerfil().getId();
+
+        em.remove(petOwner);
+        em.flush();
+        em.clear();
+
+        PetOwner usuarioRemovido = em.find(PetOwner.class, idUsuario);
+        assertNull(usuarioRemovido);
+
+        PerfilPetOwner perfilRemovido = em.find(PerfilPetOwner.class, idPerfil);
+        assertNull(perfilRemovido);
     }
 }

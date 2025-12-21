@@ -8,6 +8,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,8 +25,8 @@ public class PetSitter extends Usuario {
     @Column(name = "TXT_RESTRICOES")
     private String restricoes;
 
-    @ManyToMany(mappedBy = "favoritos", cascade = CascadeType.REMOVE)
-    private Collection<PetOwner> favoritadoPor;
+    @ManyToMany(mappedBy = "favoritos")
+    private List<PetOwner> favoritadoPor = new ArrayList<>();
 
     @OneToMany(mappedBy = "petSitter", cascade = CascadeType.REMOVE)
     private List<Servico> servicos;
@@ -58,7 +59,7 @@ public class PetSitter extends Usuario {
         return favoritadoPor;
     }
 
-    public void setFavoritadoPor(Collection<PetOwner> favoritadoPor) {
+    public void setFavoritadoPor(List<PetOwner> favoritadoPor) {
         this.favoritadoPor = favoritadoPor;
     }
 

@@ -46,7 +46,7 @@ public abstract class Usuario {
     protected Long id;
     
     @Embedded
-    protected Endereco endereco;
+    protected Endereco endereco = new Endereco();
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PERFIL_ID")
@@ -56,7 +56,7 @@ public abstract class Usuario {
     @CollectionTable(name = "TB_TELEFONE",
             joinColumns = @JoinColumn(name = "ID_USUARIO"))
     @Column(name = "TXT_NUM_TELEFONE")
-    protected Collection<String> telefones;
+    protected List<String> telefones = new ArrayList<>();
     
     @Column(name = "TXT_CPF")
     protected String cpf;
@@ -92,21 +92,17 @@ public abstract class Usuario {
         this.endereco = endereco;
     }
 
-    public Collection<String> getTelefones() {
+    public List<String> getTelefones() {
         return telefones;
     }
     
-    public void setTelefones(Collection<String> telefones) {
-        this.telefones = telefones;
-    }
-
     public void addTelefone(String telefone) {
-        if (telefones == null) {
-            telefones = new ArrayList<>();
-        }
-        telefones.add(telefone);
+    this.telefones.add(telefone);
     }
-
+    
+    public void setTelefones(List<String> telefones) {
+    this.telefones = telefones != null ? telefones : new ArrayList<>();
+}
     public Long getId() {
         return id;
     }
@@ -186,6 +182,13 @@ public abstract class Usuario {
     public void setNotificacoes(List<Notificacao> notificacoes) {
         this.notificacoes = notificacoes;
     }
+    
+    public void definirPerfil(Perfil perfil) {
+    this.perfil = perfil;
+    if (perfil != null) {
+        perfil.setUsuario(this);
+    }
+}
 
     @Override
     public int hashCode() {

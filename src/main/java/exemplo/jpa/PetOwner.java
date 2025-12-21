@@ -30,7 +30,7 @@ public class PetOwner extends Usuario {
             inverseJoinColumns = @JoinColumn(name = "PETSITTER_ID")
     )
 
-    private Collection<PetSitter> favoritos;
+    private List<PetSitter> favoritos = new ArrayList<>();
 
     @OneToMany(mappedBy = "petOwner", cascade = CascadeType.REMOVE)
     private List<Agendamento> agendamentos;
@@ -42,7 +42,7 @@ public class PetOwner extends Usuario {
         return pets;
     }
 
-    public Collection<PetSitter> getFavoritos() {
+    public List<PetSitter> getFavoritos() {
         return favoritos;
     }
 
