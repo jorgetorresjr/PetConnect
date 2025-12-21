@@ -1,6 +1,5 @@
 package exemplo.jpa;
 
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -34,7 +33,7 @@ public class PetOwner extends Usuario {
 
     @OneToMany(mappedBy = "petOwner", cascade = CascadeType.REMOVE)
     private List<Agendamento> agendamentos;
-    
+
     @OneToMany(mappedBy = "petOwner", cascade = CascadeType.REMOVE)
     private List<Pagamento> pagamentos;
 
@@ -49,12 +48,15 @@ public class PetOwner extends Usuario {
     public List<Agendamento> getAgendamentos() {
         return agendamentos;
     }
-    
+
     public void setAgendamentos(List<Agendamento> agendamentos) {
         this.agendamentos = agendamentos;
     }
-    public List<Pagamento> getPagamentos() { return pagamentos; }
-    
+
+    public List<Pagamento> getPagamentos() {
+        return pagamentos;
+    }
+
     public void SetPagamentos(List<Pagamento> pagamentos) {
         this.pagamentos = pagamentos;
     }
@@ -90,7 +92,9 @@ public class PetOwner extends Usuario {
                 sitter.getFavoritadoPor().remove(this);
             }
         }
-    };
+    }
+
+    ;
 
     @Override
     public int hashCode() {

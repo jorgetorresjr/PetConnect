@@ -20,8 +20,10 @@ public class PetSitter extends Usuario {
 
     @Column(name = "NUM_VALOR_HORA")
     private Double valorHora;
+    
     @Column(name = "TXT_DISPONIBILIDADE")
     private String disponibilidade;
+    
     @Column(name = "TXT_RESTRICOES")
     private String restricoes;
 

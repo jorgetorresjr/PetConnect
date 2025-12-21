@@ -16,6 +16,11 @@ public class PerfilPetOwner extends Perfil {
     private String preferenciasPet;
 
     // Getters e setters
-    public String getPreferenciasPet() { return preferenciasPet; }
-    public void setPreferenciasPet(String preferenciasPet) { this.preferenciasPet = preferenciasPet; }
+    public String getPreferenciasPet() {
+        return preferenciasPet;
+    }
+
+    public void setPreferenciasPet(String preferenciasPet) {
+        this.preferenciasPet = preferenciasPet;
+    }
 }

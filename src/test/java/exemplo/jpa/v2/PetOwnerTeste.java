@@ -5,8 +5,6 @@
 package exemplo.jpa.v2;
 
 import exemplo.jpa.Endereco;
-import exemplo.jpa.Perfil;
-import exemplo.jpa.PerfilPetOwner;
 import exemplo.jpa.PetOwner;
 import exemplo.jpa.PetSitter;
 import exemplo.jpa.Teste;
@@ -98,12 +96,10 @@ public class PetOwnerTeste extends Teste {
 
         petOwner.setEndereco(novo);
 
-        // act
         PetOwner merged = em.merge(petOwner);
         em.flush();
         em.clear();
 
-        // assert
         PetOwner atualizado = em.find(PetOwner.class, merged.getId());
         assertNotNull(atualizado.getEndereco());
         assertEquals("Recife", atualizado.getEndereco().getCidade());
@@ -129,8 +125,7 @@ public class PetOwnerTeste extends Teste {
         assertTrue(pSitter.getFavoritadoPor().contains(pOwner));
     }
 
-    
-     @Test
+    @Test
     public void removerPetOwnerPadrão() {
         PetOwner petOwner = em.find(PetOwner.class, 1L);
 

@@ -17,9 +17,8 @@ import static org.junit.Assert.*;
  * @author masc1
  */
 public class PetOwnerTeste extends Teste {
-    
 
- @Test
+    @Test
     public void consultarPetOwner() {
         PetOwner petOwner = em.find(PetOwner.class, 2L);
         assertNotNull(petOwner);
@@ -29,7 +28,7 @@ public class PetOwnerTeste extends Teste {
         c.set(1990, Calendar.JANUARY, 1, 0, 0, 0); // data conforme dataset.xml (1990-01-01)
         assertEquals(c.getTime().toString(), petOwner.getDataNascimento().toString());
         assertEquals("test.petowner@example.com", petOwner.getEmail());
-        
+
         Endereco endereco = petOwner.getEndereco();
         assertNotNull(endereco);
         assertEquals("Estado", endereco.getEstado());

@@ -16,11 +16,11 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
+
 /**
  *
  * @author elaine
  */
-
 
 @Entity
 @Table(name = "TB_NOTIFICACAO")
@@ -33,23 +33,46 @@ public class Notificacao implements Serializable {
 
     @Column(name = "TXT_MENSAGEM", nullable = false, length = 500)
     private String mensagem;
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DT_ENVIO", nullable = false)
     private Date dataEnvio;
-    
+
     // Relação ManyToOne com Usuario (ligada à herança)
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_USUARIO")
     private Usuario usuario;
 
     // Getters e Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getMensagem() { return mensagem; }
-    public void setMensagem(String mensagem) { this.mensagem = mensagem; }
-    public Date getDataEnvio() { return dataEnvio; }
-    public void setDataEnvio(Date dataEnvio) { this.dataEnvio = dataEnvio; }
-    public Usuario getUsuario() { return usuario; }
-    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public Date getDataEnvio() {
+        return dataEnvio;
+    }
+
+    public void setDataEnvio(Date dataEnvio) {
+        this.dataEnvio = dataEnvio;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }

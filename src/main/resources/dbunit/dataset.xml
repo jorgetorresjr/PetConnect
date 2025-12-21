@@ -23,14 +23,16 @@
 
     <!-- USUÁRIOS -->
     <TB_USUARIO ID="1" PERFIL_ID="1" DISC_USUARIO="PO" TXT_CPF="000.000.000-01" DT_NASCIMENTO="1990-01-01"
-                TXT_EMAIL="test.petowner@example.com" END_TXT_BAIRRO="Bairro Teste" END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"
+                TXT_EMAIL="test.petowner@example.com" END_TXT_BAIRRO="Bairro Teste" 
+                END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"
                 END_TXT_COMPLEMENTO="Apto 1" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Rua Teste"
                 END_NUMERO="1" TXT_LOGIN="testpo" TXT_NOME="Test PetOwner" TXT_SENHA="senha"/>
     <TB_FOTO_USUARIO ID_USUARIO="1" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_po.jpg')"/>
     <TB_PETOWNER ID_USUARIO="1"/>
     
     <TB_USUARIO ID="2" PERFIL_ID="2" DISC_USUARIO="PO" TXT_CPF="740.707.044-00" DT_NASCIMENTO="1990-01-01"
-                TXT_EMAIL="test.petowner@example.com" END_TXT_BAIRRO="Bairro Teste" END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"
+                TXT_EMAIL="test.petowner@example.com" END_TXT_BAIRRO="Bairro Teste" 
+                END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"
                 END_TXT_COMPLEMENTO="Apto 1" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Rua Teste"
                 END_NUMERO="2" TXT_LOGIN="testpo" TXT_NOME="Test PetOwner 2" TXT_SENHA="senha"/>
     <TB_FOTO_USUARIO ID_USUARIO="2" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_po.jpg')"/>
@@ -38,49 +40,55 @@
     <TB_TELEFONE ID_USUARIO="2" TXT_NUM_TELEFONE="81999999999"/>
     
     <TB_USUARIO ID="3" PERFIL_ID="3" DISC_USUARIO="PO" TXT_CPF="000.000.000-01" DT_NASCIMENTO="1990-01-01"
-                TXT_EMAIL="test.petowner@example.com" END_TXT_BAIRRO="Bairro Teste" END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"
+                TXT_EMAIL="test.petowner@example.com" END_TXT_BAIRRO="Bairro Teste" 
+                END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"
                 END_TXT_COMPLEMENTO="Apto 1" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Rua Teste"
                 END_NUMERO="3" TXT_LOGIN="testpo" TXT_NOME="Test PetOwner 2" TXT_SENHA="senha"/>
     <TB_FOTO_USUARIO ID_USUARIO="3" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_po.jpg')"/>
     <TB_PETOWNER ID_USUARIO="3"/>
     
     <TB_USUARIO ID="4" PERFIL_ID="4" DISC_USUARIO="PO" TXT_CPF="000.000.000-01" DT_NASCIMENTO="1990-01-01"
-                TXT_EMAIL="test.petowner@example.com" END_TXT_BAIRRO="Bairro Teste" END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"
+                TXT_EMAIL="test.petowner@example.com" END_TXT_BAIRRO="Bairro Teste" 
+                END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"
                 END_TXT_COMPLEMENTO="Apto 1" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Rua Teste"
                 END_NUMERO="4" TXT_LOGIN="testpo" TXT_NOME="Test PetOwner 2" TXT_SENHA="senha"/>
     <TB_FOTO_USUARIO ID_USUARIO="4" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_po.jpg')"/>
     <TB_PETOWNER ID_USUARIO="4"/>
 
     <TB_USUARIO ID="5" PERFIL_ID="5" DISC_USUARIO="PS" TXT_CPF="000.000.000-02" DT_NASCIMENTO="1992-02-02"
-                TXT_EMAIL="test.petsitter@example.com" END_TXT_BAIRRO="Bairro Sitter" END_TXT_CEP="00000-001" END_TXT_CIDADE="Cidade"
+                TXT_EMAIL="test.petsitter@example.com" END_TXT_BAIRRO="Bairro Sitter" 
+                END_TXT_CEP="00000-001" END_TXT_CIDADE="Cidade"
                 END_TXT_COMPLEMENTO="Casa" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Av. Sitter"
                 END_NUMERO="5" TXT_LOGIN="testsitter" TXT_NOME="Test PetSitter" TXT_SENHA="senha2"/>
     <TB_FOTO_USUARIO ID_USUARIO="5" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_ps.jpg')"/>
     <TB_PETSITTER ID_USUARIO="5" NUM_VALOR_HORA="35.00" TXT_DISPONIBILIDADE="Seg-Sex" TXT_RESTRICOES="Nenhuma"/>
     
     <TB_USUARIO ID="6" PERFIL_ID="6" DISC_USUARIO="PS" TXT_CPF="000.000.000-02" DT_NASCIMENTO="1992-02-02"
-                TXT_EMAIL="test.petsitter@example.com" END_TXT_BAIRRO="Bairro Sitter" END_TXT_CEP="00000-001" END_TXT_CIDADE="Cidade"
+                TXT_EMAIL="test.petsitter@example.com" END_TXT_BAIRRO="Bairro Sitter" 
+                END_TXT_CEP="00000-001" END_TXT_CIDADE="Cidade"
                 END_TXT_COMPLEMENTO="Casa" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Av. Sitter"
                 END_NUMERO="6" TXT_LOGIN="testsitter" TXT_NOME="Test PetSitter" TXT_SENHA="senha2"/>
     <TB_FOTO_USUARIO ID_USUARIO="6" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_ps.jpg')"/>
     <TB_PETSITTER ID_USUARIO="6" NUM_VALOR_HORA="35.00" TXT_DISPONIBILIDADE="Seg-Sex" TXT_RESTRICOES="Nenhuma"/>
     
     <TB_USUARIO ID="7" PERFIL_ID="7" DISC_USUARIO="PS" TXT_CPF="000.000.000-02" DT_NASCIMENTO="1992-02-02"
-                TXT_EMAIL="test.petsitter@example.com" END_TXT_BAIRRO="Bairro Sitter" END_TXT_CEP="00000-001" END_TXT_CIDADE="Cidade"
+                TXT_EMAIL="test.petsitter@example.com" END_TXT_BAIRRO="Bairro Sitter" 
+                END_TXT_CEP="00000-001" END_TXT_CIDADE="Cidade"
                 END_TXT_COMPLEMENTO="Casa" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Av. Sitter"
                 END_NUMERO="7" TXT_LOGIN="testsitter" TXT_NOME="Test PetSitter" TXT_SENHA="senha2"/>
     <TB_FOTO_USUARIO ID_USUARIO="7" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_ps.jpg')"/>
     <TB_PETSITTER ID_USUARIO="7" NUM_VALOR_HORA="35.00" TXT_DISPONIBILIDADE="Seg-Sex" TXT_RESTRICOES="Nenhuma"/>
     
     <TB_USUARIO ID="8" PERFIL_ID="8" DISC_USUARIO="PS" TXT_CPF="000.000.000-02" DT_NASCIMENTO="1992-02-02"
-                TXT_EMAIL="test.petsitter@example.com" END_TXT_BAIRRO="Bairro Sitter" END_TXT_CEP="00000-001" END_TXT_CIDADE="Cidade"
+                TXT_EMAIL="test.petsitter@example.com" END_TXT_BAIRRO="Bairro Sitter" 
+                END_TXT_CEP="00000-001" END_TXT_CIDADE="Cidade"
                 END_TXT_COMPLEMENTO="Casa" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Av. Sitter"
                 END_NUMERO="3" TXT_LOGIN="testsitter" TXT_NOME="Test PetSitter" TXT_SENHA="senha2"/>
     <TB_FOTO_USUARIO ID_USUARIO="8" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_ps.jpg')"/>
     <TB_PETSITTER ID_USUARIO="8" NUM_VALOR_HORA="35.00" TXT_DISPONIBILIDADE="Seg-Sex" TXT_RESTRICOES="Nenhuma"/>
 
     <!-- PET -->
- <TB_PET txt_nome="Rex" txt_raca="Labrador" num_idade="5" txt_tipo_animal="CACHORRO"
+    <TB_PET txt_nome="Rex" txt_raca="Labrador" num_idade="5" txt_tipo_animal="CACHORRO"
             txt_sexo="MACHO" txt_temperamento="Amigável" txt_estado_saude="Saudável"
             bool_castrado="1" bool_ativo="1" id_usuario="1"/>
     <TB_FOTO_PET id_pet="1" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('rex.jpg')"/>

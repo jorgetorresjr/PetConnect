@@ -26,27 +26,26 @@ public class Servico implements Serializable {
     private String nome;
 
     @Column(
-        name = "NUM_PRECO_HORA",
-        nullable = false,
-        precision = 10,
-        scale = 2
+            name = "NUM_PRECO_HORA",
+            nullable = false,
+            precision = 10,
+            scale = 2
     )
     private BigDecimal precoHora;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_PETSITTER")
     private PetSitter petSitter;
-    
+
     @OneToMany(mappedBy = "servico", cascade = CascadeType.REMOVE)
     private List<Agendamento> agendamentos;
-    
+
     @OneToMany(mappedBy = "servico", cascade = CascadeType.ALL)
     private java.util.List<Pagamento> pagamentos;
 
     // =====================
     // GETTERS E SETTERS
     // =====================
-
     public Long getId() {
         return id;
     }
@@ -74,16 +73,16 @@ public class Servico implements Serializable {
     public void setPetSitter(PetSitter petSitter) {
         this.petSitter = petSitter;
     }
-    
-     public List<Agendamento> getAgendamento() {
+
+    public List<Agendamento> getAgendamento() {
         return agendamentos;
     }
 
     public void setAgendamentos(List<Agendamento> agendamentos) {
         this.agendamentos = agendamentos;
     }
-    
-        public List<Pagamento> getPagamentos() {
+
+    public List<Pagamento> getPagamentos() {
         return pagamentos;
     }
 

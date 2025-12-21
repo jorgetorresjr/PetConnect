@@ -47,7 +47,7 @@ public class PerfilPetOwnerTeste extends Teste {
         assertEquals("Tutor de um gatinho e uma calopsita.", atualizado.getBio());
     }
 
-       @Test
+    @Test
     public void removerPetOwner() {
         PetOwner petOwner = em.find(PetOwner.class, 1L);
         assertNotNull(petOwner);

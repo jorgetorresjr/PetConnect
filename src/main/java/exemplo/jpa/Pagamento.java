@@ -38,14 +38,14 @@ public class Pagamento {
 
     @Column(name = "DT_DATA")
     private LocalDate data;
-    
-    @Column(name="DT_HORA")
+
+    @Column(name = "DT_HORA")
     private LocalTime hora;
 
     @ManyToOne
     @JoinColumn(name = "ID_PETOWNER", nullable = false)
     private PetOwner petOwner;
-    
+
     @ManyToOne
     @JoinColumn(name = "ID_SERVICO", nullable = false)
     private Servico servico;
@@ -73,7 +73,6 @@ public class Pagamento {
     public PetSitter getPetSitter() {
         return servico.getPetSitter();
     }
-
 
     public PetOwner getPetOwner() {
         return petOwner;
@@ -122,7 +121,5 @@ public class Pagamento {
     public void setStatus(StatusPagamento status) {
         this.status = status;
     }
-    
-    
 
 }

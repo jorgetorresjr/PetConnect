@@ -2,9 +2,7 @@ package exemplo.jpa;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
@@ -44,43 +42,43 @@ public abstract class Usuario {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
-    
+
     @Embedded
     protected Endereco endereco = new Endereco();
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PERFIL_ID")
     private Perfil perfil;
-    
+
     @ElementCollection
     @CollectionTable(name = "TB_TELEFONE",
             joinColumns = @JoinColumn(name = "ID_USUARIO"))
     @Column(name = "TXT_NUM_TELEFONE")
     protected List<String> telefones = new ArrayList<>();
-    
+
     @Column(name = "TXT_CPF")
     protected String cpf;
-    
+
     @Column(name = "TXT_LOGIN")
     protected String login;
-    
+
     @Column(name = "TXT_NOME")
     protected String nome;
-    
+
     @Basic(fetch = FetchType.LAZY)
     @Column(name = "IMG_FOTO", table = "TB_FOTO_USUARIO", nullable = true)
     private byte[] foto;
-    
+
     @Column(name = "TXT_EMAIL")
     protected String email;
-    
+
     @Column(name = "TXT_SENHA")
     protected String senha;
-    
+
     @Temporal(TemporalType.DATE)
     @Column(name = "DT_NASCIMENTO", nullable = true)
     protected Date dataNascimento;
-    
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private List<Notificacao> notificacoes;
 
@@ -95,14 +93,15 @@ public abstract class Usuario {
     public List<String> getTelefones() {
         return telefones;
     }
-    
+
     public void addTelefone(String telefone) {
-    this.telefones.add(telefone);
+        this.telefones.add(telefone);
     }
-    
+
     public void setTelefones(List<String> telefones) {
-    this.telefones = telefones != null ? telefones : new ArrayList<>();
-}
+        this.telefones = telefones != null ? telefones : new ArrayList<>();
+    }
+
     public Long getId() {
         return id;
     }
@@ -182,13 +181,13 @@ public abstract class Usuario {
     public void setNotificacoes(List<Notificacao> notificacoes) {
         this.notificacoes = notificacoes;
     }
-    
+
     public void definirPerfil(Perfil perfil) {
-    this.perfil = perfil;
-    if (perfil != null) {
-        perfil.setUsuario(this);
+        this.perfil = perfil;
+        if (perfil != null) {
+            perfil.setUsuario(this);
+        }
     }
-}
 
     @Override
     public int hashCode() {

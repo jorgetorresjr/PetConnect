@@ -4,9 +4,7 @@
  */
 package exemplo.jpa.v2;
 
-import exemplo.jpa.PerfilPetOwner;
 import exemplo.jpa.PerfilPetSitter;
-import exemplo.jpa.PetOwner;
 import exemplo.jpa.PetSitter;
 import exemplo.jpa.Teste;
 import static org.junit.Assert.assertEquals;
@@ -19,6 +17,7 @@ import org.junit.Test;
  * @author thayn
  */
 public class PerfilPetSitterTeste extends Teste {
+
     @Test
     public void atualizarPreferenciasPetSemMerge() {
         PerfilPetSitter perfil = em.find(PerfilPetSitter.class, 5L);
@@ -53,7 +52,7 @@ public class PerfilPetSitterTeste extends Teste {
         assertEquals("Curso de cuidados caninos", atualizado.getCertificacoes());
         assertEquals("Passeio com seu dog", atualizado.getBio());
     }
-    
+
     @Test
     public void removerPerfilPetSitter() {
         PetSitter petSitter = em.find(PetSitter.class, 8L);

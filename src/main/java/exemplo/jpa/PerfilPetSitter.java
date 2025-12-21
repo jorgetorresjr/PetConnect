@@ -20,18 +20,33 @@ public class PerfilPetSitter extends Perfil {
 
     @Column(name = "CERTIFICACOES", length = 300)
     private String certificacoes;
-    
+
     @Enumerated(EnumType.STRING)
     @Column(name = "TIPO_SERVICO", length = 50)
     private TipoServico tipoServico;
 
     // Getters e setters
-    public String getExperiencia() { return experiencia; }
-    public void setExperiencia(String experiencia) { this.experiencia = experiencia; }
+    public String getExperiencia() {
+        return experiencia;
+    }
 
-    public String getCertificacoes() { return certificacoes; }
-    public void setCertificacoes(String certificacoes) { this.certificacoes = certificacoes; }
-    
-    public TipoServico getTipoServico() { return tipoServico; }
-    public void setTipoServico(TipoServico tipoServico) { this.tipoServico = tipoServico; }
+    public void setExperiencia(String experiencia) {
+        this.experiencia = experiencia;
+    }
+
+    public String getCertificacoes() {
+        return certificacoes;
+    }
+
+    public void setCertificacoes(String certificacoes) {
+        this.certificacoes = certificacoes;
+    }
+
+    public TipoServico getTipoServico() {
+        return tipoServico;
+    }
+
+    public void setTipoServico(TipoServico tipoServico) {
+        this.tipoServico = tipoServico;
+    }
 }

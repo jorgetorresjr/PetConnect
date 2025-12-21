@@ -4,7 +4,6 @@
  */
 package exemplo.jpa.v2;
 
-import exemplo.jpa.Avaliacao;
 import exemplo.jpa.Notificacao;
 import exemplo.jpa.Teste;
 import exemplo.jpa.Usuario;
@@ -12,16 +11,17 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.util.Date;
 import static org.junit.Assert.assertEquals;
+
 /**
  *
  * @author elaine
  */
 public class NotificacaoTeste extends Teste {
-    
+
     @Test
     public void persistirNotificacao() {
         // Busca um usuário existente no dataset (ID 1)
-        Usuario u = em.find(Usuario.class, 1L); 
+        Usuario u = em.find(Usuario.class, 1L);
         Assert.assertNotNull(u);
 
         Notificacao n = new Notificacao();
@@ -43,7 +43,7 @@ public class NotificacaoTeste extends Teste {
         Assert.assertEquals("Agendamento confirmado", n.getMensagem());
         Assert.assertNotNull(n.getUsuario());
     }
-    
+
     @Test
     public void atualizarNotificacaoSemMerge() {
         Notificacao not = em.find(Notificacao.class, 2L);
@@ -72,7 +72,7 @@ public class NotificacaoTeste extends Teste {
         Notificacao atualizado = em.find(Notificacao.class, att.getId());
         assertEquals("Confirmado!", atualizado.getMensagem());
     }
-    
+
     @Test
     public void removerNotificacao() {
         // Remove a notificação que foi carregada pelo dataset.xml

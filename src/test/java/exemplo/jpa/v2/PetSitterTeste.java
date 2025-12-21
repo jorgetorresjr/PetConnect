@@ -49,7 +49,7 @@ public class PetSitterTeste extends Teste {
 
     @Test
     public void atualizarNomePetSitterPadrao() {
-       
+
         PetSitter petSitter = em.find(PetSitter.class, 7L);
 
         em.clear();

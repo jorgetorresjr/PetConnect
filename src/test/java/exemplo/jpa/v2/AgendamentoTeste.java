@@ -17,7 +17,6 @@ import static org.junit.Assert.*;
  *
  * @author elaine
  */
-
 public class AgendamentoTeste extends Teste {
 
     @Test
@@ -29,7 +28,7 @@ public class AgendamentoTeste extends Teste {
         ag.setPetOwner(owner);
         ag.setServico(servico);
         ag.setDataInicio(
-            Timestamp.valueOf(LocalDateTime.now().plusDays(1))
+                Timestamp.valueOf(LocalDateTime.now().plusDays(1))
         );
         ag.setHoras(2);
         ag.setConfirmado(false);
