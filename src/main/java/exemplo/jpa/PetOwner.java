@@ -11,33 +11,57 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
-@Table(name="TB_PETOWNER") 
+@Table(name = "TB_PETOWNER")
 @DiscriminatorValue(value = "PO")
-@PrimaryKeyJoinColumn(name="ID_USUARIO", referencedColumnName = "ID")
+@PrimaryKeyJoinColumn(name = "ID_USUARIO", referencedColumnName = "ID")
 public class PetOwner extends Usuario {
+
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private Collection<Pet> pets;
-    
+
     @ManyToMany
     @JoinTable(
-    name = "TB_FAVORITOS",
-    joinColumns = @JoinColumn(name = "PETOWNER_ID"),
-    inverseJoinColumns = @JoinColumn(name = "PETSITTER_ID")
+            name = "TB_FAVORITOS",
+            joinColumns = @JoinColumn(name = "PETOWNER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "PETSITTER_ID")
     )
-    private Collection<PetSitter> favoritos;
+
+    private List<PetSitter> favoritos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "petOwner", cascade = CascadeType.REMOVE)
+    private List<Agendamento> agendamentos;
+
+    @OneToMany(mappedBy = "petOwner", cascade = CascadeType.REMOVE)
+    private List<Pagamento> pagamentos;
 
     public Collection<Pet> getPets() {
         return pets;
     }
-    
-    public Collection<PetSitter> getFavoritos() {
+
+    public List<PetSitter> getFavoritos() {
         return favoritos;
     }
-    
 
- public void addPet(Pet pet) {
+    public List<Agendamento> getAgendamentos() {
+        return agendamentos;
+    }
+
+    public void setAgendamentos(List<Agendamento> agendamentos) {
+        this.agendamentos = agendamentos;
+    }
+
+    public List<Pagamento> getPagamentos() {
+        return pagamentos;
+    }
+
+    public void SetPagamentos(List<Pagamento> pagamentos) {
+        this.pagamentos = pagamentos;
+    }
+
+    public void addPet(Pet pet) {
         if (pets == null) {
             pets = new java.util.ArrayList<>();
         }
@@ -45,7 +69,7 @@ public class PetOwner extends Usuario {
         pet.setOwner(this);
     }
 
- public void addFavorito(PetSitter sitter) {
+    public void addFavorito(PetSitter sitter) {
         if (favoritos == null) {
             favoritos = new ArrayList<>();
         }
@@ -70,15 +94,21 @@ public class PetOwner extends Usuario {
         }
     }
 
-  @Override
+    ;
+
+    @Override
     public int hashCode() {
         return (id != null ? id.hashCode() : 0);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof PetOwner)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof PetOwner)) {
+            return false;
+        }
         PetOwner other = (PetOwner) obj;
         return id != null && id.equals(other.id);
     }

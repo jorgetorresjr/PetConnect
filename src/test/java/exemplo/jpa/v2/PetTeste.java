@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package exemplo.jpa;
+package exemplo.jpa.v2;
 
+import exemplo.jpa.Pet;
+import exemplo.jpa.Teste;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import org.junit.Test;
@@ -12,12 +14,12 @@ import org.junit.Test;
  *
  * @author thayn
  */
-public class PetNewTeste extends Teste {
+public class PetTeste extends Teste {
 
     @Test
     public void atualizarPetSemMerge() {
         // Busca o tutor
-        Pet pet = em.find(Pet.class, 2L);
+        Pet pet = em.find(Pet.class, 1L);
 
         // Atualização normal
         pet.setNome("Zeca Padrao");
@@ -25,14 +27,14 @@ public class PetNewTeste extends Teste {
         em.flush();
         em.clear();
         // Verifica se foi atualizado
-        Pet atualizado = em.find(Pet.class, 2L);
+        Pet atualizado = em.find(Pet.class, 1L);
         assertEquals("Zeca Padrao", atualizado.getNome());
     }
 
     @Test
     public void atualizarPetComMerge() {
         // Busca o tutor
-        Pet pet = em.find(Pet.class, 1L);
+        Pet pet = em.find(Pet.class, 2L);
 
         // Agora a entidade fica destacada
         em.clear();
@@ -53,7 +55,7 @@ public class PetNewTeste extends Teste {
     @Test
     public void atualizarNomePetPadrao() {
         // Cria e persiste um novo tutor
-        Pet pet = em.find(Pet.class, 1L);
+        Pet pet = em.find(Pet.class, 3L);
 
         em.clear();
 
@@ -71,13 +73,13 @@ public class PetNewTeste extends Teste {
     @Test
     public void removerPetPadrao() {
         // Cria e persiste um novo tutor
-        Pet pet = em.find(Pet.class, 1L);
+        Pet pet = em.find(Pet.class, 3L);
 
         em.remove(pet);
         em.flush();
 
         // Verifica se nome foi att
-        Pet atualizado = em.find(Pet.class, 1L);
+        Pet atualizado = em.find(Pet.class, 3L);
         assertNull(atualizado);
     }
 }

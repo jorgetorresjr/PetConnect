@@ -7,12 +7,11 @@ package exemplo.jpa;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
+
 /**
  *
  * @author elaine
  */
-
 @Entity
 @Table(name = "TB_AGENDAMENTO")
 public class Agendamento implements Serializable {
@@ -38,12 +37,11 @@ public class Agendamento implements Serializable {
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_SERVICO", referencedColumnName = "ID_SERVICO")
     private Servico servico;
-    
-    @OneToOne(mappedBy = "agendamento")
+
+    @OneToOne(mappedBy = "agendamento", cascade = CascadeType.REMOVE)
     private Avaliacao avaliacao;
 
     // ===== Getters e Setters =====
-
     public Long getId() {
         return id;
     }
@@ -54,11 +52,11 @@ public class Agendamento implements Serializable {
 
     public Timestamp getDataInicio() {
         return dataInicio;
-}
+    }
 
     public void setDataInicio(Timestamp dataInicio) {
         this.dataInicio = dataInicio;
-}
+    }
 
     public Integer getHoras() {
         return horas;
@@ -91,12 +89,12 @@ public class Agendamento implements Serializable {
     public void setServico(Servico servico) {
         this.servico = servico;
     }
-    
+
     public Avaliacao getAvaliacao() {
-    return avaliacao;
-}
+        return avaliacao;
+    }
 
     public void setAvaliacao(Avaliacao avaliacao) {
         this.avaliacao = avaliacao;
-}
+    }
 }

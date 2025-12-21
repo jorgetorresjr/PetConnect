@@ -23,17 +23,17 @@ import java.util.logging.Logger;
  * @author MASC
  */
 public class DbUnitUtil {
-    
+
     private static final Logger logger = Logger.getLogger(DbUnitUtil.class.getName());
     private static final String XML_FILE = "/dbunit/dataset.xml";
 
     /**
-     * MÉTODO ESTÁTICO PARA FOTO
-     * Usado no dataset.xml para popular colunas BLOB/LOB de forma estática.
+     * MÉTODO ESTÁTICO PARA FOTO Usado no dataset.xml para popular colunas
+     * BLOB/LOB de forma estática.
      */
     public static String getFotoBase64(String nomeArquivo) {
         // Retorna um placeholder simples que o DBUnit e o JPA aceitarão como BLOB/byte[].
-        return "AAAA"; 
+        return "AAAA";
     }
 
     public static void inserirDados() {
@@ -45,18 +45,18 @@ public class DbUnitUtil {
             db_conn = new DatabaseConnection(conn);
             FlatXmlDataSetBuilder builder = new FlatXmlDataSetBuilder();
             builder.setColumnSensing(true);
-            
+
             InputStream in = DbUnitUtil.class.getResourceAsStream(XML_FILE);
             if (in == null) {
                 throw new RuntimeException("Arquivo dataset.xml não encontrado: " + XML_FILE);
             }
             IDataSet dataSet = builder.build(in);
-            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);       
-            
+            DatabaseOperation.CLEAN_INSERT.execute(db_conn, dataSet);
+
         } catch (SQLException | DatabaseUnitException ex) {
             logger.log(Level.SEVERE, "Erro ao inserir dados com DBUnit", ex);
             throw new RuntimeException("Erro ao inserir dados com DBUnit: " + ex.getMessage(), ex);
-        } finally{
+        } finally {
             try {
                 if (conn != null) {
                     conn.close();

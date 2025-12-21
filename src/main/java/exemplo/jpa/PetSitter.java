@@ -1,13 +1,16 @@
 package exemplo.jpa;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import java.util.Collection;
-
+import java.util.List;
 
 @Entity
 @Table(name = "TB_PETSITTER")
@@ -17,13 +20,18 @@ public class PetSitter extends Usuario {
 
     @Column(name = "NUM_VALOR_HORA")
     private Double valorHora;
+    
     @Column(name = "TXT_DISPONIBILIDADE")
     private String disponibilidade;
+    
     @Column(name = "TXT_RESTRICOES")
     private String restricoes;
-    
+
     @ManyToMany(mappedBy = "favoritos")
-    private Collection<PetOwner> favoritadoPor;
+    private List<PetOwner> favoritadoPor = new ArrayList<>();
+
+    @OneToMany(mappedBy = "petSitter", cascade = CascadeType.REMOVE)
+    private List<Servico> servicos;
 
     public Double getValorHora() {
         return valorHora;
@@ -49,15 +57,21 @@ public class PetSitter extends Usuario {
         this.restricoes = restricoes;
     }
 
-   
     public Collection<PetOwner> getFavoritadoPor() {
         return favoritadoPor;
     }
 
-    public void setFavoritadoPor(Collection<PetOwner> favoritadoPor) {
+    public void setFavoritadoPor(List<PetOwner> favoritadoPor) {
         this.favoritadoPor = favoritadoPor;
     }
 
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
+    }
 
     @Override
     public int hashCode() {
@@ -66,18 +80,21 @@ public class PetSitter extends Usuario {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof PetSitter)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof PetSitter)) {
+            return false;
+        }
         PetSitter other = (PetSitter) obj;
         return id != null && id.equals(other.id);
     }
-    
-    
+
     @Override
     public String toString() {
-        return "PetSitter [id=" + id +
-               ", R$ " + valorHora +
-               ", " + disponibilidade +
-               ", " + restricoes + "]";
+        return "PetSitter [id=" + id
+                + ", R$ " + valorHora
+                + ", " + disponibilidade
+                + ", " + restricoes + "]";
     }
 }

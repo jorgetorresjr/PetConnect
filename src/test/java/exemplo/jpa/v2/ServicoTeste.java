@@ -2,12 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package exemplo.jpa;
+package exemplo.jpa.v2;
 
+import exemplo.jpa.PetSitter;
+import exemplo.jpa.Servico;
+import exemplo.jpa.Teste;
 import java.math.BigDecimal;
 import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
 /**
  *
  * @author elaine
@@ -36,31 +40,23 @@ public class ServicoTeste extends Teste {
         // ID 1 vem do dataset
         Servico s = em.find(Servico.class, 1L);
         Assert.assertNotNull(s);
-        assertEquals("Passeio com cachorro (1h)", s.getNome());
-        Assert.assertEquals(new BigDecimal("30.00"), s.getPrecoHora());
+        assertEquals("Passeio 30min", s.getNome());
+        Assert.assertEquals(new BigDecimal("20.00"), s.getPrecoHora());
     }
 
     @Test
     public void removerServico() {
         Servico s = em.find(Servico.class, 1L);
         Assert.assertNotNull(s);
-        
-        em.createQuery("DELETE FROM Avaliacao a WHERE a.agendamento.servico.id = :id")
-            .setParameter("id", s.getId())
-            .executeUpdate();
-        
-        em.createQuery("DELETE FROM Agendamento a WHERE a.servico.id = :id")
-           .setParameter("id", s.getId())
-           .executeUpdate();
-    
-    em.flush();
+
+        em.flush();
 
         em.remove(s);
         em.flush();
 
         Assert.assertNull(em.find(Servico.class, 1L));
     }
-   
+
     @Test
     public void atualizarServicoSemMerge() {
         Servico servico = em.find(Servico.class, 1L);

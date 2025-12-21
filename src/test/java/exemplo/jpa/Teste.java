@@ -19,33 +19,34 @@ import org.junit.BeforeClass;
  * @author masc1
  */
 public abstract class Teste {
+
     protected static EntityManagerFactory emf;
     protected EntityManager em;
     protected EntityTransaction et;
-    
+
     @BeforeClass
     public static void setUpClass() {
         emf = Persistence.createEntityManagerFactory("PetConnect");
-        DbUnitUtil.inserirDados();        
+        DbUnitUtil.inserirDados();
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
         emf.close();
     }
-    
+
     @Before
     public void setUp() {
         em = emf.createEntityManager();
         et = em.getTransaction();
-        et.begin();        
+        et.begin();
     }
-    
+
     @After
     public void tearDown() {
         if (et.isActive()) {
             et.rollback();
         }
-        em.close();        
+        em.close();
     }
 }

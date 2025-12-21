@@ -11,8 +11,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "TB_PET")
 @SecondaryTable(
-    name = "TB_FOTO_PET",
-    pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_PET")
+        name = "TB_FOTO_PET",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_PET")
 )
 public class Pet implements Serializable {
 
@@ -62,8 +62,8 @@ public class Pet implements Serializable {
     }
 
     public Pet(String nome, String raca, Integer idade, TipoAnimal tipoAnimal,
-               String sexo, String temperamento, String estadoSaude,
-               Boolean castrado, Boolean ativo, PetOwner owner) {
+            String sexo, String temperamento, String estadoSaude,
+            Boolean castrado, Boolean ativo, PetOwner owner) {
         this.nome = nome;
         this.raca = raca;
         this.idade = idade;
@@ -77,7 +77,6 @@ public class Pet implements Serializable {
     }
 
     // Getters e Setters
-
     public Long getId() {
         return id;
     }

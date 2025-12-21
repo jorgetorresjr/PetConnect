@@ -9,18 +9,25 @@ import jakarta.persistence.Embeddable;
  */
 @Embeddable
 public class Endereco {
+
     @Column(name = "END_TXT_LOGRADOURO", length = 150, nullable = false)
     private String logradouro;
+    
     @Column(name = "END_TXT_BAIRRO", length = 150, nullable = false)
     private String bairro;
+    
     @Column(name = "END_NUMERO", length = 5, nullable = false)
     private Integer numero;
+    
     @Column(name = "END_TXT_COMPLEMENTO", length = 30, nullable = true)
     private String complemento;
+    
     @Column(name = "END_TXT_CEP", length = 20, nullable = false)
     private String cep;
+    
     @Column(name = "END_TXT_CIDADE", length = 50, nullable = false)
     private String cidade;
+    
     @Column(name = "END_TXT_ESTADO", length = 50, nullable = false)
     private String estado;
 
@@ -31,7 +38,7 @@ public class Endereco {
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
-    
+
     public String getLogradouro() {
         return logradouro;
     }

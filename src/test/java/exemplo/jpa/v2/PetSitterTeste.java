@@ -1,5 +1,7 @@
-package exemplo.jpa;
+package exemplo.jpa.v2;
 
+import exemplo.jpa.PetSitter;
+import exemplo.jpa.Teste;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import org.junit.Test;
@@ -8,14 +10,14 @@ import org.junit.Test;
  *
  * @author thayn
  */
-public class PetSitterNewTeste extends Teste {
+public class PetSitterTeste extends Teste {
 
     @Test
     public void atualizarPetSitterSemMerge() {
         // Busca o petsitter
         PetSitter petSitter = em.find(PetSitter.class, 5L);
 
-        // Atualização normal
+        // Atualização
         petSitter.setNome("João Padrao");
 
         em.flush();
@@ -47,8 +49,8 @@ public class PetSitterNewTeste extends Teste {
 
     @Test
     public void atualizarNomePetSitterPadrao() {
-       
-        PetSitter petSitter = em.find(PetSitter.class, 6L);
+
+        PetSitter petSitter = em.find(PetSitter.class, 7L);
 
         em.clear();
 

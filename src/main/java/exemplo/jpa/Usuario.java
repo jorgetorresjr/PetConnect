@@ -2,9 +2,7 @@ package exemplo.jpa;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
@@ -19,18 +17,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_USUARIO")
 @SecondaryTable(
-    name = "TB_FOTO_USUARIO",
-    pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_USUARIO")
+        name = "TB_FOTO_USUARIO",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "ID_USUARIO")
 )
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "DISC_USUARIO",
@@ -41,32 +42,45 @@ public abstract class Usuario {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
+
     @Embedded
-    protected Endereco endereco;
+    protected Endereco endereco = new Endereco();
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PERFIL_ID")
     private Perfil perfil;
+
     @ElementCollection
     @CollectionTable(name = "TB_TELEFONE",
             joinColumns = @JoinColumn(name = "ID_USUARIO"))
     @Column(name = "TXT_NUM_TELEFONE")
-    protected Collection<String> telefones;
+    protected List<String> telefones = new ArrayList<>();
+
     @Column(name = "TXT_CPF")
     protected String cpf;
+
     @Column(name = "TXT_LOGIN")
     protected String login;
+
     @Column(name = "TXT_NOME")
     protected String nome;
+
     @Basic(fetch = FetchType.LAZY)
     @Column(name = "IMG_FOTO", table = "TB_FOTO_USUARIO", nullable = true)
     private byte[] foto;
+
     @Column(name = "TXT_EMAIL")
     protected String email;
+
     @Column(name = "TXT_SENHA")
     protected String senha;
+
     @Temporal(TemporalType.DATE)
     @Column(name = "DT_NASCIMENTO", nullable = true)
     protected Date dataNascimento;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+    private List<Notificacao> notificacoes;
 
     public Endereco getEndereco() {
         return endereco;
@@ -76,15 +90,16 @@ public abstract class Usuario {
         this.endereco = endereco;
     }
 
-    public Collection<String> getTelefones() {
+    public List<String> getTelefones() {
         return telefones;
     }
 
     public void addTelefone(String telefone) {
-        if (telefones == null) {
-            telefones = new HashSet<>();
-        }
-        telefones.add(telefone);
+        this.telefones.add(telefone);
+    }
+
+    public void setTelefones(List<String> telefones) {
+        this.telefones = telefones != null ? telefones : new ArrayList<>();
     }
 
     public Long getId() {
@@ -150,9 +165,29 @@ public abstract class Usuario {
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-    
-    public Perfil getPerfil() { return perfil; }
-    public void setPerfil(Perfil perfil) { this.perfil = perfil; }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
+
+    public List<Notificacao> getNotificacoes() {
+        return notificacoes;
+    }
+
+    public void setNotificacoes(List<Notificacao> notificacoes) {
+        this.notificacoes = notificacoes;
+    }
+
+    public void definirPerfil(Perfil perfil) {
+        this.perfil = perfil;
+        if (perfil != null) {
+            perfil.setUsuario(this);
+        }
+    }
 
     @Override
     public int hashCode() {

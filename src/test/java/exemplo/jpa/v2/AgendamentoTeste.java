@@ -2,8 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package exemplo.jpa;
+package exemplo.jpa.v2;
 
+import exemplo.jpa.Agendamento;
+import exemplo.jpa.PetOwner;
+import exemplo.jpa.Servico;
+import exemplo.jpa.Teste;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import org.junit.Test;
@@ -13,7 +17,6 @@ import static org.junit.Assert.*;
  *
  * @author elaine
  */
-
 public class AgendamentoTeste extends Teste {
 
     @Test
@@ -25,7 +28,7 @@ public class AgendamentoTeste extends Teste {
         ag.setPetOwner(owner);
         ag.setServico(servico);
         ag.setDataInicio(
-            Timestamp.valueOf(LocalDateTime.now().plusDays(1))
+                Timestamp.valueOf(LocalDateTime.now().plusDays(1))
         );
         ag.setHoras(2);
         ag.setConfirmado(false);
@@ -40,7 +43,7 @@ public class AgendamentoTeste extends Teste {
 
     @Test
     public void atualizarAgendamentoSemMerge() {
-        Agendamento ag = em.find(Agendamento.class, 1L);
+        Agendamento ag = em.find(Agendamento.class, 2L);
 
         ag.setHoras(3);
         ag.setConfirmado(true);
@@ -48,14 +51,14 @@ public class AgendamentoTeste extends Teste {
         em.flush();
         em.clear();
 
-        Agendamento atualizado = em.find(Agendamento.class, 1L);
+        Agendamento atualizado = em.find(Agendamento.class, 2L);
         assertEquals(Integer.valueOf(3), atualizado.getHoras());
         assertTrue(atualizado.getConfirmado());
     }
 
     @Test
     public void atualizarAgendamentoComMerge() {
-        Agendamento ag = em.find(Agendamento.class, 1L);
+        Agendamento ag = em.find(Agendamento.class, 3L);
 
         em.clear(); // entidade destacada
 
@@ -73,10 +76,6 @@ public class AgendamentoTeste extends Teste {
     public void removerAgendamento() {
         Agendamento ag = em.find(Agendamento.class, 1L);
         assertNotNull(ag);
-        
-        em.createQuery("DELETE FROM Avaliacao a WHERE a.agendamento.id = :id")
-            .setParameter("id", ag.getId())
-            .executeUpdate();
 
         em.remove(ag);
         em.flush();
