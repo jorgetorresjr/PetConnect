@@ -29,7 +29,7 @@ public class Avaliacao implements Serializable {
     @JoinColumn(
         name = "ID_AGENDAMENTO",
         referencedColumnName = "ID_AGENDAMENTO",
-        unique = true
+        unique = true,  nullable = false
     )
     private Agendamento agendamento;
 
