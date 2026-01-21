@@ -13,9 +13,9 @@ public class PetSitterTeste extends Teste {
     public void consultarPetSitter() {
         PetSitter petSitter = em.find(PetSitter.class, 5L);
         Assert.assertNotNull(petSitter);
-        Assert.assertEquals("Test PetSitter", petSitter.getNome());
+        Assert.assertEquals("Flávio", petSitter.getNome());
         Assert.assertEquals("test.petsitter@example.com", petSitter.getEmail());
-        Assert.assertEquals(35.0f, petSitter.getValorHora(), 0.01);
+        Assert.assertEquals(15.0f, petSitter.getValorHora(), 0.01);
         Assert.assertEquals("Seg-Sex", petSitter.getDisponibilidade());
     }
 }
