@@ -26,7 +26,12 @@ import org.junit.runners.Suite;
     exemplo.jpa.v2.AgendamentoTeste.class,
     exemplo.jpa.v2.NotificacaoTeste.class,
     exemplo.jpa.v2.AvaliacaoTeste.class,
-    exemplo.jpa.v2.PagamentoTeste.class
+    exemplo.jpa.v2.PagamentoTeste.class,
+    exemplo.jpa.v3.PagamentoTest.class,
+    exemplo.jpa.v3.AgendamentoTest.class,
+    exemplo.jpa.v3.AvaliacaoTest.class,
+    exemplo.jpa.v3.PetSitterTest.class,
+    exemplo.jpa.v3.NotificacaoTest.class
 })
 public class TesteSuite {
     
