@@ -44,15 +44,15 @@ public class PagamentoTest extends Teste{
     }
     
     @Test
-    public void contarPagamentosPendentesAcimaDe100() {
-        TypedQuery<Long> query = em.createQuery("SELECT COUNT(p) FROM Pagamento p WHERE p.status = :status AND p.valor > :valor", Long.class);
+    public void mediaPagamentosPendentesAcimaDe100() {
+        TypedQuery<Double> query = em.createQuery("SELECT AVG(p.valor) FROM Pagamento p WHERE p.status = :status AND p.valor > :valor", Double.class);
         
         query.setParameter("status", StatusPagamento.PENDENTE);
         query.setParameter("valor", BigDecimal.valueOf(100));
         
-        Long pagamentos = query.getSingleResult();
+        Double media = query.getSingleResult();
         
-        assertEquals(Long.valueOf(2), pagamentos);
+        assertEquals(135.0, media, 0.001);
         
  
     }
