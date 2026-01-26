@@ -8,9 +8,7 @@ import exemplo.jpa.PetSitter;
 import exemplo.jpa.Teste;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
-import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 /**
@@ -28,35 +26,32 @@ public class PetSitterTest extends Teste{
     }
     
     @Test
-    public void listarPetSitterComEmailNaoNulo () {
-        TypedQuery<PetSitter> query = em.createQuery("SELECT ps FROM PetSitter ps WHERE ps.email IS NOT NULL", PetSitter.class);
+    public void selecionarPetSitterComMaiorValorHora () {
+        TypedQuery<Double> query = em.createQuery("SELECT MAX(ps.valorHora) FROM PetSitter ps", Double.class);
         
-        List<PetSitter> petSitters = query.getResultList();
+        Double valorHora = query.getSingleResult();
         
-        for(PetSitter ps : petSitters) {
-            assertNotNull(ps.getEmail());
-        }
+        assertEquals(Double.valueOf(50), valorHora);
+        
     }
     
     @Test
-    public void listarPetSittersComValorHoraAbaixoDe30() {
-        TypedQuery<PetSitter> query = em.createQuery("SELECT ps FROM PetSitter ps WHERE ps.valorHora < 30", PetSitter.class);
+    public void somarValoresHoraAcimaDe30() {
+        TypedQuery<Double> query = em.createQuery("SELECT SUM(ps.valorHora) FROM PetSitter ps WHERE ps.valorHora > 30", Double.class);
         
-        List<PetSitter> petSitters = query.getResultList();
+        Double somaValoresHora = query.getSingleResult();
         
-        for(PetSitter ps : petSitters) {
-            Assert.assertTrue(ps.getValorHora() < 30);
-        }
+        assertEquals(Double.valueOf(85), somaValoresHora);
         
                 
     }
     
     @Test
-    public void listarPetSittersPorCidade() {
-        TypedQuery<PetSitter> query = em.createQuery("SELECT ps FROM PetSitter ps WHERE ps.endereco.cidade = 'Recife'", PetSitter.class);
+    public void contarPetSittersComCidadeRecife() {
+        TypedQuery<Long> query = em.createQuery("SELECT COUNT(ps) FROM PetSitter ps WHERE ps.endereco.cidade = 'Recife'", Long.class);
         
-        List<PetSitter> petSitters = query.getResultList();
+        Long quantidade = query.getSingleResult();
         
-        assertEquals(2, petSitters.size());
+        assertEquals(Long.valueOf(2), quantidade);
     }
 }
