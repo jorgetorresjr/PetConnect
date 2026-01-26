@@ -37,11 +37,11 @@ public class ServicoTest extends Teste {
             "SELECT s FROM Servico s WHERE s.nome = :nome",
             Servico.class
         );
-        query.setParameter("nome", "Banho");
+        query.setParameter("nome", "Hospedagem domiciliar");
 
         Servico servico = query.getSingleResult();
 
-        Assert.assertEquals("Banho", servico.getNome());
+        Assert.assertEquals("Hospedagem domiciliar", servico.getNome());
     }
 
     @Test
