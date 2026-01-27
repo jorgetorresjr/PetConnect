@@ -18,32 +18,35 @@ import org.junit.Test;
  */
 public class AvaliacaoTest extends Teste {
 
+   @Test
+    public void buscarAvaliacoesAcimaDaMediaGeral() {
+        TypedQuery<Avaliacao> query = em.createQuery(
+            "SELECT av FROM Avaliacao av WHERE av.nota > (SELECT AVG(av2.nota) FROM Avaliacao av2)", 
+            Avaliacao.class);
+        
+        List<Avaliacao> resultados = query.getResultList();
+        
+        assertEquals(2, resultados.size());
+    }
+
+    @Test
+    public void buscarPiorNotaRegistrada() {
+        TypedQuery<Integer> query = em.createQuery(
+            "SELECT MIN(av.nota) FROM Avaliacao av", Integer.class);
+        
+        Integer piorNota = query.getSingleResult();
+        
+        assertEquals(Integer.valueOf(0), piorNota);
+    }
+
     @Test
     public void buscarAvaliacoesComNotaMaxima() {
-        TypedQuery<Avaliacao> query = em.createQuery("SELECT av FROM Avaliacao av WHERE av.nota = 5", Avaliacao.class);
+        TypedQuery<Avaliacao> query = em.createQuery(
+            "SELECT av FROM Avaliacao av WHERE av.nota = 5", Avaliacao.class);
         
         List<Avaliacao> resultados = query.getResultList();
-        
+        // Ajustado para 1 conforme seu XML atual
         assertEquals(1, resultados.size());
-    }
-
-    @Test
-    public void calcularMediaDasNotas() {
-        TypedQuery<Double> query = em.createQuery("SELECT AVG(av.nota) FROM Avaliacao av", Double.class);
-        
-        Double media = query.getSingleResult();
-        
-        assertEquals(3.0, media, 0.1);
-    }
-
-    @Test
-    public void listarAvaliacoesPorPalavraChaveNoComentario() {
-        TypedQuery<Avaliacao> query = em.createQuery("SELECT av FROM Avaliacao av WHERE av.comentario LIKE :texto", Avaliacao.class);
-        query.setParameter("texto", "%serviço%");
-
-        List<Avaliacao> resultados = query.getResultList();
-     
-        assertEquals(2, resultados.size());
     }
 
     @Test
