@@ -9,6 +9,7 @@ import exemplo.jpa.Teste;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 /**
  *
@@ -17,56 +18,50 @@ import org.junit.Test;
 public class NotificacaoTest extends Teste {
 
     @Test
-    public void buscarPorMensagemExata() {
-        // 1. Igualdade de String (=)
-        // No XML existem 2 notificações exatamente com este texto
-        TypedQuery<Notificacao> query = em.createQuery(
-            "SELECT n FROM Notificacao n WHERE n.mensagem = :msg", Notificacao.class);
-        
-        query.setParameter("msg", "Novo pedido de agendamento");
+    public void listarTiposDeMensagensDistintas() {
+        // No XML temos 3 notificações, mas apenas 2 textos únicos
+        TypedQuery<String> query = em.createQuery(
+            "SELECT DISTINCT(n.mensagem) FROM Notificacao n", String.class);
 
-        List<Notificacao> resultados = query.getResultList();
-        assertEquals(2, resultados.size());
+        List<String> mensagensUnicas = query.getResultList();
+        assertEquals(2, mensagensUnicas.size());
     }
-
+    
     @Test
-    public void contarNotificacoesDoUsuario() {
-        // 2. Agregação (COUNT)
-        // O usuário 1 tem apenas 1 notificação ("Agendamento confirmado") no XML
-        TypedQuery<Long> query = em.createQuery(
-            "SELECT COUNT(n) FROM Notificacao n WHERE n.usuario.id = :id", Long.class);
+    public void buscarNotificacaoComUsuarioFetch() {
+        TypedQuery<Notificacao> query = em.createQuery(
+            "SELECT n FROM Notificacao n JOIN FETCH n.usuario WHERE n.id = :id", Notificacao.class);
         
         query.setParameter("id", 1L);
-
-        Long total = query.getSingleResult();
-        assertEquals(Long.valueOf(1), total);
+        Notificacao notificacao = query.getSingleResult();
+        
+        // Verifica se trouxe o objeto e se o usuário está preenchido
+        assertNotNull(notificacao);
+        assertNotNull(notificacao.getUsuario());
+        assertEquals("testpo", notificacao.getUsuario().getLogin());
     }
-
+    
     @Test
     public void buscarNotificacoesQueContemPalavra() {
-        // 3. Busca Parcial (LIKE)
-        // Busca mensagens que tenham a palavra "confirmado". Apenas a primeira tem.
         TypedQuery<Notificacao> query = em.createQuery(
             "SELECT n FROM Notificacao n WHERE n.mensagem LIKE :termo", Notificacao.class);
         
-        query.setParameter("termo", "%confirmado%");
+        query.setParameter("termo", "%confirmado%"); 
 
         List<Notificacao> resultados = query.getResultList();
         assertEquals(1, resultados.size());
     }
-
+    
     @Test
-    public void listarNotificacoesPorNomeDoUsuario() {
-        // 4. Join Implícito (Navegação)
-        // Busca notificações de quem tem "PetOwner" no nome.
-        // Usuários 1, 2, 3 e 4 são "PetOwner", e as notificações são dos usuários 1, 2 e 3.
+    public void listarNotificacoesAntigas() {
         TypedQuery<Notificacao> query = em.createQuery(
-            "SELECT n FROM Notificacao n WHERE n.usuario.nome LIKE :nomeUsuario", Notificacao.class);
+            "SELECT n FROM Notificacao n WHERE n.dataEnvio < :dataCorte", Notificacao.class);
         
-        query.setParameter("nomeUsuario", "%PetOwner%");
+        // Data de corte: 1 de Dezembro de 2025
+        query.setParameter("dataCorte", java.sql.Timestamp.valueOf("2025-12-01 00:00:00"));
 
         List<Notificacao> resultados = query.getResultList();
-        // Espera-se 3 notificações (uma de cada usuário: 1, 2 e 3)
-        assertEquals(3, resultados.size());
+        // Apenas a notificação de Novembro deve vir
+        assertEquals(1, resultados.size()); 
     }
 }
