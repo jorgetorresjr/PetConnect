@@ -31,7 +31,12 @@ import org.junit.runners.Suite;
     exemplo.jpa.v3.AgendamentoTest.class,
     exemplo.jpa.v3.AvaliacaoTest.class,
     exemplo.jpa.v3.PetSitterTest.class,
-    exemplo.jpa.v3.NotificacaoTest.class
+    exemplo.jpa.v3.PetOwnerTest.class,
+    exemplo.jpa.v3.NotificacaoTest.class,
+    exemplo.jpa.v3.PerfilPetOwnerTest.class,
+    exemplo.jpa.v3.PerfilPetSitterTest.class,
+    exemplo.jpa.v3.PetTest.class,
+    exemplo.jpa.v3.ServicoTest.class
 })
 public class TesteSuite {
     
