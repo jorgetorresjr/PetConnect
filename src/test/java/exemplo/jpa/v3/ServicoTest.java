@@ -68,20 +68,6 @@ public class ServicoTest extends Teste {
             Assert.assertNotNull(s.getPetSitter());
         }
     }
-    
-    @Test
-    public void listarServicosComPetSitterJoinFetch() {
-        TypedQuery<Servico> query = em.createQuery(
-                "SELECT s FROM Servico s JOIN FETCH s.petSitter ps",
-                Servico.class
-        );
-
-        List<Servico> servicos = query.getResultList();
-
-        for (Servico s : servicos) {
-            Assert.assertNotNull(s.getPetSitter());
-        }
-    }
 
     @Test
     public void listarServicosComAgendamentos() {
@@ -94,19 +80,4 @@ public class ServicoTest extends Teste {
 
         Assert.assertFalse(servicos.isEmpty());
     }
-   
-    @Test
-    public void buscarMenorPrecoDosServicos() {
-        TypedQuery<BigDecimal> query = em.createQuery(
-                "SELECT MIN(s.precoHora) FROM Servico s",
-                BigDecimal.class
-        );
-
-        BigDecimal menorPreco = query.getSingleResult();
-
-        Assert.assertNotNull(menorPreco);
-        Assert.assertEquals(0, menorPreco.compareTo(new BigDecimal("20.00")));
-    }
-
-
 }

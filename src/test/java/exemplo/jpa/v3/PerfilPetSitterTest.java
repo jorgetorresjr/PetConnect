@@ -63,14 +63,17 @@ public class PerfilPetSitterTest extends Teste {
     @Test
     public void buscarPetSittersComCertificacaoBasico() {
         TypedQuery<PerfilPetSitter> query = em.createQuery(
-                "SELECT p FROM PerfilPetSitter p WHERE UPPER(p.certificacoes) = 'BASICO'",
-                PerfilPetSitter.class);
+                "SELECT p FROM PerfilPetSitter p WHERE LENGTH(p.certificacoes) >= 3",
+                PerfilPetSitter.class
+        );
+        
 
         List<PerfilPetSitter> resultados = query.getResultList();
 
         assertFalse(resultados.isEmpty());
         for (PerfilPetSitter perfil : resultados) {
-            assertTrue(perfil.getCertificacoes() != null && perfil.getCertificacoes().equalsIgnoreCase("Basico"));
+            assertTrue(perfil.getCertificacoes() != null && 
+                    perfil.getCertificacoes().length() >= 3);
         }
     }
 

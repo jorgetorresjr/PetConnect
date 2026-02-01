@@ -66,16 +66,16 @@ public class PetOwnerTest extends Teste {
         assertNotNull(resultados);
         assertFalse(resultados.isEmpty());
 
-        boolean encontrou = false;
+        boolean existe = false;
         for (Object[] row : resultados) {
             PetOwner petOwner = (PetOwner) row[0];
             Usuario usuario = (Usuario) row[1];
             if (petOwner.getId() == 9L) {
                 assertNotNull(usuario);
                 assertEquals("Pedro Paulo", usuario.getNome());
-                encontrou = true;
+                existe = true;
             }
         }
-        assertEquals(true, encontrou);
+        assertEquals(true, existe);
     }
 }

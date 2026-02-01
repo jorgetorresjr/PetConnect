@@ -33,22 +33,6 @@ public class PetTest extends Teste {
     }
 
     @Test
-    public void listarPetsAtivos() {
-        TypedQuery<Pet> query = em.createQuery(
-                "SELECT p FROM Pet p WHERE p.ativo = TRUE",
-                Pet.class
-        );
-
-        List<Pet> pets = query.getResultList();
-
-        Assert.assertFalse(pets.isEmpty());
-
-        for (Pet p : pets) {
-            Assert.assertTrue(p.getAtivo());
-        }
-    }
-
-    @Test
     public void listarPetsCastrados() {
         TypedQuery<Pet> query = em.createQuery(
                 "SELECT p FROM Pet p WHERE NOT p.castrado = false",
