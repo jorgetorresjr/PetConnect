@@ -67,5 +67,5 @@ public class PagamentoTest extends Teste{
         
         assertTrue(pagamentos.compareTo(BigDecimal.valueOf(80)) == 0);
                 
-        }
+    }
 }

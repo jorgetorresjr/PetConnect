@@ -19,7 +19,8 @@ import org.junit.Test;
  * @author jorge
  */
 public class AgendamentoTest extends Teste { 
-   @Test
+   
+    @Test
     public void listarAgendamentosMaisRecentesPrimeiro() {
         TypedQuery<Agendamento> query = em.createQuery(
             "SELECT a FROM Agendamento a ORDER BY a.dataInicio DESC", Agendamento.class);

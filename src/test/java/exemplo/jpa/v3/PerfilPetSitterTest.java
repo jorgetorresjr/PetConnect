@@ -66,8 +66,7 @@ public class PerfilPetSitterTest extends Teste {
                 "SELECT p FROM PerfilPetSitter p WHERE LENGTH(p.certificacoes) >= 3",
                 PerfilPetSitter.class
         );
-        
-
+       
         List<PerfilPetSitter> resultados = query.getResultList();
 
         assertFalse(resultados.isEmpty());

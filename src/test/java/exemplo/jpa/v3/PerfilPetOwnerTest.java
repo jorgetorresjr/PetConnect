@@ -62,5 +62,15 @@ public class PerfilPetOwnerTest extends Teste {
             assertTrue(perfil.getBio().toLowerCase().contains("amo os animais"));
         }
     }
+   
+    @Test
+    public void buscarPerfisComPreferenciaPetUsandoLocate() {
+        TypedQuery<PerfilPetOwner> query = em.createQuery(
+                "SELECT p FROM PerfilPetOwner p WHERE LOCATE('GATO', UPPER(p.preferenciasPet)) > 0",
+                PerfilPetOwner.class
+        );
+        List<PerfilPetOwner> resultados = query.getResultList();
+        assertFalse(resultados.isEmpty());
+    }
 
 }
