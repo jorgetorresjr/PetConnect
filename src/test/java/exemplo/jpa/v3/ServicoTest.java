@@ -15,48 +15,59 @@ import org.junit.Test;
 public class ServicoTest extends Teste {
 
     @Test
-    public void listarServicosComPrecoHoraMaiorQue50() {
-        TypedQuery<Servico> query = em.createQuery(
-            "SELECT s FROM Servico s WHERE s.precoHora > :valor",
-            Servico.class
+public void listarServicosComPrecoHoraMaiorQue50() {
+    TypedQuery<Servico> query = em.createQuery(
+        "SELECT s FROM Servico s WHERE s.precoHora BETWEEN :min AND :max",
+        Servico.class
+    );
+    query.setParameter("min", BigDecimal.valueOf(50));
+    query.setParameter("max", BigDecimal.valueOf(500));
+
+    List<Servico> servicos = query.getResultList();
+
+    Assert.assertFalse(servicos.isEmpty());
+
+    for (Servico s : servicos) {
+        Assert.assertTrue(
+            s.getPrecoHora().compareTo(BigDecimal.valueOf(50)) >= 0
         );
-        query.setParameter("valor", BigDecimal.valueOf(50));
-
-        List<Servico> servicos = query.getResultList();
-
-        for (Servico s : servicos) {
-            Assert.assertTrue(
-                s.getPrecoHora().compareTo(BigDecimal.valueOf(50)) > 0
-            );
-        }
     }
+}
 
     @Test
-    public void buscarServicoPorNome() {
-        TypedQuery<Servico> query = em.createQuery(
-            "SELECT s FROM Servico s WHERE s.nome = :nome",
-            Servico.class
+public void buscarServicoPorNome() {
+    TypedQuery<Servico> query = em.createQuery(
+        "SELECT s FROM Servico s WHERE LOWER(s.nome) LIKE :nome",
+        Servico.class
+    );
+    query.setParameter("nome", "%hospedagem%");
+
+    List<Servico> resultados = query.getResultList();
+
+    Assert.assertFalse(resultados.isEmpty());
+
+    for (Servico s : resultados) {
+        Assert.assertTrue(
+            s.getNome().toLowerCase().contains("hospedagem")
         );
-        query.setParameter("nome", "Hospedagem domiciliar");
-
-        Servico servico = query.getSingleResult();
-
-        Assert.assertEquals("Hospedagem domiciliar", servico.getNome());
     }
+}
 
     @Test
-    public void listarServicosComPetSitter() {
-        TypedQuery<Servico> query = em.createQuery(
-            "SELECT s FROM Servico s WHERE s.petSitter IS NOT NULL",
-            Servico.class
-        );
+public void listarServicosComPetSitter() {
+    TypedQuery<Servico> query = em.createQuery(
+        "SELECT s FROM Servico s WHERE s.petSitter IS NOT NULL ORDER BY s.precoHora DESC",
+        Servico.class
+    );
 
-        List<Servico> servicos = query.getResultList();
+    List<Servico> servicos = query.getResultList();
 
-        for (Servico s : servicos) {
-            Assert.assertNotNull(s.getPetSitter());
-        }
+    Assert.assertFalse(servicos.isEmpty());
+
+    for (Servico s : servicos) {
+        Assert.assertNotNull(s.getPetSitter());
     }
+}
 
     @Test
     public void listarServicosComAgendamentos() {
