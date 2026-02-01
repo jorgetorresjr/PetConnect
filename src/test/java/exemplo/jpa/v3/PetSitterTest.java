@@ -7,7 +7,6 @@ package exemplo.jpa.v3;
 import exemplo.jpa.PetSitter;
 import exemplo.jpa.Teste;
 import jakarta.persistence.TypedQuery;
-import java.util.List;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -41,7 +40,7 @@ public class PetSitterTest extends Teste{
         
         Double somaValoresHora = query.getSingleResult();
         
-        assertEquals(Double.valueOf(85), somaValoresHora);
+        assertEquals(Double.valueOf(120), somaValoresHora);
         
                 
     }

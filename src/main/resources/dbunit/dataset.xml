@@ -2,24 +2,28 @@
 <dataset>
 
     <!-- PERFIS -->
-    <TB_PERFIL  DTYPE="PO" BIO="Teste PetOwner"/>
+    <TB_PERFIL  DTYPE="PO" BIO="amo os animais"/>
     <TB_PERFIL  DTYPE="PO" BIO="Teste PetOwner"/>
     <TB_PERFIL  DTYPE="PO" BIO="Teste PetOwner"/>
     <TB_PERFIL  DTYPE="PO" BIO="Teste PetOwner"/>
     <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter"/>
     <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter"/>
     <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter"/>
+    <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter"/>
+     <TB_PERFIL  DTYPE="PO" BIO="Teste PetOwner"/>
     <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter"/>
 
 
     <TB_PERFIL_PETOWNER ID="1" PREFERENCIAS_PET="CACHORRO"/>
-    <TB_PERFIL_PETOWNER ID="2" PREFERENCIAS_PET="GATO"/>
+    <TB_PERFIL_PETOWNER ID="2" PREFERENCIAS_PET="gato"/>
     <TB_PERFIL_PETOWNER ID="3" PREFERENCIAS_PET="GATO"/>
     <TB_PERFIL_PETOWNER ID="4" PREFERENCIAS_PET="GATO"/>
     <TB_PERFIL_PETSITTER ID="5" EXPERIENCIA="2 anos" CERTIFICACOES="Basico" TIPO_SERVICO="PASSEIO"/>
-    <TB_PERFIL_PETSITTER ID="6" EXPERIENCIA="3 anos" CERTIFICACOES="Basico" TIPO_SERVICO="BANHO"/>
+    <TB_PERFIL_PETSITTER ID="6" EXPERIENCIA="3 anos" CERTIFICACOES=" " TIPO_SERVICO="BANHO"/>
     <TB_PERFIL_PETSITTER ID="7" EXPERIENCIA="5 anos" CERTIFICACOES="Basico" TIPO_SERVICO="TOSA"/>
     <TB_PERFIL_PETSITTER ID="8" EXPERIENCIA="3 anos" CERTIFICACOES="Basico" TIPO_SERVICO="PASSEIO"/>
+    <TB_PERFIL_PETOWNER ID="9" PREFERENCIAS_PET="CACHORRO"/>
+    <TB_PERFIL_PETSITTER ID="10" EXPERIENCIA="3 anos" CERTIFICACOES="Basico" TIPO_SERVICO="PASSEIO"/>
 
     <!-- USUÁRIOS -->
     <TB_USUARIO ID="1" PERFIL_ID="1" DISC_USUARIO="PO" TXT_CPF="000.000.000-01" DT_NASCIMENTO="1990-01-01"
@@ -86,6 +90,22 @@
                 END_NUMERO="3" TXT_LOGIN="testsitter" TXT_NOME="Test PetSitter 4" TXT_SENHA="senha2"/>
     <TB_FOTO_USUARIO ID_USUARIO="8" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_ps.jpg')"/>
     <TB_PETSITTER ID_USUARIO="8" NUM_VALOR_HORA="35.00" TXT_DISPONIBILIDADE="Seg-Sex" TXT_RESTRICOES="Nenhuma"/>
+    
+    <TB_USUARIO ID="9" PERFIL_ID="9" DISC_USUARIO="PO" TXT_CPF="000.000.000-09" DT_NASCIMENTO="1990-01-01"
+                TXT_EMAIL="test.petowner@example9.com" END_TXT_BAIRRO="Bairro Teste" 
+                END_TXT_CEP="00000-000" END_TXT_CIDADE="Cidade"
+                END_TXT_COMPLEMENTO="Apto 1" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Rua Teste"
+                END_NUMERO="9" TXT_LOGIN="testpo" TXT_NOME="Pedro Paulo" TXT_SENHA="senha"/>
+    <TB_FOTO_USUARIO ID_USUARIO="9" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_po.jpg')"/>
+    <TB_PETOWNER ID_USUARIO="9"/>
+    
+    <TB_USUARIO ID="10" PERFIL_ID="10" DISC_USUARIO="PS" TXT_CPF="000.000.000-02" DT_NASCIMENTO="1992-02-02"
+                TXT_EMAIL="test.petsitter@example.com" END_TXT_BAIRRO="Bairro Sitter" 
+                END_TXT_CEP="00000-001" END_TXT_CIDADE="Olinda"
+                END_TXT_COMPLEMENTO="Casa" END_TXT_ESTADO="Estado" END_TXT_LOGRADOURO="Av. Sitter"
+                END_NUMERO="3" TXT_LOGIN="testsitter" TXT_NOME="Test PetSitter 4" TXT_SENHA="senha2"/>
+    <TB_FOTO_USUARIO ID_USUARIO="10" IMG_FOTO="method:exemplo.jpa.DbUnitUtil.getFotoBase64('test_ps.jpg')"/>
+    <TB_PETSITTER ID_USUARIO="10" NUM_VALOR_HORA="35.00" TXT_DISPONIBILIDADE="Seg-Sex" TXT_RESTRICOES="Nenhuma"/>
 
     <!-- PET -->
     <TB_PET txt_nome="Rex" txt_raca="Labrador" num_idade="5" txt_tipo_animal="CACHORRO"
@@ -102,6 +122,16 @@
             txt_sexo="MACHO" txt_temperamento="Brincalhão" txt_estado_saude="Saudável"
             bool_castrado="0" bool_ativo="1" id_usuario="3"/>
     <TB_FOTO_PET id_pet="3" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('bob.jpg')"/>
+    
+    <TB_PET txt_nome="Bentinho" txt_raca="Viralata" num_idade="5" txt_tipo_animal="GATO"
+            txt_sexo="MACHO" txt_temperamento="Bagunceiro" txt_estado_saude="Saudável"
+            bool_castrado="0" bool_ativo="1" id_usuario="9"/>
+    <TB_FOTO_PET id_pet="4" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('bob.jpg')"/>
+    
+    <TB_PET txt_nome="Zequinha" txt_raca="Viralata" num_idade="6" txt_tipo_animal="GATO"
+            txt_sexo="FEMEA" txt_temperamento="Carinhosa" txt_estado_saude="Saudável"
+            bool_castrado="0" bool_ativo="1" id_usuario="9"/>
+    <TB_FOTO_PET id_pet="5" img_foto="method:exemplo.jpa.DbUnitUtil.getFotoBase64('bob.jpg')"/>
 
     <!-- SERVIÇO -->
     <TB_SERVICO TXT_NOME="Passeio 30min" NUM_PRECO_HORA="20.00" ID_PETSITTER="5"/>
