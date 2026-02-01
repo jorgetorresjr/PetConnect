@@ -15,59 +15,67 @@ import org.junit.Test;
 public class PetTest extends Teste {
 
     @Test
-    public void listarPetsPorTipoAnimal() {
-        TypedQuery<Pet> query = em.createQuery(
-            "SELECT p FROM Pet p WHERE p.tipoAnimal = :tipo",
-            Pet.class
-        );
-        query.setParameter("tipo", TipoAnimal.CACHORRO);
+public void listarPetsPorTipoAnimal() {
+    TypedQuery<Pet> query = em.createQuery(
+        "SELECT p FROM Pet p WHERE p.tipoAnimal IN :tipos ORDER BY p.nome",
+        Pet.class
+    );
+    query.setParameter("tipos", List.of(TipoAnimal.CACHORRO));
 
-        List<Pet> pets = query.getResultList();
+    List<Pet> pets = query.getResultList();
 
-        for (Pet p : pets) {
-            Assert.assertEquals(TipoAnimal.CACHORRO, p.getTipoAnimal());
-        }
+    Assert.assertFalse(pets.isEmpty());
+
+    for (Pet p : pets) {
+        Assert.assertEquals(TipoAnimal.CACHORRO, p.getTipoAnimal());
     }
+}
 
     @Test
-    public void listarPetsAtivos() {
-        TypedQuery<Pet> query = em.createQuery(
-            "SELECT p FROM Pet p WHERE p.ativo = true",
-            Pet.class
-        );
+public void listarPetsAtivos() {
+    TypedQuery<Pet> query = em.createQuery(
+        "SELECT p FROM Pet p WHERE p.ativo IS TRUE",
+        Pet.class
+    );
 
-        List<Pet> pets = query.getResultList();
+    List<Pet> pets = query.getResultList();
 
-        for (Pet p : pets) {
-            Assert.assertTrue(p.getAtivo());
-        }
+    Assert.assertFalse(pets.isEmpty());
+
+    for (Pet p : pets) {
+        Assert.assertTrue(p.getAtivo());
     }
+}
 
     @Test
-    public void listarPetsCastrados() {
-        TypedQuery<Pet> query = em.createQuery(
-            "SELECT p FROM Pet p WHERE p.castrado = true",
-            Pet.class
-        );
+public void listarPetsCastrados() {
+    TypedQuery<Pet> query = em.createQuery(
+        "SELECT p FROM Pet p WHERE NOT p.castrado = false",
+        Pet.class
+    );
 
-        List<Pet> pets = query.getResultList();
+    List<Pet> pets = query.getResultList();
 
-        for (Pet p : pets) {
-            Assert.assertTrue(p.getCastrado());
-        }
+    Assert.assertFalse(pets.isEmpty());
+
+    for (Pet p : pets) {
+        Assert.assertTrue(p.getCastrado());
     }
+}
 
-    @Test
-    public void buscarPetsComOwner() {
-        TypedQuery<Pet> query = em.createQuery(
-            "SELECT p FROM Pet p WHERE p.owner IS NOT NULL",
-            Pet.class
-        );
+@Test
+public void buscarPetsComOwner() {
+    TypedQuery<Pet> query = em.createQuery(
+        "SELECT p FROM Pet p JOIN p.owner o ORDER BY o.nome",
+        Pet.class
+    );
 
-        List<Pet> pets = query.getResultList();
+    List<Pet> pets = query.getResultList();
 
-        for (Pet p : pets) {
-            Assert.assertNotNull(p.getOwner());
+    Assert.assertFalse(pets.isEmpty());
+
+    for (Pet p : pets) {
+        Assert.assertNotNull(p.getOwner());
         }
     }
 }
