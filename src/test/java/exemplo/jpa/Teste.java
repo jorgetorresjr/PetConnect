@@ -25,28 +25,28 @@ public abstract class Teste {
     protected EntityTransaction et;
 
     @BeforeClass
-    public static void setUpClass() {
-        emf = Persistence.createEntityManagerFactory("PetConnect");
-        DbUnitUtil.inserirDados();
-    }
+public static void setUpClass() {
+    emf = Persistence.createEntityManagerFactory("PetConnect"); // Use o nome correto do seu persistence.xml
+    DbUnitUtil.inserirDados();
+}
 
-    @AfterClass
-    public static void tearDownClass() {
-        emf.close();
-    }
+@AfterClass
+public static void tearDownClass() {
+    emf.close();
+}
 
-    @Before
-    public void setUp() {
-        em = emf.createEntityManager();
-        et = em.getTransaction();
-        et.begin();
-    }
+@Before
+public void setUp() {
+    em = emf.createEntityManager();
+    et = em.getTransaction();
+    et.begin();
+}
 
-    @After
-    public void tearDown() {
-        if (et.isActive()) {
-            et.rollback();
-        }
-        em.close();
+@After
+public void tearDown() {
+    if (et.isActive()) {
+        et.rollback(); // Sempre rollback para garantir isolamento dos testes
     }
+    em.close();
+}
 }

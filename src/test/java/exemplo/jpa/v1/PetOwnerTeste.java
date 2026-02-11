@@ -22,7 +22,7 @@ public class PetOwnerTeste extends Teste {
     public void consultarPetOwner() {
         PetOwner petOwner = em.find(PetOwner.class, 2L);
         assertNotNull(petOwner);
-        assertEquals("740.707.044-00", petOwner.getCpf());
+        assertEquals("111.444.777-35", petOwner.getCpf());
         assertEquals("testpo", petOwner.getLogin());
         Calendar c = Calendar.getInstance();
         c.set(1990, Calendar.JANUARY, 1, 0, 0, 0); // data conforme dataset.xml (1990-01-01)

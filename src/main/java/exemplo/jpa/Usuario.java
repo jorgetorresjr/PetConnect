@@ -24,8 +24,16 @@ import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "TB_USUARIO")
@@ -50,18 +58,23 @@ public abstract class Usuario {
     @JoinColumn(name = "PERFIL_ID")
     private Perfil perfil;
 
+    @Size(min = 0, max = 3)
     @ElementCollection
     @CollectionTable(name = "TB_TELEFONE",
             joinColumns = @JoinColumn(name = "ID_USUARIO"))
     @Column(name = "TXT_NUM_TELEFONE")
     protected List<String> telefones = new ArrayList<>();
 
+    @CPF
+    @NotNull
     @Column(name = "TXT_CPF")
     protected String cpf;
 
     @Column(name = "TXT_LOGIN")
     protected String login;
 
+    @Pattern(regexp = "^[A-Z][a-z]+$", message = "Deve possuir uma única letra maiúscula, seguida por letras minúsculas")
+    @NotNull
     @Column(name = "TXT_NOME")
     protected String nome;
 
@@ -69,12 +82,18 @@ public abstract class Usuario {
     @Column(name = "IMG_FOTO", table = "TB_FOTO_USUARIO", nullable = true)
     private byte[] foto;
 
+    @Email
+    @NotNull
     @Column(name = "TXT_EMAIL")
     protected String email;
 
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*\\W).+$", message = "A senha deve possuir pelo menos um caractere de: pontuação, maiúscula, minúscula e número")
+    @NotNull
     @Column(name = "TXT_SENHA")
     protected String senha;
 
+    @Past(message = "deve ser uma data passada")
+    @NotNull
     @Temporal(TemporalType.DATE)
     @Column(name = "DT_NASCIMENTO", nullable = true)
     protected Date dataNascimento;
