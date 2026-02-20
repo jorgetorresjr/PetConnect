@@ -41,7 +41,10 @@ import org.junit.runners.Suite;
     exemplo.jpa.v4.PetOwnerValidationTest.class,
     exemplo.jpa.v4.PerfilPetSitterValidationTest.class,
     exemplo.jpa.v4.PerfilPetSitterValidationTest.class,
-    exemplo.jpa.v4.PetValidationTest.class
+    exemplo.jpa.v4.PetValidationTest.class,
+    exemplo.jpa.v4.AgendamentoValidationTest.class,
+    exemplo.jpa.v4.AvaliacaoValidationTest.class,
+    exemplo.jpa.v4.ServicoValidationTest.class,
 })
 public class TesteSuite {
     

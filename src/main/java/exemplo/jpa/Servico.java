@@ -5,6 +5,10 @@
 package exemplo.jpa;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
@@ -22,9 +26,13 @@ public class Servico implements Serializable {
     @Column(name = "ID_SERVICO")
     private Long id;
 
+    @NotBlank(message = "Nome do serviço é obrigatório")
+    @Size(min = 4, max = 10, message = "Nome deve ter entre 4 e 10 caracteres")
     @Column(name = "TXT_NOME", nullable = false)
     private String nome;
 
+    @NotNull(message = "Preço por hora é obrigatório")
+    @DecimalMin(value = "0.01", inclusive = true, message = "Preço deve conter valor válido")
     @Column(
             name = "NUM_PRECO_HORA",
             nullable = false,

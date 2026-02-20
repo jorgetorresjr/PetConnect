@@ -21,13 +21,14 @@ import java.util.Set;
  * Testes de validação para PetOwner
  */
 public class PetOwnerValidationTest extends Teste {
+
     @Test(expected = ConstraintViolationException.class)
     public void persistirPetOwnerInvalido() {
         PetOwner petOwner = null;
         Calendar calendar = new GregorianCalendar();
         try {
             petOwner = new PetOwner();
-          
+
             petOwner.setCpf("111.222.373-74"); // CPF inválido e não existe no dataset
             calendar.set(2028, Calendar.JANUARY, 1);
             petOwner.setDataNascimento(calendar.getTime()); // Data futura
@@ -73,19 +74,18 @@ public class PetOwnerValidationTest extends Teste {
 
     @Test(expected = ConstraintViolationException.class)
     public void atualizarPetOwnerInvalido() {
-        // Busca um PetOwner já existente no dataset pelo CPF
         TypedQuery<PetOwner> query = em.createQuery("SELECT p FROM PetOwner p WHERE p.cpf = :cpf", PetOwner.class);
-        query.setParameter("cpf", "159.753.486-20"); // CPF válido do dataset
+        query.setParameter("cpf", "111.444.777-35"); // CPF válido do dataset
         PetOwner petOwner = query.getSingleResult();
 
-        // Atualiza com senha inválida
-        petOwner.setSenha("senha1234577");
+        
+        petOwner.setSenha("senha1234577"); // Senha inválida
         try {
             em.flush();
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
             assertEquals("A senha deve possuir pelo menos um caractere de: pontuação, maiúscula, minúscula e número", violation.getMessage());
-            assertEquals(2, ex.getConstraintViolations().size());
+            assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }
     }

@@ -5,6 +5,10 @@
 package exemplo.jpa;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -20,9 +24,13 @@ public class Avaliacao implements Serializable {
     @Column(name = "ID_AVALIACAO")
     private Long id;
 
+    @NotNull(message = "Nota é obrigatória")
+    @Min(value = 1, message = "Nota deve ser no mínimo 1")
+    @Max(value = 5, message = "Nota deve ser no máximo 5")
     @Column(name = "NUM_NOTA", nullable = false)
     private Integer nota; // escala 1 a 5
 
+    @Size(max = 500, message = "Comentário deve ter no máximo 500 caracteres")
     @Column(name = "TXT_COMENTARIO", length = 500)
     private String comentario;
 
