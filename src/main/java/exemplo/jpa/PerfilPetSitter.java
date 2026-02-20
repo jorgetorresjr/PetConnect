@@ -8,6 +8,9 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "TB_PERFIL_PETSITTER")
@@ -15,12 +18,16 @@ import jakarta.persistence.Table;
 @DiscriminatorValue("PS")
 public class PerfilPetSitter extends Perfil {
 
+    @NotBlank(message = "Experiência é obrigatória")
+    @Size(max = 300, message = "Experiência deve ter no máximo 300 caracteres")
     @Column(name = "EXPERIENCIA", length = 300)
     private String experiencia;
 
+    @Size(max = 300, message = "Certificações deve ter no máximo 300 caracteres")
     @Column(name = "CERTIFICACOES", length = 300)
     private String certificacoes;
 
+    @NotNull(message = "Tipo de serviço é obrigatório")
     @Enumerated(EnumType.STRING)
     @Column(name = "TIPO_SERVICO", length = 50)
     private TipoServico tipoServico;
