@@ -27,7 +27,7 @@ public class PetSitterValidationTest extends Teste {
         Calendar calendar = new GregorianCalendar();
         try {
             petSitter = new PetSitter();
-            // Usar valores fixos inválidos e que não existem no dataset
+          
             petSitter.setCpf("111.222.333-44"); // CPF inválido e não existe no dataset
             calendar.set(2027, Calendar.JANUARY, 1);
             petSitter.setDataNascimento(calendar.getTime()); // Data futura
@@ -38,7 +38,7 @@ public class PetSitterValidationTest extends Teste {
             petSitter.addTelefone("(81)9000-0001");
             petSitter.addTelefone("(81)9000-0002");
             petSitter.addTelefone("(81)9000-0003");
-            petSitter.addTelefone("(81)9000-0004"); // Excesso de telefones
+            petSitter.addTelefone("(81)9000-0004");
             Endereco endereco = petSitter.getEndereco();
             endereco.setBairro("Centro");
             endereco.setCep("12345-678"); // CEP inválido
