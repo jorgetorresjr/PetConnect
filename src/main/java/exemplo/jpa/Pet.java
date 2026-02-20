@@ -6,6 +6,10 @@ package exemplo.jpa;
 
 import exemplo.jpa.Enums.TipoAnimal;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -21,6 +25,8 @@ public class Pet implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Nome do pet é obrigatório")
+    @Size(min = 2, max = 50, message = "Nome deve ter entre 2 e 50 caracteres")
     @Column(name = "TXT_NOME")
     private String nome;
 
@@ -30,10 +36,13 @@ public class Pet implements Serializable {
     @Column(name = "NUM_IDADE")
     private Integer idade;
 
+    @NotNull(message = "Tipo de animal é obrigatório")
     @Enumerated(EnumType.STRING)
     @Column(name = "TXT_TIPO_ANIMAL")
     private TipoAnimal tipoAnimal;
 
+    @NotBlank(message = "Sexo é obrigatório")
+    @Pattern(regexp = "MACHO|FEMEA", message = "Sexo deve ser MACHO ou FEMEA")
     @Column(name = "TXT_SEXO")
     private String sexo;
 

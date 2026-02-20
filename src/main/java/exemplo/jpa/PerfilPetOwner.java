@@ -5,6 +5,7 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "TB_PERFIL_PETOWNER")
@@ -12,6 +13,7 @@ import jakarta.persistence.Table;
 @DiscriminatorValue("PO")
 public class PerfilPetOwner extends Perfil {
 
+    @Size(max = 300, message = "Preferências deve ter no máximo 300 caracteres")
     @Column(name = "PREFERENCIAS_PET", length = 300)
     private String preferenciasPet;
 

@@ -58,7 +58,7 @@ public class PerfilPetSitterValidationTest  extends Teste {
         query.setParameter("id", 5L);
         PerfilPetSitter perfil = query.getSingleResult();
 
-        perfil.setExperiencia(""); // Inválido: obrigatório e não pode ser vazio
+        perfil.setExperiencia(""); // obrigatório e não pode ser vazio
         try {
             em.flush();
         } catch (ConstraintViolationException ex) {
