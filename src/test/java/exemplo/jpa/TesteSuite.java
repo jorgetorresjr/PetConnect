@@ -45,6 +45,7 @@ import org.junit.runners.Suite;
     exemplo.jpa.v4.AgendamentoValidationTest.class,
     exemplo.jpa.v4.AvaliacaoValidationTest.class,
     exemplo.jpa.v4.ServicoValidationTest.class,
+    exemplo.jpa.v4.PagamentoValidationTest.class
 })
 public class TesteSuite {
     

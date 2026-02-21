@@ -77,7 +77,7 @@ public class AgendamentoValidationTest extends Teste {
             ConstraintViolation<?> violation =
                     ex.getConstraintViolations().iterator().next();
 
-            assertEquals("A data não pode ser passada",
+            assertEquals("A data não pode ser passada.",
                     violation.getMessage());
 
             assertEquals(1, ex.getConstraintViolations().size());
