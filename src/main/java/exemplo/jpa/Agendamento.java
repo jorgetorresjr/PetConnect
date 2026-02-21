@@ -22,7 +22,7 @@ public class Agendamento implements Serializable {
     @Column(name = "ID_AGENDAMENTO")
     private Long id;
 
-    @FutureOrPresent(message = "A data não pode ser passada")
+    @FutureOrPresent(message = "{exemplo.jpa.Agendamento.dataInicio}")
     @Column(name = "DT_INICIO", nullable = false)
     private Timestamp dataInicio;
 

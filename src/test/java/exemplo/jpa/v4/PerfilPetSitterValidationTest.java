@@ -39,9 +39,9 @@ public class PerfilPetSitterValidationTest  extends Teste {
                 assertThat(
                     violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
                     CoreMatchers.anyOf(
-                        startsWith("class exemplo.jpa.PerfilPetSitter.experiencia: Experiência é obrigatória"),
-                        startsWith("class exemplo.jpa.PerfilPetSitter.certificacoes: Certificações deve ter no máximo 300 caracteres"),
-                        startsWith("class exemplo.jpa.PerfilPetSitter.tipoServico: Tipo de serviço é obrigatório")
+                        startsWith("class exemplo.jpa.PerfilPetSitter.experiencia: não deve estar"),
+                        startsWith("class exemplo.jpa.PerfilPetSitter.certificacoes: tamanho deve"),
+                        startsWith("class exemplo.jpa.PerfilPetSitter.tipoServico: não deve")
                     )
                 );
             });
@@ -63,7 +63,7 @@ public class PerfilPetSitterValidationTest  extends Teste {
             em.flush();
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
-            assertEquals("Experiência é obrigatória", violation.getMessage());
+            assertEquals("não deve estar em branco", violation.getMessage());
             assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }

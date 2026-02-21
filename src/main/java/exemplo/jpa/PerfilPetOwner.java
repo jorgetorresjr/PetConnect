@@ -13,7 +13,7 @@ import jakarta.validation.constraints.Size;
 @DiscriminatorValue("PO")
 public class PerfilPetOwner extends Perfil {
 
-    @Size(max = 300, message = "Preferências deve ter no máximo 300 caracteres")
+    @Size(max = 300)
     @Column(name = "PREFERENCIAS_PET", length = 300)
     private String preferenciasPet;
 

@@ -42,9 +42,9 @@ public class PetValidationTest extends Teste {
                 assertThat(
                         violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
                         CoreMatchers.anyOf(
-                                startsWith("class exemplo.jpa.Pet.nome: Nome do pet é obrigatório"),
-                                startsWith("class exemplo.jpa.Pet.nome: Nome deve ter entre 2 e 50 caracteres"),
-                                startsWith("class exemplo.jpa.Pet.tipoAnimal: Tipo de animal é obrigatório"),
+                                startsWith("class exemplo.jpa.Pet.nome: não deve"),
+                                startsWith("class exemplo.jpa.Pet.nome: tamanho"),
+                                startsWith("class exemplo.jpa.Pet.tipoAnimal: não deve"),
                                 startsWith("class exemplo.jpa.Pet.sexo: Sexo deve ser MACHO ou FEMEA")
                         )
                 );
@@ -71,9 +71,9 @@ public class PetValidationTest extends Teste {
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
             assertThat(violation.getMessage(), CoreMatchers.anyOf(
-                    startsWith("Nome do pet é obrigatório"),
-                    startsWith("Nome deve ter entre 2 e 50 caracteres"),
-                    startsWith("Tipo de animal é obrigatório"),
+                    startsWith("não deve"),
+                    startsWith("tamanho"),
+                    startsWith("não deve"),
                     startsWith("Sexo deve ser MACHO ou FEMEA")
             ));
             assertEquals(4, ex.getConstraintViolations().size());

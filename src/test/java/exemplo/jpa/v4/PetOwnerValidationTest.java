@@ -84,7 +84,7 @@ public class PetOwnerValidationTest extends Teste {
             em.flush();
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
-            assertEquals("A senha deve possuir pelo menos um caractere de: pontuação, maiúscula, minúscula e número", violation.getMessage());
+            assertEquals("A senha deve possuir pelo menos um caractere de: pontuação, maiúscula, minúscula e número.", violation.getMessage());
             assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }

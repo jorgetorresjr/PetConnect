@@ -24,13 +24,13 @@ public class Avaliacao implements Serializable {
     @Column(name = "ID_AVALIACAO")
     private Long id;
 
-    @NotNull(message = "Nota é obrigatória")
-    @Min(value = 1, message = "Nota deve ser no mínimo 1")
-    @Max(value = 5, message = "Nota deve ser no máximo 5")
+    @NotNull
+    @Min(value = 1, message = "{exemplo.jpa.Avaliacao.nota.min}")
+    @Max(value = 5, message = "{exemplo.jpa.Avaliacao.nota.max}")
     @Column(name = "NUM_NOTA", nullable = false)
     private Integer nota; // escala 1 a 5
 
-    @Size(max = 500, message = "Comentário deve ter no máximo 500 caracteres")
+    @Size(max = 500, message = "{exemplo.jpa.Avaliacao.comantario}")
     @Column(name = "TXT_COMENTARIO", length = 500)
     private String comentario;
 

@@ -2,8 +2,10 @@ package exemplo.jpa;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /*
  * Todos os campos de Endereco serão armazenados na mesma tabela 
@@ -24,16 +26,18 @@ public class Endereco {
     @Column(name = "END_TXT_COMPLEMENTO", length = 30, nullable = true)
     private String complemento;
     
-    @Pattern(regexp = "^\\d{2}\\.\\d{3}-\\d{3}$", message = "CEP inválido. Deve estar no formado NN.NNN-NNN, onde N é número natural")
+    @Pattern(regexp = "^\\d{2}\\.\\d{3}-\\d{3}$", message = "{exemplo.jpa.Endereco.cep}")
     @NotNull
     @Column(name = "END_TXT_CEP", length = 20, nullable = false)
     private String cep;
     
+    @Size(min = 2, max = 50)
     @Column(name = "END_TXT_CIDADE", length = 50, nullable = false)
     private String cidade;
     
-    @Pattern(regexp = "^(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO)$", message = "Estado inválido")
-    @NotNull
+    @NotBlank
+    @ValidaEstado
+    @Size(min = 2, max = 2)
     @Column(name = "END_TXT_ESTADO", length = 50, nullable = false)
     private String estado;
 

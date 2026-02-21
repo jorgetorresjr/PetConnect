@@ -26,13 +26,11 @@ public class Servico implements Serializable {
     @Column(name = "ID_SERVICO")
     private Long id;
 
-    @NotBlank(message = "Nome do serviço é obrigatório")
-    @Size(min = 4, max = 10, message = "Nome deve ter entre 4 e 10 caracteres")
+    @Size(min = 4, max = 10)
     @Column(name = "TXT_NOME", nullable = false)
     private String nome;
 
-    @NotNull(message = "Preço por hora é obrigatório")
-    @DecimalMin(value = "0.01", inclusive = true, message = "Preço deve conter valor válido")
+    @DecimalMin(value = "0.01", inclusive = true)
     @Column(
             name = "NUM_PRECO_HORA",
             nullable = false,

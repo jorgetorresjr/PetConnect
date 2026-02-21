@@ -29,7 +29,7 @@ public class ServicoValidationTest extends Teste {
         Servico servico = null;
         try {
             servico = new Servico();
-            servico.setNome(""); // nome obrigatório e tamanho mínimo
+            servico.setNome("a");
             servico.setPrecoHora(new BigDecimal("-10.00")); // preço negativo
 
             em.persist(servico);
@@ -40,13 +40,12 @@ public class ServicoValidationTest extends Teste {
                 assertThat(
                         violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
                         CoreMatchers.anyOf(
-                                startsWith("class exemplo.jpa.Servico.nome: Nome do serviço é obrigatório"),
-                                startsWith("class exemplo.jpa.Servico.nome: Nome deve ter entre 4 e 10 caracteres"),
-                                startsWith("class exemplo.jpa.Servico.precoHora: Preço deve conter valor válido")
+                                startsWith("class exemplo.jpa.Servico.nome: tamanho deve ser"),
+                                startsWith("class exemplo.jpa.Servico.precoHora: deve ser maior que ou igual")
                         )
                 );
             });
-            assertEquals(3, constraintViolations.size());
+            assertEquals(2, constraintViolations.size());
             assertNull(servico.getId());
             throw ex;
         }
@@ -65,10 +64,9 @@ public class ServicoValidationTest extends Teste {
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
             assertThat(violation.getMessage(), CoreMatchers.anyOf(
-                    startsWith("Nome do serviço é obrigatório"),
-                    startsWith("Nome deve ter entre 4 e 10 caracteres")
+                    startsWith("tamanho deve ser")
             ));
-            assertEquals(2, ex.getConstraintViolations().size());
+            assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }
     }

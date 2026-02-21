@@ -18,16 +18,16 @@ import jakarta.validation.constraints.Size;
 @DiscriminatorValue("PS")
 public class PerfilPetSitter extends Perfil {
 
-    @NotBlank(message = "Experiência é obrigatória")
-    @Size(max = 300, message = "Experiência deve ter no máximo 300 caracteres")
+    @NotBlank
+    @Size(max = 300)
     @Column(name = "EXPERIENCIA", length = 300)
     private String experiencia;
 
-    @Size(max = 300, message = "Certificações deve ter no máximo 300 caracteres")
+    @Size(max = 300)
     @Column(name = "CERTIFICACOES", length = 300)
     private String certificacoes;
 
-    @NotNull(message = "Tipo de serviço é obrigatório")
+    @NotNull    
     @Enumerated(EnumType.STRING)
     @Column(name = "TIPO_SERVICO", length = 50)
     private TipoServico tipoServico;

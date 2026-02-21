@@ -73,7 +73,7 @@ public abstract class Usuario {
     @Column(name = "TXT_LOGIN")
     protected String login;
 
-    @Pattern(regexp = "^[A-Z][a-z]+$", message = "Deve possuir uma única letra maiúscula, seguida por letras minúsculas")
+    @Pattern(regexp = "^[A-Z][a-z]+$", message = "{exemplo.jpa.Usuario.nome}")
     @NotNull
     @Column(name = "TXT_NOME")
     protected String nome;
@@ -87,12 +87,12 @@ public abstract class Usuario {
     @Column(name = "TXT_EMAIL")
     protected String email;
 
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*\\W).+$", message = "A senha deve possuir pelo menos um caractere de: pontuação, maiúscula, minúscula e número")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*\\W).+$", message = "{exemplo.jpa.Usuario.senha}")
     @NotNull
     @Column(name = "TXT_SENHA")
     protected String senha;
 
-    @Past(message = "deve ser uma data passada")
+    @Past
     @NotNull
     @Temporal(TemporalType.DATE)
     @Column(name = "DT_NASCIMENTO", nullable = true)
