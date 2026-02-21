@@ -30,7 +30,7 @@ public class Avaliacao implements Serializable {
     @Column(name = "NUM_NOTA", nullable = false)
     private Integer nota; // escala 1 a 5
 
-    @Size(max = 500, message = "{exemplo.jpa.Avaliacao.comantario}")
+    @Size(max = 500, message = "{exemplo.jpa.Avaliacao.comentario}")
     @Column(name = "TXT_COMENTARIO", length = 500)
     private String comentario;
 

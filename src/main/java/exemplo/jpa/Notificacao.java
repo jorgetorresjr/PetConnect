@@ -14,6 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
@@ -36,6 +37,7 @@ public class Notificacao implements Serializable {
     @Column(name = "TXT_MENSAGEM", nullable = false, length = 500)
     private String mensagem;
 
+    @Past
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DT_ENVIO", nullable = false)
     private Date dataEnvio;
