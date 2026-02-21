@@ -16,6 +16,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -33,27 +35,35 @@ public class Pagamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "VLR_VALOR", precision = 10, scale = 2, nullable = false)
     private BigDecimal valor;
 
+    @NotNull
+    @Future
     @Column(name = "DT_DATA")
     private LocalDate data;
 
+    @NotNull
     @Column(name = "DT_HORA")
     private LocalTime hora;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "ID_PETOWNER", nullable = false)
     private PetOwner petOwner;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "ID_SERVICO", nullable = false)
     private Servico servico;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "TXT_TIPO_PAGAMENTO", nullable = false)
     private TipoPagamento tipoPagamento;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "TXT_STATUS_PAGAMENTO", nullable = false)
     private StatusPagamento status;
@@ -122,4 +132,4 @@ public class Pagamento {
         this.status = status;
     }
 
-}
+} 
