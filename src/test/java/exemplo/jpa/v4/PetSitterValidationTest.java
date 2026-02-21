@@ -21,13 +21,14 @@ import java.util.Set;
  * Testes de validação para PetSitter
  */
 public class PetSitterValidationTest extends Teste {
+
     @Test(expected = ConstraintViolationException.class)
     public void persistirPetSitterInvalido() {
         PetSitter petSitter = null;
         Calendar calendar = new GregorianCalendar();
         try {
             petSitter = new PetSitter();
-          
+
             petSitter.setCpf("111.222.333-44"); // CPF inválido e não existe no dataset
             calendar.set(2027, Calendar.JANUARY, 1);
             petSitter.setDataNascimento(calendar.getTime()); // Data futura

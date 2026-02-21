@@ -29,17 +29,17 @@ public class PerfilPetOwnerValidationTest extends Teste {
 
         } catch (ConstraintViolationException ex) {
 
-            Set<ConstraintViolation<?>> constraintViolations =
-                    ex.getConstraintViolations();
+            Set<ConstraintViolation<?>> constraintViolations
+                    = ex.getConstraintViolations();
 
             constraintViolations.forEach(violation -> {
                 assertThat(
-                    violation.getRootBeanClass() + "." +
-                    violation.getPropertyPath() + ": " +
-                    violation.getMessage(),
-                    CoreMatchers.anyOf(
-                        startsWith("class exemplo.jpa.PerfilPetOwner.preferenciasPet: tamanho deve ser entre 0 e 300")
-                    )
+                        violation.getRootBeanClass() + "."
+                        + violation.getPropertyPath() + ": "
+                        + violation.getMessage(),
+                        CoreMatchers.anyOf(
+                                startsWith("class exemplo.jpa.PerfilPetOwner.preferenciasPet: tamanho deve ser entre 0 e 300")
+                        )
                 );
             });
 
@@ -53,8 +53,8 @@ public class PerfilPetOwnerValidationTest extends Teste {
     @Test(expected = ConstraintViolationException.class)
     public void atualizarPerfilPetOwnerInvalido() {
 
-        TypedQuery<PerfilPetOwner> query =
-                em.createQuery(
+        TypedQuery<PerfilPetOwner> query
+                = em.createQuery(
                         "SELECT p FROM PerfilPetOwner p WHERE p.id = :id",
                         PerfilPetOwner.class
                 );
@@ -69,8 +69,8 @@ public class PerfilPetOwnerValidationTest extends Teste {
 
         } catch (ConstraintViolationException ex) {
 
-            ConstraintViolation<?> violation =
-                    ex.getConstraintViolations().iterator().next();
+            ConstraintViolation<?> violation
+                    = ex.getConstraintViolations().iterator().next();
 
             assertEquals("tamanho deve ser entre 0 e 300",
                     violation.getMessage());

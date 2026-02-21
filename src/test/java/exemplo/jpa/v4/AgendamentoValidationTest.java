@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 public class AgendamentoValidationTest extends Teste {
 
-     @Test(expected = ConstraintViolationException.class)
+    @Test(expected = ConstraintViolationException.class)
     public void persistirAgendamentoInvalido() {
 
         Agendamento agendamento = null;
@@ -32,14 +32,14 @@ public class AgendamentoValidationTest extends Teste {
 
         } catch (ConstraintViolationException ex) {
 
-            Set<ConstraintViolation<?>> constraintViolations =
-                    ex.getConstraintViolations();
+            Set<ConstraintViolation<?>> constraintViolations
+                    = ex.getConstraintViolations();
 
             constraintViolations.forEach(violation -> {
                 assertThat(
-                        violation.getRootBeanClass() + "." +
-                        violation.getPropertyPath() + ": " +
-                        violation.getMessage(),
+                        violation.getRootBeanClass() + "."
+                        + violation.getPropertyPath() + ": "
+                        + violation.getMessage(),
                         CoreMatchers.anyOf(
                                 startsWith("class exemplo.jpa.Agendamento.dataInicio: A data não pode ser passada.")
                         )
@@ -56,8 +56,8 @@ public class AgendamentoValidationTest extends Teste {
     @Test(expected = ConstraintViolationException.class)
     public void atualizarAgendamentoInvalido() {
 
-        TypedQuery<Agendamento> query =
-                em.createQuery(
+        TypedQuery<Agendamento> query
+                = em.createQuery(
                         "SELECT a FROM Agendamento a WHERE a.id = :id",
                         Agendamento.class
                 );
@@ -74,8 +74,8 @@ public class AgendamentoValidationTest extends Teste {
 
         } catch (ConstraintViolationException ex) {
 
-            ConstraintViolation<?> violation =
-                    ex.getConstraintViolations().iterator().next();
+            ConstraintViolation<?> violation
+                    = ex.getConstraintViolations().iterator().next();
 
             assertEquals("A data não pode ser passada.",
                     violation.getMessage());

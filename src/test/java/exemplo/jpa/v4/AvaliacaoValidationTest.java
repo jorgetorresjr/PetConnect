@@ -30,14 +30,14 @@ public class AvaliacaoValidationTest extends Teste {
 
         } catch (ConstraintViolationException ex) {
 
-            Set<ConstraintViolation<?>> constraintViolations =
-                    ex.getConstraintViolations();
+            Set<ConstraintViolation<?>> constraintViolations
+                    = ex.getConstraintViolations();
 
             constraintViolations.forEach(violation -> {
                 assertThat(
-                        violation.getRootBeanClass() + "." +
-                        violation.getPropertyPath() + ": " +
-                        violation.getMessage(),
+                        violation.getRootBeanClass() + "."
+                        + violation.getPropertyPath() + ": "
+                        + violation.getMessage(),
                         CoreMatchers.anyOf(
                                 startsWith("class exemplo.jpa.Avaliacao.nota: Nota deve ser no mínimo"),
                                 startsWith("class exemplo.jpa.Avaliacao.comentario: Comentário deve ter no máximo")
@@ -55,8 +55,8 @@ public class AvaliacaoValidationTest extends Teste {
     @Test(expected = ConstraintViolationException.class)
     public void atualizarAvaliacaoInvalida() {
 
-        TypedQuery<Avaliacao> query =
-                em.createQuery(
+        TypedQuery<Avaliacao> query
+                = em.createQuery(
                         "SELECT a FROM Avaliacao a WHERE a.id = :id",
                         Avaliacao.class
                 );
@@ -71,8 +71,8 @@ public class AvaliacaoValidationTest extends Teste {
 
         } catch (ConstraintViolationException ex) {
 
-            ConstraintViolation<?> violation =
-                    ex.getConstraintViolations().iterator().next();
+            ConstraintViolation<?> violation
+                    = ex.getConstraintViolations().iterator().next();
 
             assertEquals("Nota deve ser no máximo 5.",
                     violation.getMessage());

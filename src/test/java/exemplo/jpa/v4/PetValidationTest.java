@@ -65,7 +65,7 @@ public class PetValidationTest extends Teste {
         pet.setNome(""); // nome obrigatório e tamanho mínimo
         pet.setTipoAnimal(null);// tipoAnimal obrigatório
         pet.setSexo("OUTRO"); // sexo deve ser MACHO ou FEMEA
-   
+
         try {
             em.flush();
         } catch (ConstraintViolationException ex) {

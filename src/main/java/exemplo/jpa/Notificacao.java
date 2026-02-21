@@ -14,7 +14,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
@@ -23,7 +25,6 @@ import java.util.Date;
  *
  * @author elaine
  */
-
 @Entity
 @Table(name = "TB_NOTIFICACAO")
 public class Notificacao implements Serializable {
@@ -33,11 +34,13 @@ public class Notificacao implements Serializable {
     @Column(name = "ID_NOTIFICACAO")
     private Long id;
 
-    @Size(max=500)
+    @NotBlank
+    @Size(max = 500)
     @Column(name = "TXT_MENSAGEM", nullable = false, length = 500)
     private String mensagem;
 
-    @Past
+    @NotNull
+    @PastOrPresent
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DT_ENVIO", nullable = false)
     private Date dataEnvio;

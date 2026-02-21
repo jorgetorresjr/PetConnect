@@ -21,8 +21,9 @@ import static org.junit.Assert.assertThat;
  *
  * @author thayn
  */
-public class PerfilPetSitterValidationTest  extends Teste {
-        @Test(expected = ConstraintViolationException.class)
+public class PerfilPetSitterValidationTest extends Teste {
+
+    @Test(expected = ConstraintViolationException.class)
     public void persistirPerfilPetSitterInvalido() {
         PerfilPetSitter perfil = null;
         try {
@@ -37,12 +38,12 @@ public class PerfilPetSitterValidationTest  extends Teste {
             Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
             constraintViolations.forEach(violation -> {
                 assertThat(
-                    violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
-                    CoreMatchers.anyOf(
-                        startsWith("class exemplo.jpa.PerfilPetSitter.experiencia: não deve estar"),
-                        startsWith("class exemplo.jpa.PerfilPetSitter.certificacoes: tamanho deve"),
-                        startsWith("class exemplo.jpa.PerfilPetSitter.tipoServico: não deve")
-                    )
+                        violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
+                        CoreMatchers.anyOf(
+                                startsWith("class exemplo.jpa.PerfilPetSitter.experiencia: não deve estar"),
+                                startsWith("class exemplo.jpa.PerfilPetSitter.certificacoes: tamanho deve"),
+                                startsWith("class exemplo.jpa.PerfilPetSitter.tipoServico: não deve")
+                        )
                 );
             });
             assertEquals(3, constraintViolations.size());

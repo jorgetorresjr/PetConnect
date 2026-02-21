@@ -78,7 +78,6 @@ public class PetOwnerValidationTest extends Teste {
         query.setParameter("cpf", "111.444.777-35"); // CPF válido do dataset
         PetOwner petOwner = query.getSingleResult();
 
-        
         petOwner.setSenha("senha1234577"); // Senha inválida
         try {
             em.flush();

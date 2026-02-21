@@ -22,7 +22,7 @@ import org.junit.runners.Suite;
     //exemplo.jpa.v2.PetOwnerTeste.class,
     //exemplo.jpa.v2.PerfilPetOwnerTeste.class,
     //exemplo.jpa.v2.PerfilPetSitterTeste.class,
-   //exemplo.jpa.v2.ServicoTeste.class,
+    //exemplo.jpa.v2.ServicoTeste.class,
     //exemplo.jpa.v2.AgendamentoTeste.class,
     //exemplo.jpa.v2.NotificacaoTeste.class,
     //exemplo.jpa.v2.AvaliacaoTeste.class,
@@ -45,8 +45,9 @@ import org.junit.runners.Suite;
     exemplo.jpa.v4.AgendamentoValidationTest.class,
     exemplo.jpa.v4.AvaliacaoValidationTest.class,
     exemplo.jpa.v4.ServicoValidationTest.class,
-    exemplo.jpa.v4.PagamentoValidationTest.class
+    exemplo.jpa.v4.PagamentoValidationTest.class,
+    exemplo.jpa.v4.NotificacaoValidationTest.class
 })
 public class TesteSuite {
-    
+
 }

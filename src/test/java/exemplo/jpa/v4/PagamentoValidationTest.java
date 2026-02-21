@@ -68,8 +68,8 @@ public class PagamentoValidationTest extends Teste {
     @Test(expected = ConstraintViolationException.class)
     public void atualizarPagamentoInvalido() {
 
-        TypedQuery<Pagamento> query =
-                em.createQuery("SELECT p FROM Pagamento p WHERE p.valor=150.00", Pagamento.class);
+        TypedQuery<Pagamento> query
+                = em.createQuery("SELECT p FROM Pagamento p WHERE p.valor=150.00", Pagamento.class);
 
         Pagamento pagamento = query.getSingleResult();
         pagamento.setData(LocalDate.now());
@@ -78,8 +78,8 @@ public class PagamentoValidationTest extends Teste {
             em.flush();
         } catch (ConstraintViolationException ex) {
 
-            ConstraintViolation<?> violation =
-                    ex.getConstraintViolations().iterator().next();
+            ConstraintViolation<?> violation
+                    = ex.getConstraintViolations().iterator().next();
 
             assertEquals("deve ser uma data futura", violation.getMessage());
             assertEquals(1, ex.getConstraintViolations().size());
