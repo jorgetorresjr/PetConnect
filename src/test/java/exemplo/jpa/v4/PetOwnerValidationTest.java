@@ -63,7 +63,9 @@ public class PetOwnerValidationTest extends Teste {
                                 startsWith("class exemplo.jpa.PetOwner.endereco.logradouro: não deve"),
                                 startsWith("class exemplo.jpa.PetOwner.endereco.bairro: não deve"),
                                 startsWith("class exemplo.jpa.PetOwner.endereco.cidade: não deve"),
-                                startsWith("class exemplo.jpa.PetOwner.endereco.numero: deve ser maior que 0")
+                                startsWith("class exemplo.jpa.PetOwner.endereco.numero: deve ser maior que 0"),
+                                startsWith("class exemplo.jpa.PetOwner.endereco.cidade: tamanho deve ser"), 
+                                startsWith("class exemplo.jpa.PetOwner.login: não deve estar em branco") 
                         )
                 );
             });

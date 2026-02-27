@@ -70,7 +70,9 @@ public class PetSitterValidationTest extends Teste {
                                 startsWith("class exemplo.jpa.PetSitter.endereco.bairro: não deve estar em branco"),
                                 startsWith("class exemplo.jpa.PetSitter.endereco.cidade: não deve estar em branco"),
                                 startsWith("class exemplo.jpa.PetSitter.endereco.numero: deve ser maior que 0"),
-                                startsWith("class exemplo.jpa.PetSitter.valorHora: deve ser maior que 0")
+                                startsWith("class exemplo.jpa.PetSitter.valorHora: deve ser maior que 0"),
+                                startsWith("class exemplo.jpa.PetSitter.endereco.cidade: tamanho deve ser"), 
+                                startsWith("class exemplo.jpa.PetSitter.login: não deve estar em branco")    
                         )
                 );
             });

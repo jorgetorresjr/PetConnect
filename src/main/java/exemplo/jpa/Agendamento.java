@@ -24,6 +24,7 @@ public class Agendamento implements Serializable {
     @Column(name = "ID_AGENDAMENTO")
     private Long id;
 
+    @NotNull
     @FutureOrPresent(message = "{exemplo.jpa.Agendamento.dataInicio}")
     @Column(name = "DT_INICIO", nullable = false)
     private Timestamp dataInicio;

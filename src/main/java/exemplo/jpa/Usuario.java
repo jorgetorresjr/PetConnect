@@ -24,7 +24,9 @@ import jakarta.persistence.SecondaryTable;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
@@ -51,6 +53,7 @@ public abstract class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
+    @Valid // <-- Garante que o Endereco também será validado
     @Embedded
     protected Endereco endereco = new Endereco();
 
@@ -66,15 +69,16 @@ public abstract class Usuario {
     protected List<String> telefones = new ArrayList<>();
 
     @CPF
-    @NotNull
+    @NotBlank // <-- Alterado de @NotNull para impedir string vazia
     @Column(name = "TXT_CPF")
     protected String cpf;
 
+    @NotBlank // <-- Adicionado para garantir que o login seja obrigatório
     @Column(name = "TXT_LOGIN")
     protected String login;
 
     @Pattern(regexp = "^[A-Z][a-z]+$", message = "{exemplo.jpa.Usuario.nome}")
-    @NotNull
+    @NotBlank // <-- Alterado de @NotNull
     @Column(name = "TXT_NOME")
     protected String nome;
 
@@ -83,17 +87,17 @@ public abstract class Usuario {
     private byte[] foto;
 
     @Email
-    @NotNull
+    @NotBlank // <-- Alterado de @NotNull
     @Column(name = "TXT_EMAIL")
     protected String email;
 
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*\\W).+$", message = "{exemplo.jpa.Usuario.senha}")
-    @NotNull
+    @NotBlank // <-- Alterado de @NotNull
     @Column(name = "TXT_SENHA")
     protected String senha;
 
     @Past
-    @NotNull
+    @NotNull // Mantido @NotNull porque é Data, e @NotBlank só funciona com texto (String)
     @Temporal(TemporalType.DATE)
     @Column(name = "DT_NASCIMENTO", nullable = true)
     protected Date dataNascimento;
@@ -101,6 +105,10 @@ public abstract class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private List<Notificacao> notificacoes;
 
+    // ==========================================
+    // GETTERS E SETTERS
+    // ==========================================
+    
     public Endereco getEndereco() {
         return endereco;
     }

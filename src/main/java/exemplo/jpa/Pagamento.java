@@ -18,6 +18,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -36,6 +37,7 @@ public class Pagamento {
     private Long id;
 
     @NotNull
+    @Positive
     @Column(name = "VLR_VALOR", precision = 10, scale = 2, nullable = false)
     private BigDecimal valor;
 
