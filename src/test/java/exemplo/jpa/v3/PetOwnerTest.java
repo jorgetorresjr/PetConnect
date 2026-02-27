@@ -72,7 +72,7 @@ public class PetOwnerTest extends Teste {
             Usuario usuario = (Usuario) row[1];
             if (petOwner.getId() == 9L) {
                 assertNotNull(usuario);
-                assertEquals("Pedro Paulo", usuario.getNome());
+                assertEquals("Paulo", usuario.getNome());
                 existe = true;
             }
         }

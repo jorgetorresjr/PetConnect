@@ -29,8 +29,11 @@ public class PerfilPetSitterValidationTest extends Teste {
         try {
             perfil = new PerfilPetSitter();
             perfil.setExperiencia(""); // obrigatório e não pode ser vazio
-            perfil.setCertificacoes("a".repeat(301)); //mais de 300 caracteres
+            perfil.setCertificacoes("a".repeat(301)); // mais de 300 caracteres
             perfil.setTipoServico(null); // obrigatório
+            
+            // NOVO: Adicionado para testar o @NotBlank da classe Perfil
+            perfil.setBio(""); 
 
             em.persist(perfil);
             em.flush();
@@ -42,11 +45,12 @@ public class PerfilPetSitterValidationTest extends Teste {
                         CoreMatchers.anyOf(
                                 startsWith("class exemplo.jpa.PerfilPetSitter.experiencia: não deve estar"),
                                 startsWith("class exemplo.jpa.PerfilPetSitter.certificacoes: tamanho deve"),
-                                startsWith("class exemplo.jpa.PerfilPetSitter.tipoServico: não deve")
+                                startsWith("class exemplo.jpa.PerfilPetSitter.tipoServico: não deve"),
+                                startsWith("class exemplo.jpa.PerfilPetSitter.bio: não deve estar em branco")
                         )
                 );
             });
-            assertEquals(3, constraintViolations.size());
+            assertEquals(4, constraintViolations.size()); // Pega os 4 erros de uma vez
             assertNull(perfil.getId());
             throw ex;
         }
@@ -59,11 +63,11 @@ public class PerfilPetSitterValidationTest extends Teste {
         query.setParameter("id", 5L);
         PerfilPetSitter perfil = query.getSingleResult();
 
-        perfil.setExperiencia(""); // obrigatório e não pode ser vazio
+        perfil.setExperiencia(""); // Testa apenas 1 coisa
         try {
             em.flush();
         } catch (ConstraintViolationException ex) {
-            ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
+            ConstraintViolation<?> violation = ex.getConstraintViolations().iterator().next();
             assertEquals("não deve estar em branco", violation.getMessage());
             assertEquals(1, ex.getConstraintViolations().size());
             throw ex;

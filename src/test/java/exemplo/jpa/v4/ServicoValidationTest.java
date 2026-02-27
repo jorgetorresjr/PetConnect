@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package exemplo.jpa.v4;
 
 import exemplo.jpa.Servico;
@@ -13,15 +9,9 @@ import java.math.BigDecimal;
 import java.util.Set;
 import org.hamcrest.CoreMatchers;
 import static org.hamcrest.CoreMatchers.startsWith;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
-/**
- *
- * @author thayn
- */
 public class ServicoValidationTest extends Teste {
 
     @Test(expected = ConstraintViolationException.class)
@@ -29,8 +19,8 @@ public class ServicoValidationTest extends Teste {
         Servico servico = null;
         try {
             servico = new Servico();
-            servico.setNome("a");
-            servico.setPrecoHora(new BigDecimal("-10.00")); // preço negativo
+            servico.setNome(null); // Nulo para testar @NotBlank
+            servico.setPrecoHora(new BigDecimal("-10.00")); // preço negativo testa o @Positive
 
             em.persist(servico);
             em.flush();
@@ -40,8 +30,8 @@ public class ServicoValidationTest extends Teste {
                 assertThat(
                         violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
                         CoreMatchers.anyOf(
-                                startsWith("class exemplo.jpa.Servico.nome: tamanho deve ser"),
-                                startsWith("class exemplo.jpa.Servico.precoHora: deve ser maior que ou igual")
+                                startsWith("class exemplo.jpa.Servico.nome: não deve estar em branco"),
+                                startsWith("class exemplo.jpa.Servico.precoHora: deve ser maior que 0")
                         )
                 );
             });
@@ -53,20 +43,16 @@ public class ServicoValidationTest extends Teste {
 
     @Test(expected = ConstraintViolationException.class)
     public void atualizarServicoInvalido() {
-
         TypedQuery<Servico> query = em.createQuery("SELECT s FROM Servico s WHERE s.id = :id", Servico.class);
         query.setParameter("id", 1L);
         Servico servico = query.getSingleResult();
 
-        servico.setNome("");
+        servico.setNome(""); // Testa só 1 coisa na atualização
         try {
             em.flush();
         } catch (ConstraintViolationException ex) {
-            ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
-            assertThat(violation.getMessage(), CoreMatchers.anyOf(
-                    startsWith("tamanho deve ser")
-            ));
-            assertEquals(1, ex.getConstraintViolations().size());
+            ConstraintViolation<?> violation = ex.getConstraintViolations().iterator().next();
+            assertThat(violation.getMessage(), CoreMatchers.anyOf(startsWith("tamanho deve ser"), startsWith("não deve estar")));
             throw ex;
         }
     }

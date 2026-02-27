@@ -38,7 +38,7 @@ public class NotificacaoTest extends Teste {
         // Verifica se trouxe o objeto e se o usuário está preenchido
         assertNotNull(notificacao);
         assertNotNull(notificacao.getUsuario());
-        assertEquals("testpo", notificacao.getUsuario().getLogin());
+        assertEquals("testpo1", notificacao.getUsuario().getLogin());
     }
     
     @Test

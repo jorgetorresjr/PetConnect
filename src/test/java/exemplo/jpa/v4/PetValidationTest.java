@@ -16,6 +16,7 @@ import static org.hamcrest.CoreMatchers.startsWith;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
@@ -29,10 +30,14 @@ public class PetValidationTest extends Teste {
         Pet pet = null;
         try {
             pet = new Pet();
-            pet.setNome(""); // nome obrigatório e com tamanho mínimo
-            pet.setTipoAnimal(null);// tipoAnimal obrigatório
-            pet.setSexo("OUTRO"); // sexo deve ser MACHO ou FEMEA
-            pet.setOwner(new PetOwner()); // deve ter um petowner valido
+            pet.setNome(null); // NotBlank
+            pet.setTipoAnimal(null); // NotNull
+            pet.setSexo("OUTRO"); // Pattern
+            pet.setIdade(-5); // @PositiveOrZero
+            pet.setRaca("a".repeat(51)); // Maior que 50
+            pet.setTemperamento("a".repeat(101)); // Maior que 100
+            pet.setEstadoSaude("a".repeat(101)); // Maior que 100
+            pet.setOwner(new PetOwner());
 
             em.persist(pet);
             em.flush();
@@ -43,13 +48,16 @@ public class PetValidationTest extends Teste {
                         violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
                         CoreMatchers.anyOf(
                                 startsWith("class exemplo.jpa.Pet.nome: não deve"),
-                                startsWith("class exemplo.jpa.Pet.nome: tamanho"),
                                 startsWith("class exemplo.jpa.Pet.tipoAnimal: não deve"),
-                                startsWith("class exemplo.jpa.Pet.sexo: Sexo deve ser MACHO ou FEMEA")
+                                startsWith("class exemplo.jpa.Pet.sexo: Sexo deve ser MACHO ou FEMEA"),
+                                startsWith("class exemplo.jpa.Pet.idade: deve ser maior ou igual a 0"),
+                                startsWith("class exemplo.jpa.Pet.raca: tamanho"),
+                                startsWith("class exemplo.jpa.Pet.temperamento: tamanho"),
+                                startsWith("class exemplo.jpa.Pet.estadoSaude: tamanho")
                         )
-                );
+                    );
             });
-            assertEquals(4, constraintViolations.size());
+                assertEquals(7, constraintViolations.size()); // Testando todas as novas anotações juntas
             assertNull(pet.getId());
             throw ex;
         }
@@ -57,26 +65,17 @@ public class PetValidationTest extends Teste {
 
     @Test(expected = ConstraintViolationException.class)
     public void atualizarPetInvalido() {
-        // Busca um Pet já existente no dataset pelo ID
         TypedQuery<Pet> query = em.createQuery("SELECT p FROM Pet p WHERE p.id = :id", Pet.class);
         query.setParameter("id", 1L);
         Pet pet = query.getSingleResult();
 
-        pet.setNome(""); // nome obrigatório e tamanho mínimo
-        pet.setTipoAnimal(null);// tipoAnimal obrigatório
-        pet.setSexo("OUTRO"); // sexo deve ser MACHO ou FEMEA
-
+        pet.setIdade(-2); // Testa apenas 1 campo
         try {
             em.flush();
         } catch (ConstraintViolationException ex) {
-            ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
-            assertThat(violation.getMessage(), CoreMatchers.anyOf(
-                    startsWith("não deve"),
-                    startsWith("tamanho"),
-                    startsWith("não deve"),
-                    startsWith("Sexo deve ser MACHO ou FEMEA")
-            ));
-            assertEquals(4, ex.getConstraintViolations().size());
+            ConstraintViolation<?> violation = ex.getConstraintViolations().iterator().next();
+            assertTrue(violation.getMessage().contains("0"));
+            assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }
     }

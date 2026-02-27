@@ -17,35 +17,27 @@ public class PerfilPetOwnerValidationTest extends Teste {
 
     @Test(expected = ConstraintViolationException.class)
     public void persistirPerfilPetOwnerInvalido() {
-
         PerfilPetOwner perfil = null;
-
         try {
             perfil = new PerfilPetOwner();
             perfil.setPreferenciasPet("a".repeat(301)); // maior que 300
+            perfil.setBio(""); // Adicionado para testar o @NotBlank da Bio
 
             em.persist(perfil);
             em.flush();
-
         } catch (ConstraintViolationException ex) {
-
-            Set<ConstraintViolation<?>> constraintViolations
-                    = ex.getConstraintViolations();
-
+            Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
             constraintViolations.forEach(violation -> {
                 assertThat(
-                        violation.getRootBeanClass() + "."
-                        + violation.getPropertyPath() + ": "
-                        + violation.getMessage(),
+                        violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
                         CoreMatchers.anyOf(
-                                startsWith("class exemplo.jpa.PerfilPetOwner.preferenciasPet: tamanho deve ser entre 0 e 300")
+                                startsWith("class exemplo.jpa.PerfilPetOwner.preferenciasPet: tamanho"),
+                                startsWith("class exemplo.jpa.PerfilPetOwner.bio: não deve")
                         )
                 );
             });
-
-            assertEquals(1, constraintViolations.size());
+            assertEquals(2, constraintViolations.size()); // Pega a Bio e o Tamanho
             assertNull(perfil.getId());
-
             throw ex;
         }
     }

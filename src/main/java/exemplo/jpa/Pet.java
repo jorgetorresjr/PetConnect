@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -30,9 +31,11 @@ public class Pet implements Serializable {
     @Column(name = "TXT_NOME")
     private String nome;
 
+    @Size(max = 50)
     @Column(name = "TXT_RACA")
     private String raca;
 
+    @PositiveOrZero
     @Column(name = "NUM_IDADE")
     private Integer idade;
 
@@ -46,9 +49,11 @@ public class Pet implements Serializable {
     @Column(name = "TXT_SEXO")
     private String sexo;
 
+    @Size(max = 100)
     @Column(name = "TXT_TEMPERAMENTO")
     private String temperamento;
 
+    @Size(max = 100)
     @Column(name = "TXT_ESTADO_SAUDE")
     private String estadoSaude;
 

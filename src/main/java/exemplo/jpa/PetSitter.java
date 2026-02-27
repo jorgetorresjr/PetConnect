@@ -8,6 +8,8 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -18,6 +20,8 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name = "ID_USUARIO", referencedColumnName = "ID")
 public class PetSitter extends Usuario {
 
+    @NotNull
+    @Positive
     @Column(name = "NUM_VALOR_HORA")
     private Double valorHora;
     
