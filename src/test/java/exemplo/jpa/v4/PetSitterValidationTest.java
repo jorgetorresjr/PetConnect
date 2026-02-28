@@ -43,13 +43,13 @@ public class PetSitterValidationTest extends Teste {
             petSitter.setDisponibilidade("nenhuma");
             petSitter.setValorHora(-100.0);
             Endereco endereco = petSitter.getEndereco();
-            endereco.setBairro("Centro");
+            endereco.setBairro("  ");
             endereco.setCep("12345-678"); // CEP inválido
             endereco.setCidade("Recifeedfefefefefefefefefefefefefefefefeferfrefedcdfefeferer");
             endereco.setEstado("ZZ"); // Estado inválido
             endereco.setNumero(-10);
             endereco.setComplemento("Apto 101sssssssssssssssssssssssssssssssssssssssssssssssssssss");
-            endereco.setLogradouro("Rua das Flores");
+            endereco.setLogradouro("  ");
             em.persist(petSitter);
             em.flush();
         } catch (ConstraintViolationException ex) {
@@ -69,12 +69,14 @@ public class PetSitterValidationTest extends Teste {
                                 startsWith("class exemplo.jpa.PetSitter.endereco.numero: deve ser maior que 0"),
                                 startsWith("class exemplo.jpa.PetSitter.endereco.complemento: tamanho"),
                                 startsWith("class exemplo.jpa.PetSitter.endereco.cidade: tamanho"),
+                                startsWith("class exemplo.jpa.PetSitter.endereco.bairro: não deve estar em branco"),
+                                startsWith("class exemplo.jpa.PetSitter.endereco.logradouro: não deve estar em branco"),
                                 startsWith("class exemplo.jpa.PetSitter.login: não deve estar em branco"), 
                                 startsWith("class exemplo.jpa.PetSitter.disponibilidade: Informe disponibilidade válida: manhã, tarde e/ou noite ou dias")
                         )
                 );
             });
-            assertEquals(14, constraintViolations.size());
+            assertEquals(16, constraintViolations.size());
             assertNull(petSitter.getId());
             throw ex;
         }
