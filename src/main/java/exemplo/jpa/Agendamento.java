@@ -6,6 +6,8 @@ package exemplo.jpa;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -22,13 +24,17 @@ public class Agendamento implements Serializable {
     @Column(name = "ID_AGENDAMENTO")
     private Long id;
 
+    @NotNull
     @FutureOrPresent(message = "{exemplo.jpa.Agendamento.dataInicio}")
     @Column(name = "DT_INICIO", nullable = false)
     private Timestamp dataInicio;
 
+    @NotNull
+    @Positive
     @Column(name = "NUM_HORAS", nullable = false)
     private Integer horas;
 
+    @NotNull
     @Column(name = "BOOL_CONFIRMADO", nullable = false)
     private Boolean confirmado = false;
 

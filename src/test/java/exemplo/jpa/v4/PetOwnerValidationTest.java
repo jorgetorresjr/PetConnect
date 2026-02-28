@@ -33,7 +33,7 @@ public class PetOwnerValidationTest extends Teste {
             calendar.set(2028, Calendar.JANUARY, 1);
             petOwner.setDataNascimento(calendar.getTime()); // Data futura
             petOwner.setEmail("email_invalidos@"); // E-mail inválido
-            petOwner.setLogin("logininvalido_unico4"); // login não existe no dataset
+            petOwner.setLogin(" "); // login 
             petOwner.setNome("BEA"); // Nome inválido
             petOwner.setSenha("senha123"); // Senha inválida
             petOwner.addTelefone("(81)9000-0006");
@@ -43,11 +43,11 @@ public class PetOwnerValidationTest extends Teste {
             Endereco endereco = petOwner.getEndereco();
             endereco.setBairro("Ouro Preto");
             endereco.setCep("12345-679"); // CEP inválido
-            endereco.setCidade("Recife");
+            endereco.setCidade("Recifessssssssssdddddddddddddddddddddddddddddddddddddddddddddss");
             endereco.setEstado("ZR"); // Estado inválido
-            endereco.setNumero(10);
-            endereco.setComplemento("Apto 102");
+            endereco.setComplemento("Apto 102eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
             endereco.setLogradouro("Rua das Arvores");
+             endereco.setNumero(-10); // Negativo (@Positive)
             em.persist(petOwner);
             em.flush();
         } catch (ConstraintViolationException ex) {
@@ -62,11 +62,15 @@ public class PetOwnerValidationTest extends Teste {
                                 startsWith("class exemplo.jpa.PetOwner.cpf: número do registro de contribuinte individual brasileiro (CPF) inválido"),
                                 startsWith("class exemplo.jpa.PetOwner.dataNascimento: deve ser uma data passada"),
                                 startsWith("class exemplo.jpa.PetOwner.endereco.cep: CEP inválido. Deve estar no formado NN.NNN-NNN, onde N é número natural"),
+                                startsWith("class exemplo.jpa.PetOwner.endereco.numero: deve ser maior que 0"),
+                                startsWith("class exemplo.jpa.PetOwner.endereco.complemento: tamanho"),
+                                startsWith("class exemplo.jpa.PetOwner.endereco.cidade: tamanho"),
+                                startsWith("class exemplo.jpa.PetOwner.login: não deve estar em branco"), 
                                 startsWith("class exemplo.jpa.PetOwner.nome: Deve possuir uma única letra maiúscula, seguida por letras minúsculas")
                         )
                 );
             });
-            assertEquals(6, constraintViolations.size());
+            assertEquals(12, constraintViolations.size());
             assertNull(petOwner.getId());
             throw ex;
         }

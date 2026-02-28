@@ -33,20 +33,22 @@ public class PetSitterValidationTest extends Teste {
             calendar.set(2027, Calendar.JANUARY, 1);
             petSitter.setDataNascimento(calendar.getTime()); // Data futura
             petSitter.setEmail("email_invalido@"); // E-mail inválido
-            petSitter.setLogin("logininvalido_unico3"); // login não existe no dataset
+            petSitter.setLogin(" "); 
             petSitter.setNome("ANA"); // Nome inválido
             petSitter.setSenha("senha123"); // Senha inválida
             petSitter.addTelefone("(81)9000-0001");
             petSitter.addTelefone("(81)9000-0002");
             petSitter.addTelefone("(81)9000-0003");
             petSitter.addTelefone("(81)9000-0004");
+            petSitter.setDisponibilidade("nenhuma");
+            petSitter.setValorHora(-100.0);
             Endereco endereco = petSitter.getEndereco();
             endereco.setBairro("Centro");
             endereco.setCep("12345-678"); // CEP inválido
-            endereco.setCidade("Recife");
+            endereco.setCidade("Recifeedfefefefefefefefefefefefefefefefeferfrefedcdfefeferer");
             endereco.setEstado("ZZ"); // Estado inválido
-            endereco.setNumero(10);
-            endereco.setComplemento("Apto 101");
+            endereco.setNumero(-10);
+            endereco.setComplemento("Apto 101sssssssssssssssssssssssssssssssssssssssssssssssssssss");
             endereco.setLogradouro("Rua das Flores");
             em.persist(petSitter);
             em.flush();
@@ -61,12 +63,18 @@ public class PetSitterValidationTest extends Teste {
                                 startsWith("class exemplo.jpa.PetSitter.telefones: tamanho deve ser entre 0 e 3"),
                                 startsWith("class exemplo.jpa.PetSitter.cpf: número do registro de contribuinte individual brasileiro (CPF) inválido"),
                                 startsWith("class exemplo.jpa.PetSitter.dataNascimento: deve ser uma data passada"),
+                                startsWith("class exemplo.jpa.PetSitter.valorHora: deve ser maior que 0"),
                                 startsWith("class exemplo.jpa.PetSitter.endereco.cep: CEP inválido. Deve estar no formado NN.NNN-NNN, onde N é número natural"),
-                                startsWith("class exemplo.jpa.PetSitter.nome: Deve possuir uma única letra maiúscula, seguida por letras minúsculas")
+                                startsWith("class exemplo.jpa.PetSitter.nome: Deve possuir uma única letra maiúscula, seguida por letras minúsculas"),
+                                startsWith("class exemplo.jpa.PetSitter.endereco.numero: deve ser maior que 0"),
+                                startsWith("class exemplo.jpa.PetSitter.endereco.complemento: tamanho"),
+                                startsWith("class exemplo.jpa.PetSitter.endereco.cidade: tamanho"),
+                                startsWith("class exemplo.jpa.PetSitter.login: não deve estar em branco"), 
+                                startsWith("class exemplo.jpa.PetSitter.disponibilidade: Informe disponibilidade válida: manhã, tarde e/ou noite ou dias")
                         )
                 );
             });
-            assertEquals(6, constraintViolations.size());
+            assertEquals(14, constraintViolations.size());
             assertNull(petSitter.getId());
             throw ex;
         }

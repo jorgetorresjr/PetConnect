@@ -1,6 +1,9 @@
 package exemplo.jpa;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.URL;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -12,13 +15,17 @@ public abstract class Perfil {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank 
+    @Size(max = 500)
     @Column(name = "BIO", length = 500)
     private String bio;
 
-    @Column(name = "FOTO_URL")
+    @URL
+    @Column(name = "FOTO_URL", nullable = true)
     private String fotoUrl;
 
-    @Column(name = "SOCIAL_URL")
+    @URL
+    @Column(name = "SOCIAL_URL", nullable = true)
     private String socialUrl;
 
     @OneToOne(cascade = CascadeType.ALL)

@@ -4,10 +4,11 @@
  */
 package exemplo.jpa;
 
+import exemplo.jpa.Enums.TipoServico;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -26,11 +27,13 @@ public class Servico implements Serializable {
     @Column(name = "ID_SERVICO")
     private Long id;
 
-    @Size(min = 4, max = 10)
+    @NotBlank
+    @Size(min = 4, max = 50)
     @Column(name = "TXT_NOME", nullable = false)
     private String nome;
 
-    @DecimalMin(value = "0.01", inclusive = true)
+    @NotNull
+    @Positive
     @Column(
             name = "NUM_PRECO_HORA",
             nullable = false,

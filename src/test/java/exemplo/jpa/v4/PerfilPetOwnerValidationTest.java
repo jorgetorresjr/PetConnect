@@ -17,35 +17,32 @@ public class PerfilPetOwnerValidationTest extends Teste {
 
     @Test(expected = ConstraintViolationException.class)
     public void persistirPerfilPetOwnerInvalido() {
-
         PerfilPetOwner perfil = null;
-
         try {
             perfil = new PerfilPetOwner();
             perfil.setPreferenciasPet("a".repeat(301)); // maior que 300
+            perfil.setBio("abc");
+            perfil.setBio(" ");
+            perfil.setSocialUrl("url_invalida");
+            perfil.setFotoUrl("urlinvalida");
 
             em.persist(perfil);
             em.flush();
-
         } catch (ConstraintViolationException ex) {
-
-            Set<ConstraintViolation<?>> constraintViolations
-                    = ex.getConstraintViolations();
-
+            Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
             constraintViolations.forEach(violation -> {
                 assertThat(
-                        violation.getRootBeanClass() + "."
-                        + violation.getPropertyPath() + ": "
-                        + violation.getMessage(),
+                        violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
                         CoreMatchers.anyOf(
-                                startsWith("class exemplo.jpa.PerfilPetOwner.preferenciasPet: tamanho deve ser entre 0 e 300")
+                                startsWith("class exemplo.jpa.PerfilPetOwner.preferenciasPet: tamanho"),
+                                startsWith("class exemplo.jpa.PerfilPetOwner.bio: não deve"),
+                                startsWith("class exemplo.jpa.PerfilPetOwner.fotoUrl: deve ser uma"),
+                                startsWith("class exemplo.jpa.PerfilPetOwner.socialUrl: deve ser uma")
                         )
                 );
             });
-
-            assertEquals(1, constraintViolations.size());
+            assertEquals(4, constraintViolations.size()); // Pega a Bio e o Tamanho
             assertNull(perfil.getId());
-
             throw ex;
         }
     }
@@ -63,6 +60,7 @@ public class PerfilPetOwnerValidationTest extends Teste {
         PerfilPetOwner perfil = query.getSingleResult();
 
         perfil.setPreferenciasPet("a".repeat(301)); // maior que 300
+       
 
         try {
             em.flush();

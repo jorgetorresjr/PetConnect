@@ -2,11 +2,11 @@
 <dataset>
 
     <!-- PERFIS -->
-    <TB_PERFIL  DTYPE="PO" BIO="amo os animais"/>
+    <TB_PERFIL  DTYPE="PO" BIO="amo os animais" SOCIAL_URL="www.google.com" FOTO_URL="https://media.gettyimages.com/id/2217611"/>
     <TB_PERFIL  DTYPE="PO" BIO="Teste PetOwner"/>
     <TB_PERFIL  DTYPE="PO" BIO="Teste PetOwner"/>
     <TB_PERFIL  DTYPE="PO" BIO="Teste PetOwner"/>
-    <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter"/>
+    <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter" SOCIAL_URL="https://www.google.com" FOTO_URL="https://media.gettyimages.com/id/2217611606/" />
     <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter"/>
     <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter"/>
     <TB_PERFIL  DTYPE="PS" BIO="Teste PetSitter"/>
@@ -18,7 +18,7 @@
     <TB_PERFIL_PETOWNER ID="2" PREFERENCIAS_PET="gato"/>
     <TB_PERFIL_PETOWNER ID="3" PREFERENCIAS_PET="GATO"/>
     <TB_PERFIL_PETOWNER ID="4" PREFERENCIAS_PET="GATO"/>
-    <TB_PERFIL_PETSITTER ID="5" EXPERIENCIA="2 anos" CERTIFICACOES="Basico" TIPO_SERVICO="PASSEIO"/>
+    <TB_PERFIL_PETSITTER ID="5" EXPERIENCIA="2 anos" CERTIFICACOES="Basico" TIPO_SERVICO="PASSEIO" />
     <TB_PERFIL_PETSITTER ID="6" EXPERIENCIA="3 anos" CERTIFICACOES=" " TIPO_SERVICO="BANHO"/>
     <TB_PERFIL_PETSITTER ID="7" EXPERIENCIA="5 anos" CERTIFICACOES="Basico" TIPO_SERVICO="TOSA"/>
     <TB_PERFIL_PETSITTER ID="8" EXPERIENCIA="3 anos" CERTIFICACOES="Basico" TIPO_SERVICO="PASSEIO"/>
