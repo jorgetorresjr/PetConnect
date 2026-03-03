@@ -39,7 +39,7 @@ public class NotificacaoValidationTest extends Teste {
                     new Date(System.currentTimeMillis() + 100000)
             );
 
-            notificacao.setUsuario(em.find(exemplo.jpa.Usuario.class, 1L));
+            //notificacao.setUsuario(em.find(exemplo.jpa.Usuario.class, 1L));
 
             em.persist(notificacao);
             em.flush();
@@ -55,12 +55,13 @@ public class NotificacaoValidationTest extends Teste {
                         + violation.getPropertyPath() + ": "
                         + violation.getMessage(),
                         CoreMatchers.anyOf(
-                                startsWith("class exemplo.jpa.Notificacao.dataEnvio: deve ser uma data")
+                                startsWith("class exemplo.jpa.Notificacao.dataEnvio: deve ser uma data"),
+                                startsWith("class exemplo.jpa.Notificacao.usuario: não deve ser nulo")
                         )
                 );
             });
 
-            assertEquals(1, constraintViolations.size());
+            assertEquals(2, constraintViolations.size());
             assertNull(notificacao.getId());
 
             throw ex;

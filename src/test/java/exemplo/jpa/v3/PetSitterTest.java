@@ -17,11 +17,11 @@ import org.junit.Test;
 public class PetSitterTest extends Teste{
     @Test
     public void buscarPetSitterPorNome() {
-        TypedQuery<PetSitter> query = em.createQuery("SELECT ps FROM PetSitter ps WHERE ps.nome = 'Flávio'", PetSitter.class);
+        TypedQuery<PetSitter> query = em.createQuery("SELECT ps FROM PetSitter ps WHERE ps.nome = 'Flavio'", PetSitter.class);
         
         PetSitter petSitter = query.getSingleResult();
         
-        assertEquals("Flávio", petSitter.getNome());
+        assertEquals("Flavio", petSitter.getNome());
     }
     
     @Test

@@ -31,11 +31,12 @@ public class ServicoValidationTest extends Teste {
                         violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
                         CoreMatchers.anyOf(
                                 startsWith("class exemplo.jpa.Servico.nome: não deve estar em branco"),
-                                startsWith("class exemplo.jpa.Servico.precoHora: deve ser maior que 0")
+                                startsWith("class exemplo.jpa.Servico.precoHora: deve ser maior que 0"),
+                                startsWith("class exemplo.jpa.Servico.petSitter: não deve ser nulo")
                         )
                 );
             });
-            assertEquals(2, constraintViolations.size());
+            assertEquals(3, constraintViolations.size());
             assertNull(servico.getId());
             throw ex;
         }

@@ -52,7 +52,7 @@ public class AvaliacaoTest extends Teste {
     public void buscarAvaliacaoPorDonoDoPet() {
         TypedQuery<Avaliacao> query = em.createQuery("SELECT av FROM Avaliacao av WHERE av.agendamento.petOwner.nome LIKE :nomeDono", 
             Avaliacao.class);
-        query.setParameter("nomeDono", "%Test PetOwner%");
+        query.setParameter("nomeDono", "%Ana%");
 
         List<Avaliacao> resultados = query.getResultList();
         

@@ -34,6 +34,7 @@ public class Avaliacao implements Serializable {
     @Column(name = "TXT_COMENTARIO", length = 500)
     private String comentario;
 
+    @NotNull
     @OneToOne(optional = false)
     @JoinColumn(
             name = "ID_AGENDAMENTO",

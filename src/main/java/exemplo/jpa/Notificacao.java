@@ -46,6 +46,7 @@ public class Notificacao implements Serializable {
     private Date dataEnvio;
 
     // Relação ManyToOne com Usuario (ligada à herança)
+    @NotNull
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_USUARIO")
     private Usuario usuario;

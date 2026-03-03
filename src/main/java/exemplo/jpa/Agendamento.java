@@ -38,10 +38,12 @@ public class Agendamento implements Serializable {
     @Column(name = "BOOL_CONFIRMADO", nullable = false)
     private Boolean confirmado = false;
 
+    @NotNull
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_PETOWNER", referencedColumnName = "ID_USUARIO")
     private PetOwner petOwner;
 
+    @NotNull
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_SERVICO", referencedColumnName = "ID_SERVICO")
     private Servico servico;

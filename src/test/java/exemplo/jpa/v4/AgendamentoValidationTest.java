@@ -35,11 +35,13 @@ public class AgendamentoValidationTest extends Teste {
                         CoreMatchers.anyOf(
                                 startsWith("class exemplo.jpa.Agendamento.dataInicio: A data não pode ser passada"),
                                 startsWith("class exemplo.jpa.Agendamento.horas: deve ser maior que 0"),
-                                startsWith("class exemplo.jpa.Agendamento.confirmado: não deve ser nulo")
+                                startsWith("class exemplo.jpa.Agendamento.confirmado: não deve ser nulo"),
+                                startsWith("class exemplo.jpa.Agendamento.petOwner: não deve ser nulo"), 
+                                startsWith("class exemplo.jpa.Agendamento.servico: não deve ser nulo")  
                         )
                 );
             });
-            assertEquals(3, constraintViolations.size()); // Testando TUDO na persistência
+            assertEquals(5, constraintViolations.size()); // Testando TUDO na persistência
             assertNull(agendamento.getId());
             throw ex;
         }

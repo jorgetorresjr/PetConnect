@@ -40,12 +40,13 @@ public class AvaliacaoValidationTest extends Teste {
                         + violation.getMessage(),
                         CoreMatchers.anyOf(
                                 startsWith("class exemplo.jpa.Avaliacao.nota: Nota deve ser no mínimo"),
-                                startsWith("class exemplo.jpa.Avaliacao.comentario: Comentário deve ter no máximo")
+                                startsWith("class exemplo.jpa.Avaliacao.comentario: Comentário deve ter no máximo"),
+                                startsWith("class exemplo.jpa.Avaliacao.agendamento: não deve ser nulo")
                         )
                 );
             });
 
-            assertEquals(2, constraintViolations.size());
+            assertEquals(3, constraintViolations.size());
             assertNull(avaliacao.getId());
 
             throw ex;

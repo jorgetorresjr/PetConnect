@@ -42,6 +42,7 @@ public class Servico implements Serializable {
     )
     private BigDecimal precoHora;
 
+    @NotNull
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_PETSITTER")
     private PetSitter petSitter;
